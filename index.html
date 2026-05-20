@@ -957,9 +957,36 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
 
 <!-- ADMIN -->
 <div class="admin-ov" id="adm-ov">
-  <button class="adm-x" onclick="document.getElementById('adm-ov').classList.remove('show')">✕ Close</button>
-  <div class="adm">
-    <h2>📊 KGPEPS Leads Dashboard</h2>
+  <button class="adm-x" onclick="closeAdmin()">✕ Close</button>
+
+  <!-- LOGIN SCREEN -->
+  <div class="adm" id="adm-login">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div style="font-size:2.5rem;margin-bottom:.5rem">🔐</div>
+      <h2 style="margin:0 0 .3rem">Admin Access</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin:0">KGPEPS Leads Dashboard</p>
+    </div>
+    <div style="max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:1rem">
+      <input id="adm-pw" type="password" placeholder="Enter admin password" autocomplete="current-password"
+        style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:#fff;font-size:.95rem;outline:none;width:100%;box-sizing:border-box"
+        onkeydown="if(event.key==='Enter')adminLogin()">
+      <button class="adm-btn" style="width:100%;justify-content:center;padding:13px" onclick="adminLogin()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+        Login
+      </button>
+      <div id="adm-err" style="color:#ff6b6b;font-size:.8rem;text-align:center;display:none">Incorrect password. Try again.</div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD (hidden until logged in) -->
+  <div class="adm" id="adm-dash" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
+      <h2 style="margin:0">📊 KGPEPS Leads Dashboard</h2>
+      <button class="adm-btn del" style="padding:7px 14px;font-size:.75rem" onclick="adminLogout()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Logout
+      </button>
+    </div>
     <table class="adm-tbl" id="adm-tbl"><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Source</th><th>Date</th></tr></thead><tbody id="adm-body"></tbody></table>
     <div class="adm-btns">
       <button class="adm-btn" onclick="dlCSV()">⬇ Export CSV</button>
@@ -1180,10 +1207,24 @@ function handleNL(e){
 }
 
 // ── ADMIN ─────────────────────────────────────────
+const ADM_PW='KGAdmin@2025';
 function openAdmin(){
+  document.getElementById('adm-ov').classList.add('show');
+  if(sessionStorage.getItem('kg_auth')==='1'){showDash()}
+  else{document.getElementById('adm-login').style.display='';document.getElementById('adm-dash').style.display='none';setTimeout(()=>document.getElementById('adm-pw').focus(),100)}
+}
+function adminLogin(){
+  const pw=document.getElementById('adm-pw').value;
+  const err=document.getElementById('adm-err');
+  if(pw===ADM_PW){sessionStorage.setItem('kg_auth','1');document.getElementById('adm-pw').value='';err.style.display='none';showDash()}
+  else{err.style.display='block'}
+}
+function adminLogout(){sessionStorage.removeItem('kg_auth');document.getElementById('adm-dash').style.display='none';document.getElementById('adm-login').style.display='';setTimeout(()=>document.getElementById('adm-pw').focus(),100)}
+function closeAdmin(){document.getElementById('adm-ov').classList.remove('show');history.replaceState(null,'',location.pathname)}
+function showDash(){
   const leads=getLeads(),tb=document.getElementById('adm-body');
   tb.innerHTML=leads.length?leads.map((l,i)=>`<tr><td>${i+1}</td><td>${l.name||'—'}</td><td>${l.email||'—'}</td><td>${l.phone||'—'}</td><td>${l.source||'—'}</td><td>${l.date||'—'}</td></tr>`).join(''):'<tr><td colspan="6" style="text-align:center;padding:2rem">No leads yet</td></tr>';
-  document.getElementById('adm-ov').classList.add('show');
+  document.getElementById('adm-login').style.display='none';document.getElementById('adm-dash').style.display='';
 }
 function dlCSV(){
   const l=getLeads();if(!l.length){showToast('No leads yet');return}
@@ -1198,7 +1239,7 @@ function dlXLS(){
   dl(new Blob([html],{type:'application/vnd.ms-excel'}),'kgpeps_leads.xls');showToast('Excel exported!');
 }
 function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
-function clrLeads(){if(confirm('Clear all leads?')){localStorage.removeItem('kg_leads');openAdmin();showToast('Cleared')}}
+function clrLeads(){if(confirm('Clear all leads?')){localStorage.removeItem('kg_leads');showDash();showToast('Cleared')}}
 
 // ── TOAST ─────────────────────────────────────────
 function showToast(m){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200)}
