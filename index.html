@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KGPEPS — Highest Quality Peptides in India</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='40' y2='40' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2300d4ff'/%3E%3Cstop offset='1' stop-color='%237b2fff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='20' fill='%2307080f'/%3E%3Cpath d='M11 12 L11 28 M11 20 L19 12 M11 20 L19 28' stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21 12 Q25 16 29 20 Q25 24 21 28' stroke='%237b2fff' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M23 12 Q27 16 31 20 Q27 24 23 28' stroke='%2300d4ff' stroke-width='1.3' stroke-linecap='round' fill='none' opacity='.5'/%3E%3Ccircle cx='21' cy='15.5' r='1.6' fill='%237b2fff'/%3E%3Ccircle cx='29' cy='20' r='1.6' fill='%2300d4ff'/%3E%3Ccircle cx='21' cy='24.5' r='1.6' fill='%237b2fff'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#07080f;--surface:#0e1018;--surface2:#12141e;
+  --cyan:#00d4ff;--purple:#7b2fff;--gold:#ffd700;--green:#00ff88;--red:#ff4757;
+  --text:#e8eaf0;--muted:#6b7280;
+  --border:rgba(0,212,255,.12);--card:rgba(14,16,24,.9);
+  --gc: 0 0 28px rgba(0,212,255,.3);--gp: 0 0 28px rgba(123,47,255,.3);
+}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
+
+/* PROMO BAR */
+.promo-bar{background:linear-gradient(90deg,var(--purple),#4f46e5,var(--cyan));padding:9px 5%;display:flex;justify-content:center;align-items:center;gap:2rem;flex-wrap:wrap;font-size:.78rem;font-weight:600;letter-spacing:.5px}
+.promo-bar span{background:rgba(0,0,0,.25);padding:2px 10px;border-radius:4px;letter-spacing:1px}
+
+/* NAV */
+nav{position:fixed;top:34px;left:0;right:0;z-index:900;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(7,8,15,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:.3s}
+nav.scrolled{top:0;box-shadow:0 2px 30px rgba(0,0,0,.6)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:40px;height:40px}
+.logo-wordmark{display:flex;flex-direction:column;line-height:1}
+.logo-name{font-size:1.45rem;font-weight:900;letter-spacing:2px;background:linear-gradient(130deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-tagline{font-size:.5rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;-webkit-text-fill-color:var(--muted)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;transition:.25s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--cyan);transition:.25s}
+.nav-links a:hover{color:var(--cyan)}.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.nav-wa{background:linear-gradient(135deg,#25d366,#1a9e4e);color:#fff;padding:8px 16px;border-radius:22px;text-decoration:none;font-size:.78rem;font-weight:700;display:flex;align-items:center;gap:5px;transition:.25s}
+.nav-wa:hover{transform:scale(1.04);box-shadow:0 0 18px rgba(37,211,102,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#hero-canvas{position:absolute;inset:0;z-index:0}
+.hero-bg-grad{position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 20% 50%,rgba(123,47,255,.18),transparent 65%),radial-gradient(ellipse 45% 55% at 75% 35%,rgba(0,212,255,.12),transparent 65%)}
+.hero-content{position:relative;z-index:2;padding:0 5%;max-width:680px;padding-top:100px;padding-bottom:60px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(0,212,255,.35);background:rgba(0,212,255,.07);border-radius:20px;padding:5px 14px;font-size:.72rem;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;margin-bottom:1.4rem;animation:fu .5s ease both}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+h1.hero-h{font-size:clamp(2.2rem,5.5vw,4.6rem);font-weight:900;line-height:1.06;margin-bottom:1.1rem;animation:fu .6s .08s ease both}
+h1.hero-h .gr{background:linear-gradient(120deg,var(--cyan),var(--purple),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:var(--muted);font-size:1rem;line-height:1.75;margin-bottom:1.8rem;animation:fu .6s .16s ease both}
+.hero-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem;animation:fu .6s .24s ease both}
+.hpill{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:5px 12px;font-size:.73rem;display:flex;align-items:center;gap:5px}
+.hpill .g{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green)}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;animation:fu .6s .32s ease both}
+.btn-p{background:linear-gradient(130deg,var(--cyan),var(--purple));color:#fff;padding:13px 26px;border-radius:28px;text-decoration:none;font-weight:700;font-size:.88rem;transition:.25s;box-shadow:var(--gc)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(0,212,255,.45)}
+.btn-o{border:1px solid var(--border);color:var(--text);padding:13px 26px;border-radius:28px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.25s;background:rgba(255,255,255,.03)}
+.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* TRUST BAR */
+.trust-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-inner{max-width:1100px;margin:0 auto;padding:1.2rem 5%;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:1rem}
+.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:600}
+.trust-item .icon{font-size:1.3rem}
+.trust-item .label{color:var(--muted);font-size:.7rem;display:block;font-weight:400}
+
+/* STATS */
+.stats-band{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(123,47,255,.06));border-bottom:1px solid var(--border)}
+.stats-inner{max-width:900px;margin:0 auto;padding:2.5rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem}
+.stat{text-align:center}
+.stat-n{font-size:2.4rem;font-weight:900;background:linear-gradient(130deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-l{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+
+/* SECTIONS */
+.section{padding:5rem 5%}
+.sec-hd{text-align:center;margin-bottom:3.5rem}
+.sec-tag{display:inline-block;color:var(--cyan);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+.sec-title{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:800;margin-bottom:.8rem}
+.sec-desc{color:var(--muted);max-width:520px;margin:0 auto;line-height:1.7;font-size:.88rem}
+
+/* TRANSFORM SECTION */
+#transform{background:var(--surface)}
+.transform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.tf-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;transition:.3s;position:relative;overflow:hidden}
+.tf-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,.04),rgba(123,47,255,.04));opacity:0;transition:.3s}
+.tf-card:hover{border-color:var(--cyan);transform:translateY(-4px);box-shadow:var(--gc)}
+.tf-card:hover::before{opacity:1}
+.tf-icon{font-size:2.8rem;margin-bottom:1rem;display:block}
+.tf-title{font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.6rem}
+.tf-desc{color:var(--muted);font-size:.83rem;line-height:1.65;margin-bottom:1.2rem}
+.tf-stats{display:flex;gap:.6rem;flex-wrap:wrap}
+.tf-stat{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);border-radius:6px;padding:4px 10px;font-size:.7rem;font-weight:700;color:var(--cyan)}
+
+/* PRODUCTS */
+#products{background:var(--bg)}
+.catalog-bar{max-width:1200px;margin:0 auto 2rem;display:flex;flex-direction:column;gap:1rem}
+.catalog-row1{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
+.search-wrap{flex:1;min-width:200px;position:relative}
+.search-wrap input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:22px;padding:9px 18px 9px 40px;color:var(--text);font-size:.85rem;outline:none;transition:.25s}
+.search-wrap input:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,212,255,.12)}
+.search-wrap input::placeholder{color:var(--muted)}
+.search-wrap .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none}
+.p-count{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.view-btns{display:flex;gap:.3rem}
+.vb{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:.25s}
+.vb.on{background:rgba(0,212,255,.1);border-color:var(--cyan);color:var(--cyan)}
+.filter-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.ftab{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:.75rem;font-weight:600;transition:.25s;white-space:nowrap}
+.ftab:hover{border-color:var(--cyan);color:var(--cyan)}
+.ftab.on{background:rgba(0,212,255,.1);border-color:var(--cyan);color:var(--cyan)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1.4rem;max-width:1200px;margin:0 auto}
+.pgrid.lv{grid-template-columns:1fr}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.4rem;transition:.3s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:0}
+.pcard:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:var(--gc)}
+/* grid view: image on top, body grows, foot at bottom */
+.pcard-img{width:100%;height:160px;border-radius:10px;background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,47,255,.1));border:1px solid var(--border);overflow:hidden;margin-bottom:1rem;flex-shrink:0;object-fit:cover;transition:.35s;display:block}
+.pcard:hover .pcard-img{transform:scale(1.06)}
+/* fallback div uses flex centering */
+.pcard-img.fb-div{display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.pcard-body{flex:1;display:flex;flex-direction:column}
+.pcard-foot{border-top:1px solid var(--border);margin-top:1rem;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+/* list view */
+.pgrid.lv{grid-template-columns:1fr}
+.pgrid.lv .pcard{flex-direction:row;align-items:center;gap:1.2rem;padding:1rem 1.3rem}
+.pgrid.lv .pcard:hover{transform:translateX(4px)}
+.pgrid.lv .pcard-img{width:80px;height:80px;flex-shrink:0;margin-bottom:0}
+.pgrid.lv .pcard-body{flex:1}
+.pgrid.lv .pcard-foot{border-top:none;margin-top:0;padding-top:0;flex-direction:column;align-items:flex-end;flex-shrink:0;gap:.5rem}
+.pgrid.lv .pmeta{display:none}
+.pbadges{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.4rem}
+.badge{font-size:.62rem;padding:2px 7px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.bs{background:rgba(255,71,87,.12);color:#ff6b6b;border:1px solid rgba(255,71,87,.25)}
+.bn{background:rgba(0,255,136,.08);color:var(--green);border:1px solid rgba(0,255,136,.22)}
+.bt{background:rgba(255,215,0,.08);color:var(--gold);border:1px solid rgba(255,215,0,.22)}
+.bst{background:rgba(123,47,255,.12);color:#c4b5fd;border:1px solid rgba(123,47,255,.25)}
+.pname{font-weight:800;font-size:1rem;margin-bottom:.2rem}
+.ptarget{font-size:.72rem;color:var(--cyan);margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
+.pdesc{font-size:.79rem;color:var(--muted);line-height:1.55;margin-bottom:.8rem;flex:1}
+.pmeta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:.2rem}
+.pchip{font-size:.68rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+.pchip svg{flex-shrink:0}
+.pchip strong{color:rgba(255,255,255,.8);font-weight:600}
+.pprice{display:flex;flex-direction:column}
+.pold{font-size:.74rem;color:var(--muted);text-decoration:line-through}
+.pnew{font-size:1.2rem;font-weight:900;color:var(--cyan)}
+.pbtns{display:flex;gap:.5rem;flex-wrap:wrap}
+.pbtn{background:linear-gradient(130deg,var(--cyan),var(--purple));border:none;color:#fff;padding:9px 16px;border-radius:20px;font-weight:700;cursor:pointer;font-size:.78rem;transition:.25s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.pbtn:hover{transform:scale(1.06);box-shadow:var(--gp)}
+.pbtn-wa{background:linear-gradient(130deg,#25d366,#1a9e4e)}
+.no-res{grid-column:1/-1;text-align:center;padding:4rem;color:var(--muted)}
+
+/* PURITY SECTION */
+#purity{background:var(--surface)}
+.purity-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.purity-text .sec-title{text-align:left}
+.purity-text .sec-tag{display:block}
+.purity-points{margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem}
+.pp{display:flex;align-items:flex-start;gap:.8rem}
+.pp-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(123,47,255,.12));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.pp-title{font-weight:700;font-size:.88rem;margin-bottom:.2rem}
+.pp-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.purity-badge{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;text-align:center;box-shadow:var(--gc)}
+.batch-label{font-size:.68rem;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;margin-bottom:.5rem}
+.batch-num{font-size:1.6rem;font-weight:900;letter-spacing:3px;margin-bottom:1.2rem}
+.batch-bars{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.5rem;text-align:left}
+.bbar-row{display:flex;align-items:center;gap.8rem}
+.bbar-name{font-size:.75rem;font-weight:600;width:80px;flex-shrink:0}
+.bbar-track{flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.bbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--cyan),var(--purple))}
+.bbar-val{font-size:.75rem;font-weight:700;color:var(--cyan);width:44px;text-align:right}
+.batch-seal{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.25);border-radius:8px;padding:8px 16px;font-size:.78rem;font-weight:700;color:var(--green)}
+
+/* BODY MAP */
+#bodymap{background:var(--bg)}
+.bm-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 380px 1fr;gap:1.5rem;align-items:start}
+.bm-panel{display:flex;flex-direction:column;gap:.7rem;padding-top:.5rem}
+.bmc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.bmc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cyan);opacity:0;transition:.3s}
+.bmc:hover,.bmc.on{border-color:var(--cyan);background:rgba(0,212,255,.05);box-shadow:var(--gc)}
+.bmc:hover::before,.bmc.on::before{opacity:1}
+.bmc-zone{font-size:.67rem;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem;font-weight:700}
+.bmc-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem}
+.bmc-tag{background:rgba(123,47,255,.12);border:1px solid rgba(123,47,255,.25);border-radius:4px;padding:2px 7px;font-size:.67rem;color:#c4b5fd;font-weight:600}
+.bmc-desc{font-size:.73rem;color:var(--muted);margin-top:.4rem;line-height:1.5}
+.bm-svg-col{display:flex;flex-direction:column;gap:.8rem}
+.bm-svg-wrap{display:flex;justify-content:center;position:relative}
+.bm-svg-wrap svg{width:100%;max-width:360px;filter:drop-shadow(0 0 30px rgba(0,212,255,.2))}
+.bm-info{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;text-align:center;transition:.3s;min-height:170px;display:flex;flex-direction:column;justify-content:center}
+.bm-info.on{border-color:var(--cyan);box-shadow:var(--gc)}
+.bm-info-em{font-size:2rem;margin-bottom:.4rem}
+.bm-info-zone{font-size:.67rem;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:.25rem}
+.bm-info-title{font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
+.bm-info-desc{color:var(--muted);font-size:.78rem;line-height:1.6;margin-bottom:.9rem}
+.bm-info-tags{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;margin-bottom:.9rem}
+.bm-info-tag{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);border-radius:5px;padding:3px 9px;font-size:.7rem;font-weight:700;color:var(--cyan)}
+.bm-shop{background:linear-gradient(130deg,var(--cyan),var(--purple));border:none;color:#fff;padding:8px 20px;border-radius:20px;font-weight:700;cursor:pointer;font-size:.78rem;transition:.25s}
+.bm-shop:hover{transform:scale(1.05)}
+/* SVG zone styles */
+.zfill{transition:opacity .3s,filter .3s;cursor:pointer}
+.zfill:hover{filter:brightness(1.4)}
+.zfill.on{filter:brightness(1.6)}
+@keyframes zpulse{0%,100%{opacity:.18}50%{opacity:.38}}
+.zpulse{animation:zpulse 2.5s ease-in-out infinite}
+@keyframes zring{0%,100%{opacity:.25;r:0}50%{opacity:.05}}
+.zring{animation:zpulse 2.5s ease-in-out infinite .8s}
+
+/* FEATURES */
+#features{background:var(--surface)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.3rem;max-width:1100px;margin:0 auto}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;text-align:center;transition:.3s}
+.feat:hover{border-color:var(--purple);box-shadow:var(--gp);transform:translateY(-3px)}
+.feat-icon{width:52px;height:52px;margin:0 auto .9rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,47,255,.1));border:1px solid var(--border);border-radius:14px}
+.tf-icon{width:64px;height:64px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,47,255,.1));border:1px solid var(--border);border-radius:16px}
+.feat-title{font-weight:800;margin-bottom:.4rem;font-size:.9rem}
+.feat-desc{color:var(--muted);font-size:.78rem;line-height:1.6}
+
+/* HOW IT WORKS */
+#how{background:var(--bg)}
+.steps{display:flex;gap:0;max-width:860px;margin:0 auto;position:relative}
+.steps::before{content:'';position:absolute;top:28px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple))}
+.step{flex:1;text-align:center;position:relative;z-index:1}
+.step-n{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;margin:0 auto .9rem;box-shadow:var(--gc)}
+.step-t{font-weight:700;font-size:.85rem;margin-bottom:.3rem}
+.step-d{color:var(--muted);font-size:.75rem;padding:0 .4rem;line-height:1.5}
+
+/* TESTIMONIALS */
+#testi{background:var(--surface)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.3rem;max-width:1100px;margin:0 auto}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:.3s}
+.tcard:hover{border-color:var(--purple);box-shadow:var(--gp)}
+.tstars{color:var(--gold);font-size:1rem;margin-bottom:.6rem}
+.ttext{color:var(--muted);font-size:.84rem;line-height:1.7;font-style:italic;margin-bottom:.9rem}
+.tauthor{display:flex;align-items:center;gap:.7rem}
+.tav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;flex-shrink:0}
+.tname{font-weight:700;font-size:.84rem}
+.trole{font-size:.72rem;color:var(--muted)}
+
+/* FAQ */
+#faq{background:var(--bg)}
+.faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:.6rem}
+.fi{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.fq{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.4rem;cursor:pointer;font-weight:600;font-size:.88rem;gap:1rem;transition:.25s;user-select:none}
+.fq:hover{color:var(--cyan)}
+.fq-icon{font-size:1.1rem;color:var(--cyan);transition:.3s;flex-shrink:0}
+.fi.open .fq-icon{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:.35s ease;color:var(--muted);font-size:.82rem;line-height:1.7;padding:0 1.4rem}
+.fi.open .fa{max-height:200px;padding:0 1.4rem 1rem}
+
+/* WA CTA */
+#wa-cta{background:var(--surface);border-top:1px solid var(--border)}
+.wa-cta-inner{max-width:700px;margin:0 auto;text-align:center;padding:5rem 5%}
+.wa-cta-inner h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;margin-bottom:.8rem}
+.wa-cta-inner p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:2rem}
+.wa-big{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(130deg,#25d366,#1a9e4e);color:#fff;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1rem;transition:.25s;box-shadow:0 0 25px rgba(37,211,102,.35)}
+.wa-big:hover{transform:scale(1.04);box-shadow:0 0 40px rgba(37,211,102,.5)}
+
+/* NEWSLETTER */
+#newsletter{background:var(--bg)}
+.nl-inner{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:3rem;text-align:center}
+.nl-inner h2{font-size:1.7rem;font-weight:900;margin-bottom:.6rem}
+.nl-inner p{color:var(--muted);font-size:.84rem;margin-bottom:1.5rem}
+.nl-code{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,47,255,.08));border:2px dashed var(--cyan);border-radius:10px;padding:.8rem;margin-bottom:1.4rem;display:inline-block}
+.nl-code-text{font-size:1.8rem;font-weight:900;letter-spacing:5px;color:var(--cyan)}
+.nl-code-sub{font-size:.72rem;color:var(--muted)}
+.nl-form{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.nl-inp{flex:1;min-width:190px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:22px;padding:10px 18px;color:var(--text);font-size:.84rem;outline:none;transition:.25s}
+.nl-inp:focus{border-color:var(--cyan)}
+.nl-inp::placeholder{color:var(--muted)}
+.nl-btn{background:linear-gradient(130deg,var(--cyan),var(--purple));color:#fff;border:none;padding:10px 22px;border-radius:22px;font-weight:700;cursor:pointer;font-size:.84rem;transition:.25s}
+.nl-btn:hover{box-shadow:var(--gc)}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5rem 5% 1.5rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.fb-desc{color:var(--muted);font-size:.8rem;line-height:1.7;margin:1rem 0 1.2rem}
+.socials{display:flex;gap:.6rem}
+.soc{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:.25s}
+.soc:hover{border-color:var(--cyan);background:rgba(0,212,255,.08)}
+.fc h4{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:.9rem}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fc a{color:var(--muted);text-decoration:none;font-size:.8rem;transition:.25s}
+.fc a:hover{color:var(--cyan)}
+.fc-contact{font-size:.8rem;color:var(--muted);line-height:1.9}
+.fc-contact a{color:var(--cyan);text-decoration:none}
+.footer-bot{border-top:1px solid var(--border);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem}
+.footer-bot p{color:var(--muted);font-size:.74rem}
+.pay-icons{display:flex;gap:.4rem}
+.pay{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:.68rem;color:var(--muted);font-weight:600}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:990}
+.wa-float a{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25d366,#1a9e4e);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);animation:bounce 3s ease-in-out infinite;transition:.25s}
+.wa-float a:hover{animation:none;transform:scale(1.1)}
+.wa-float a svg{width:28px;height:28px;fill:#fff}
+@keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+
+/* POPUP */
+.pop-ov{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.35s}
+.pop-ov.show{opacity:1;visibility:visible}
+.pop{background:var(--surface);border:1px solid var(--border);border-radius:22px;max-width:500px;width:92%;overflow:hidden;transform:scale(.92);transition:.35s;position:relative}
+.pop-ov.show .pop{transform:scale(1)}
+.pop-head{background:linear-gradient(130deg,var(--purple),var(--cyan));padding:2.2rem;text-align:center}
+.pop-head h2{font-size:1.7rem;font-weight:900;color:#fff;margin:.4rem 0 .2rem}
+.pop-head p{color:rgba(255,255,255,.8);font-size:.84rem}
+.pop-x{position:absolute;top:.9rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.25s}
+.pop-x:hover{background:rgba(255,255,255,.3)}
+.pop-body{padding:1.8rem}
+.code-wrap{text-align:center;margin-bottom:1.3rem}
+.code-box{background:rgba(0,212,255,.07);border:2px dashed var(--cyan);border-radius:10px;padding:.8rem 1.4rem;display:inline-block}
+.code-val{font-size:1.9rem;font-weight:900;letter-spacing:5px;color:var(--cyan)}
+.code-hint{font-size:.72rem;color:var(--muted);margin-top:.3rem}
+.pop-form{display:flex;flex-direction:column;gap:.65rem}
+.pop-inp{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text);font-size:.84rem;outline:none;transition:.25s}
+.pop-inp:focus{border-color:var(--cyan)}
+.pop-inp::placeholder{color:var(--muted)}
+.pop-sub{background:linear-gradient(130deg,var(--cyan),var(--purple));color:#fff;border:none;padding:12px;border-radius:22px;font-weight:700;font-size:.88rem;cursor:pointer;transition:.25s;letter-spacing:.3px}
+.pop-sub:hover{box-shadow:var(--gc)}
+.pop-skip{text-align:center;margin-top:.6rem;font-size:.74rem;color:var(--muted);cursor:pointer;transition:.25s}
+.pop-skip:hover{color:var(--cyan)}
+.pop-ok{text-align:center;padding:.5rem 0}
+.pop-ok-ic{font-size:2.8rem;display:block;margin-bottom:.5rem}
+.pop-ok h3{color:var(--green);font-size:1.2rem;font-weight:800;margin-bottom:.4rem}
+.pop-ok p{color:var(--muted);font-size:.82rem;line-height:1.6}
+
+/* TOAST */
+.toast{position:fixed;bottom:90px;right:24px;z-index:3000;background:var(--surface);border:1px solid var(--green);border-radius:10px;padding:10px 18px;font-size:.8rem;box-shadow:0 0 18px rgba(0,255,136,.18);transform:translateX(130%);transition:.35s;display:flex;align-items:center;gap:.5rem}
+.toast.show{transform:translateX(0)}
+
+/* ADMIN */
+.admin-ov{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.92);padding:2rem;overflow:auto}
+.admin-ov.show{display:block}
+.adm{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:820px;margin:0 auto;padding:2rem}
+.adm h2{color:var(--cyan);margin-bottom:1.4rem;font-size:1.3rem}
+.adm-tbl{width:100%;border-collapse:collapse;margin-bottom:1.4rem;font-size:.79rem}
+.adm-tbl th{background:rgba(0,212,255,.08);color:var(--cyan);padding:.6rem .9rem;text-align:left;font-size:.7rem;letter-spacing:1px;text-transform:uppercase}
+.adm-tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--muted)}
+.adm-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.adm-btn{background:linear-gradient(130deg,var(--cyan),var(--purple));color:#fff;border:none;padding:9px 18px;border-radius:18px;font-weight:700;cursor:pointer;font-size:.79rem;transition:.25s}
+.adm-btn:hover{box-shadow:var(--gc)}
+.adm-btn.del{background:linear-gradient(130deg,#ff4757,#c0392b)}
+.adm-x{position:fixed;top:1.2rem;right:1.8rem;background:rgba(255,255,255,.1);border:none;color:#fff;padding:7px 14px;border-radius:18px;cursor:pointer;font-size:.79rem}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:.65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .purity-inner{grid-template-columns:1fr}
+  .bm-wrap{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}.steps{flex-direction:column;gap:1.2rem}
+}
+@media(max-width:640px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .footer-grid{grid-template-columns:1fr}
+  .transform-grid,.tgrid,.feat-grid{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column}
+  h1.hero-h{font-size:2.1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  🎉 First Order 15% Off — Use Code <span>KGFIRST15</span>
+  &nbsp;|&nbsp; 99.9% Purity &nbsp;|&nbsp; COA Every Order &nbsp;|&nbsp; COD Available
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <svg viewBox="0 0 40 40" fill="none">
+      <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#7b2fff"/></linearGradient></defs>
+      <circle cx="20" cy="20" r="19" stroke="url(#lg)" stroke-width="1.5" fill="rgba(0,212,255,.05)"/>
+      <path d="M12 13 L12 27 M12 20 L20 13 M12 20 L20 27" stroke="url(#lg)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 13 Q25 17 28 20 Q25 23 22 27" stroke="#7b2fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M24 13 Q27 17 30 20 Q27 23 24 27" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".45"/>
+      <circle cx="22" cy="16.5" r="1.4" fill="#7b2fff"/><circle cx="28" cy="20" r="1.4" fill="#00d4ff"/><circle cx="22" cy="23.5" r="1.4" fill="#7b2fff"/>
+    </svg>
+    <div class="logo-wordmark">
+      <span class="logo-name">KGPEPS</span>
+      <span class="logo-tagline">Premium Peptides</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#products">Peptides</a></li>
+    <li><a href="#bodymap">Body Map</a></li>
+    <li><a href="#purity">Quality</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#wa-cta">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://wa.me/917505221639?text=Hi%20KGPEPS%2C%20I%20want%20to%20know%20more" target="_blank" class="nav-wa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-bg-grad"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span>Science-Grade Research Peptides</div>
+    <h1 class="hero-h">HIGHEST QUALITY<br><span class="gr">PEPTIDES IN INDIA</span></h1>
+    <p class="hero-sub">99.9% Purity. COA With Every Order. Lab-verified research peptides trusted by serious athletes, biohackers, and researchers across India.</p>
+    <div class="hero-pills">
+      <div class="hpill"><span class="g"></span>99.9% Purity Guaranteed</div>
+      <div class="hpill"><span class="g"></span>COA With Every Order</div>
+      <div class="hpill"><span class="g"></span>Discreet Shipping</div>
+      <div class="hpill"><span class="g"></span>COD Available</div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-p">BROWSE PREMIUM PEPTIDES</a>
+      <a href="https://wa.me/917505221639?text=Hi%20KGPEPS%2C%20I%27d%20like%20to%20order" target="_blank" class="btn-o">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></span><div><strong>99.9% PURITY</strong><span class="label">HPLC Verified</span></div></div>
+    <div class="trust-item"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span><div><strong>COA INCLUDED</strong><span class="label">Every Order</span></div></div>
+    <div class="trust-item"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><div><strong>4-DAY DELIVERY</strong><span class="label">Pan-India</span></div></div>
+    <div class="trust-item"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span><div><strong>COD AVAILABLE</strong><span class="label">Across India</span></div></div>
+    <div class="trust-item"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="var(--cyan)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><div><strong>WHATSAPP SUPPORT</strong><span class="label">7 Days a Week</span></div></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n" data-target="99.9">0</div><div class="stat-l">% Purity</div></div>
+    <div class="stat"><div class="stat-n" data-target="500">0</div><div class="stat-l">Orders Shipped</div></div>
+    <div class="stat"><div class="stat-n" data-target="22">0</div><div class="stat-l">Peptides Available</div></div>
+    <div class="stat"><div class="stat-n" data-target="100">0</div><div class="stat-l">% COA Verified</div></div>
+  </div>
+</div>
+
+<!-- TRANSFORM YOUR BODY -->
+<section class="section" id="transform">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Benefits</div>
+    <h2 class="sec-title">Transform Your Body</h2>
+    <p class="sec-desc">Research peptides that deliver measurable, science-backed results for performance, aesthetics, and recovery.</p>
+  </div>
+  <div class="transform-grid">
+    <div class="tf-card rv">
+      <span class="tf-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+      <div class="tf-title">Enhances Fat Loss &amp; Metabolism</div>
+      <p class="tf-desc">Ignite metabolic rate and accelerate fat burning while preserving lean muscle mass. Peptides like Tesamorelin and AOD-9604 specifically target visceral adipose tissue.</p>
+      <div class="tf-stats">
+        <span class="tf-stat">+32% METABOLISM</span>
+        <span class="tf-stat">⚡ FAT BURNING</span>
+        <span class="tf-stat">LEAN MUSCLE PRESERVED</span>
+      </div>
+    </div>
+    <div class="tf-card rv">
+      <span class="tf-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/><circle cx="8.5" cy="11.5" r="1"/><circle cx="12.5" cy="7.5" r="1"/><circle cx="16.5" cy="11.5" r="1"/></svg></span>
+      <div class="tf-title">Improves Hair Health</div>
+      <p class="tf-desc">Strengthen follicles, reduce thinning, and support thicker, fuller hair growth. GHK-Cu activates hair follicle stem cells and increases follicle size significantly.</p>
+      <div class="tf-stats">
+        <span class="tf-stat">✨ FOLLICLE STRENGTH</span>
+        <span class="tf-stat">+45% HAIR DENSITY</span>
+        <span class="tf-stat">COLLAGEN BOOST</span>
+      </div>
+    </div>
+    <div class="tf-card rv">
+      <span class="tf-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+      <div class="tf-title">Speeds Up Healing &amp; Recovery</div>
+      <p class="tf-desc">Accelerate tissue repair, reduce recovery time, and train harder with faster bounce-back. BPC-157 and TB-500 are the gold standard for injury recovery protocols.</p>
+      <div class="tf-stats">
+        <span class="tf-stat">⚡ 2× FASTER RECOVERY</span>
+        <span class="tf-stat">🛡️ REDUCED INFLAMMATION</span>
+        <span class="tf-stat">JOINT REPAIR</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY MAP -->
+<section class="section" id="bodymap">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Interactive</div>
+    <h2 class="sec-title">Peptide Body Map</h2>
+    <p class="sec-desc">Click any body zone to discover which peptides target that area, then browse the full catalog below.</p>
+  </div>
+  <div class="bm-wrap">
+    <!-- LEFT -->
+    <div class="bm-panel">
+      <div class="bmc" data-z="brain" onclick="pickZone('brain')">
+        <div class="bmc-zone">🧠 Brain &amp; Cognition</div>
+        <div class="bmc-tags"><span class="bmc-tag">Semax</span><span class="bmc-tag">Selank</span><span class="bmc-tag">DSIP</span><span class="bmc-tag">Dihexa</span></div>
+        <div class="bmc-desc">Nootropic &amp; anxiolytic peptides for focus, memory, sleep &amp; stress relief</div>
+      </div>
+      <div class="bmc" data-z="skin" onclick="pickZone('skin')">
+        <div class="bmc-zone">✨ Skin &amp; Hair</div>
+        <div class="bmc-tags"><span class="bmc-tag">GHK-Cu</span><span class="bmc-tag">Melanotan II</span></div>
+        <div class="bmc-desc">Collagen synthesis, hair regrowth &amp; skin tanning</div>
+      </div>
+      <div class="bmc" data-z="hormone" onclick="pickZone('hormone')">
+        <div class="bmc-zone">⚡ Hormones &amp; GH</div>
+        <div class="bmc-tags"><span class="bmc-tag">CJC-1295</span><span class="bmc-tag">Ipamorelin</span><span class="bmc-tag">Kisspeptin</span></div>
+        <div class="bmc-desc">Growth hormone release &amp; hormonal balance</div>
+      </div>
+    </div>
+    <!-- CENTER -->
+    <div class="bm-svg-col">
+      <div class="bm-svg-wrap">
+        <svg viewBox="0 0 260 520" xmlns="http://www.w3.org/2000/svg" style="max-width:360px">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a1d2e"/><stop offset="100%" stop-color="#0e1018"/>
+            </linearGradient>
+            <linearGradient id="silGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2a2d42"/><stop offset="100%" stop-color="#1a1d2e"/>
+            </linearGradient>
+            <filter id="glow2"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="softglow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+
+          <!-- BODY SILHOUETTE (anatomical) -->
+          <g>
+            <!-- Head -->
+            <ellipse cx="130" cy="48" rx="32" ry="36" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.5"/>
+            <!-- Ears -->
+            <ellipse cx="98" cy="52" rx="6" ry="9" fill="#1e2133" stroke="#2a2d42" stroke-width="1"/>
+            <ellipse cx="162" cy="52" rx="6" ry="9" fill="#1e2133" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Neck -->
+            <rect x="118" y="80" width="24" height="22" rx="6" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Shoulders -->
+            <ellipse cx="91" cy="104" rx="20" ry="12" fill="#1e2133" stroke="#2a2d42" stroke-width="1"/>
+            <ellipse cx="169" cy="104" rx="20" ry="12" fill="#1e2133" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Torso -->
+            <path d="M88 100 Q72 110 70 140 Q68 170 70 200 Q72 218 80 224 L180 224 Q188 218 190 200 Q192 170 190 140 Q188 110 172 100 Q152 92 130 90 Q108 92 88 100Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.5"/>
+            <!-- Left upper arm -->
+            <path d="M75 105 Q55 115 46 140 Q40 158 42 178 L58 178 Q58 162 62 144 Q68 122 82 110Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Left forearm -->
+            <path d="M42 178 Q38 200 40 222 L56 222 Q56 202 58 178Z" fill="#1a1d2e" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Left hand -->
+            <ellipse cx="48" cy="228" rx="10" ry="8" fill="#1a1d2e" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Right upper arm -->
+            <path d="M185 105 Q205 115 214 140 Q220 158 218 178 L202 178 Q202 162 198 144 Q192 122 178 110Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Right forearm -->
+            <path d="M218 178 Q222 200 220 222 L204 222 Q204 202 202 178Z" fill="#1a1d2e" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Right hand -->
+            <ellipse cx="212" cy="228" rx="10" ry="8" fill="#1a1d2e" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Hips/Pelvis -->
+            <path d="M80 222 Q70 235 72 252 L188 252 Q190 235 180 222Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Left thigh -->
+            <path d="M72 252 Q65 275 66 310 Q67 330 70 348 L90 348 Q90 328 90 308 Q90 278 88 252Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Right thigh -->
+            <path d="M172 252 Q180 275 194 310 Q194 330 190 348 L170 348 Q170 328 170 308 Q170 278 172 252Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Left knee -->
+            <ellipse cx="80" cy="352" rx="14" ry="10" fill="#1e2133" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Right knee -->
+            <ellipse cx="180" cy="352" rx="14" ry="10" fill="#1e2133" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Left shin -->
+            <path d="M70 358 Q68 390 70 420 L90 420 Q92 390 90 358Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Right shin -->
+            <path d="M170 358 Q168 390 170 420 L190 420 Q192 390 190 358Z" fill="url(#silGrad)" stroke="#2a2d42" stroke-width="1.2"/>
+            <!-- Left foot -->
+            <path d="M68 420 Q62 430 60 436 L92 436 Q94 430 90 420Z" fill="#1a1d2e" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Right foot -->
+            <path d="M168 420 Q166 430 168 436 L200 436 Q198 430 190 420Z" fill="#1a1d2e" stroke="#2a2d42" stroke-width="1"/>
+            <!-- Chest definition lines -->
+            <path d="M110 112 Q120 118 130 114 Q140 118 150 112" fill="none" stroke="#2d3148" stroke-width="1.2"/>
+            <line x1="130" y1="114" x2="130" y2="175" stroke="#2d3148" stroke-width="1" opacity=".6"/>
+            <!-- Abs definition -->
+            <ellipse cx="118" cy="155" rx="10" ry="7" fill="none" stroke="#2d3148" stroke-width="1" opacity=".5"/>
+            <ellipse cx="142" cy="155" rx="10" ry="7" fill="none" stroke="#2d3148" stroke-width="1" opacity=".5"/>
+            <ellipse cx="118" cy="172" rx="10" ry="7" fill="none" stroke="#2d3148" stroke-width="1" opacity=".4"/>
+            <ellipse cx="142" cy="172" rx="10" ry="7" fill="none" stroke="#2d3148" stroke-width="1" opacity=".4"/>
+          </g>
+
+          <!-- INTERACTIVE ZONES -->
+
+          <!-- BRAIN zone -->
+          <g id="zg-brain" onclick="pickZone('brain')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="44" rx="30" ry="33" fill="#00d4ff" opacity=".18"/>
+            <ellipse class="zring" cx="130" cy="44" rx="35" ry="38" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity=".2"/>
+            <text x="130" y="48" text-anchor="middle" font-size="8.5" fill="#00d4ff" font-weight="800" pointer-events="none" letter-spacing="1">BRAIN</text>
+          </g>
+
+          <!-- SKIN zone (dashed ring around head) -->
+          <g id="zg-skin" onclick="pickZone('skin')" style="cursor:pointer">
+            <ellipse class="zfill" cx="130" cy="44" rx="36" ry="41" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 4" opacity=".35"/>
+          </g>
+
+          <!-- HORMONES / CHEST zone -->
+          <g id="zg-hormone" onclick="pickZone('hormone')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="126" rx="34" ry="24" fill="#7b2fff" opacity=".22"/>
+            <text x="130" y="130" text-anchor="middle" font-size="7.5" fill="#c4b5fd" font-weight="700" pointer-events="none" letter-spacing=".5">HORMONES</text>
+          </g>
+
+          <!-- GUT zone -->
+          <g id="zg-gut" onclick="pickZone('gut')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="168" rx="28" ry="20" fill="#00ff88" opacity=".2"/>
+            <text x="163" y="162" text-anchor="start" font-size="7.5" fill="#00ff88" font-weight="700" pointer-events="none" letter-spacing=".5">GUT</text>
+            <line x1="158" y1="161" x2="150" y2="166" stroke="#00ff88" stroke-width="1" opacity=".6" pointer-events="none"/>
+          </g>
+
+          <!-- FAT / METABOLISM zone -->
+          <g id="zg-fat" onclick="pickZone('fat')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="200" rx="42" ry="20" fill="#ffd700" opacity=".14"/>
+            <text x="173" y="205" text-anchor="start" font-size="7" fill="#ffd700" font-weight="700" pointer-events="none">FAT</text>
+          </g>
+
+          <!-- MUSCLE / ARMS zone -->
+          <g id="zg-muscle" onclick="pickZone('muscle')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="50" cy="145" rx="17" ry="32" fill="#ff6b6b" opacity=".22"/>
+            <ellipse class="zfill zpulse" cx="210" cy="145" rx="17" ry="32" fill="#ff6b6b" opacity=".22"/>
+            <ellipse class="zfill zpulse" cx="80" cy="300" rx="16" ry="42" fill="#ff6b6b" opacity=".16"/>
+            <ellipse class="zfill zpulse" cx="180" cy="300" rx="16" ry="42" fill="#ff6b6b" opacity=".16"/>
+            <text x="22" y="138" font-size="7" fill="#ff8888" font-weight="700" pointer-events="none">MUSCLE</text>
+          </g>
+
+          <!-- Connector lines (decorative) -->
+          <line x1="130" y1="82" x2="130" y2="102" stroke="#00d4ff" stroke-width="1" stroke-dasharray="3 3" opacity=".3"/>
+          <line x1="130" y1="150" x2="130" y2="148" stroke="#7b2fff" stroke-width="1" opacity=".3"/>
+
+          <!-- Dot nodes on body outline -->
+          <circle cx="130" cy="44" r="2.5" fill="#00d4ff" opacity=".7" filter="url(#glow2)"/>
+          <circle cx="130" cy="126" r="2.5" fill="#7b2fff" opacity=".7" filter="url(#glow2)"/>
+          <circle cx="130" cy="168" r="2.5" fill="#00ff88" opacity=".7" filter="url(#glow2)"/>
+          <circle cx="50" cy="145" r="2" fill="#ff6b6b" opacity=".7"/>
+          <circle cx="210" cy="145" r="2" fill="#ff6b6b" opacity=".7"/>
+        </svg>
+      </div>
+      <div class="bm-info" id="bm-info">
+        <span class="bm-info-em">👆</span>
+        <div class="bm-info-zone">Select a Zone</div>
+        <div class="bm-info-title">Explore the Body Map</div>
+        <div class="bm-info-desc">Click any highlighted zone or side card to see which peptides target that area.</div>
+      </div>
+    </div>
+    <!-- RIGHT -->
+    <div class="bm-panel">
+      <div class="bmc" data-z="gut" onclick="pickZone('gut')">
+        <div class="bmc-zone">🫃 Gut &amp; Healing</div>
+        <div class="bmc-tags"><span class="bmc-tag">BPC-157</span><span class="bmc-tag">LL-37</span></div>
+        <div class="bmc-desc">Gut lining repair, wound healing &amp; anti-inflammatory</div>
+      </div>
+      <div class="bmc" data-z="muscle" onclick="pickZone('muscle')">
+        <div class="bmc-zone">💪 Muscle &amp; Recovery</div>
+        <div class="bmc-tags"><span class="bmc-tag">TB-500</span><span class="bmc-tag">BPC-157</span></div>
+        <div class="bmc-desc">Accelerate muscle repair, reduce DOMS &amp; recover faster</div>
+      </div>
+      <div class="bmc" data-z="fat" onclick="pickZone('fat')">
+        <div class="bmc-zone">🔥 Fat &amp; Metabolism</div>
+        <div class="bmc-tags"><span class="bmc-tag">Tesamorelin</span><span class="bmc-tag">AOD-9604</span><span class="bmc-tag">Retatrutide</span></div>
+        <div class="bmc-desc">Visceral fat reduction &amp; metabolic enhancement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS / CATALOG -->
+<section class="section" id="products">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Shop</div>
+    <h2 class="sec-title">Premium Peptide Catalog</h2>
+    <p class="sec-desc">22 research-grade peptides, all independently HPLC tested. Filter by goal, search by name — order directly via WhatsApp or COD.</p>
+  </div>
+
+  <div class="catalog-bar rv">
+    <div class="catalog-row1">
+      <div class="search-wrap">
+        <span class="si">🔍</span>
+        <input type="text" id="srch" placeholder="Search peptides…" oninput="applyFilters()">
+      </div>
+      <span class="p-count" id="pcount"></span>
+      <div class="view-btns">
+        <button class="vb on" id="gbtn" onclick="setView('g')" title="Grid">⊞</button>
+        <button class="vb" id="lbtn" onclick="setView('l')" title="List">☰</button>
+      </div>
+    </div>
+    <div class="filter-row" id="ftabs"></div>
+  </div>
+
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<!-- PURITY / GOLD STANDARD -->
+<section class="section" id="purity">
+  <div class="purity-inner">
+    <div class="purity-text rv">
+      <span class="sec-tag">Quality Assurance</span>
+      <h2 class="sec-title">The Gold Standard<br>of Purity</h2>
+      <p class="sec-desc" style="text-align:left;margin:0;margin-bottom:1.5rem">Every batch is independently tested before it leaves our facility. We don't just claim purity — we prove it.</p>
+      <div class="purity-points">
+        <div class="pp"><div class="pp-icon">🔬</div><div><div class="pp-title">Third-Party HPLC &amp; MS Lab Verified</div><div class="pp-desc">Independent mass spectrometry confirms identity and purity for every single batch.</div></div></div>
+        <div class="pp"><div class="pp-icon">💨</div><div><div class="pp-title">Vacuum Sealed &amp; Lyophilized</div><div class="pp-desc">Freeze-dried for maximum stability and shelf-life. Stays potent until you're ready to use it.</div></div></div>
+        <div class="pp"><div class="pp-icon">❄️</div><div><div class="pp-title">Cold-Chain Shipping Available</div><div class="pp-desc">Temperature-controlled packaging ensures product integrity from our lab to your door.</div></div></div>
+        <div class="pp"><div class="pp-icon">📄</div><div><div class="pp-title">COA Sent With Every Order</div><div class="pp-desc">Your Certificate of Analysis arrives with your package — verify before you use.</div></div></div>
+      </div>
+    </div>
+    <div class="purity-badge rv">
+      <div class="batch-label">HPLC Verified</div>
+      <div class="batch-num">Batch #KG-2944-X</div>
+      <div class="batch-bars">
+        <div class="bbar-row" style="display:flex;align-items:center;gap:.6rem">
+          <span class="bbar-name">Purity</span>
+          <div class="bbar-track" style="flex:1"><div class="bbar-fill" style="width:99.9%"></div></div>
+          <span class="bbar-val">99.9%</span>
+        </div>
+        <div class="bbar-row" style="display:flex;align-items:center;gap:.6rem">
+          <span class="bbar-name">Identity</span>
+          <div class="bbar-track" style="flex:1"><div class="bbar-fill" style="width:100%"></div></div>
+          <span class="bbar-val">100%</span>
+        </div>
+        <div class="bbar-row" style="display:flex;align-items:center;gap:.6rem">
+          <span class="bbar-name">Sterility</span>
+          <div class="bbar-track" style="flex:1"><div class="bbar-fill" style="width:100%"></div></div>
+          <span class="bbar-val">PASS</span>
+        </div>
+        <div class="bbar-row" style="display:flex;align-items:center;gap:.6rem">
+          <span class="bbar-name">Endotoxin</span>
+          <div class="bbar-track" style="flex:1"><div class="bbar-fill" style="width:100%"></div></div>
+          <span class="bbar-val">PASS</span>
+        </div>
+      </div>
+      <div class="batch-seal">✅ Verified &amp; Approved</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Why KGPEPS</div>
+    <h2 class="sec-title">The KGPEPS Difference</h2>
+  </div>
+  <div class="feat-grid">
+    <div class="feat rv"><span class="feat-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></span><h3 class="feat-title">HPLC Verified Every Batch</h3><p class="feat-desc">Third-party lab testing with full HPLC report. Every batch, no exceptions.</p></div>
+    <div class="feat rv"><span class="feat-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><h3 class="feat-title">Pan-India Delivery</h3><p class="feat-desc">Discreet, temperature-controlled packaging. Delivered in 3–5 business days.</p></div>
+    <div class="feat rv"><span class="feat-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span><h3 class="feat-title">COD Available</h3><p class="feat-desc">Pay on delivery across India. No upfront risk. UPI, NEFT &amp; cards also accepted.</p></div>
+    <div class="feat rv"><span class="feat-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="var(--cyan)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><h3 class="feat-title">WhatsApp Support</h3><p class="feat-desc">Expert protocol guidance directly on WhatsApp. Available 7 days a week.</p></div>
+    <div class="feat rv"><span class="feat-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></span><h3 class="feat-title">COA With Every Order</h3><p class="feat-desc">Certificate of Analysis ships with your order. Verify purity before you use it.</p></div>
+    <div class="feat rv"><span class="feat-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><h3 class="feat-title">Satisfaction Guarantee</h3><p class="feat-desc">Not satisfied? We replace or refund. Your trust is our top priority.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Process</div>
+    <h2 class="sec-title">How To Order</h2>
+  </div>
+  <div class="steps rv">
+    <div class="step"><div class="step-n">1</div><div class="step-t">Browse Catalog</div><div class="step-d">Find your peptide using the catalog or body map</div></div>
+    <div class="step"><div class="step-n">2</div><div class="step-t">WhatsApp Us</div><div class="step-d">Message +91 75052 21639 with your order &amp; address</div></div>
+    <div class="step"><div class="step-n">3</div><div class="step-t">Pay &amp; Confirm</div><div class="step-d">UPI, NEFT, Card or COD — receive COA instantly</div></div>
+    <div class="step"><div class="step-n">4</div><div class="step-t">Fast Delivery</div><div class="step-d">Discreet packaging, delivered in 3–5 days</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testi">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Reviews</div>
+    <h2 class="sec-title">What Our Customers Say</h2>
+  </div>
+  <div class="tgrid">
+    <div class="tcard rv">
+      <div class="tstars">★★★★★</div>
+      <p class="ttext">"BPC-157 from KGPEPS completely transformed my knee recovery. Was back training in 3 weeks after a partial tear. The COA gave me full confidence."</p>
+      <div class="tauthor"><div class="tav">RK</div><div><div class="tname">Rahul K.</div><div class="trole">Fitness Enthusiast, Mumbai</div></div></div>
+    </div>
+    <div class="tcard rv">
+      <div class="tstars">★★★★★</div>
+      <p class="ttext">"Semax for 6 weeks — my focus at work is incredible. WhatsApp support helped me dial in the right protocol. Delivery was super discreet, arrived in 4 days."</p>
+      <div class="tauthor"><div class="tav">AM</div><div><div class="tname">Ankit M.</div><div class="trole">Software Engineer, Bangalore</div></div></div>
+    </div>
+    <div class="tcard rv">
+      <div class="tstars">★★★★★</div>
+      <p class="ttext">"GHK-Cu results on my skin are visible in just 4 weeks. Premium quality is clear — HPLC report matched exactly what was advertised. Will order again."</p>
+      <div class="tauthor"><div class="tav">PS</div><div><div class="tname">Priya S.</div><div class="trole">Researcher, Delhi</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="sec-hd rv">
+    <div class="sec-tag">FAQ</div>
+    <h2 class="sec-title">Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-list rv" id="faq-list"></div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section id="wa-cta">
+  <div class="wa-cta-inner rv">
+    <h2>Still Have Questions?<br>Chat on WhatsApp</h2>
+    <p>Our team is available 7 days a week to help you choose the right peptide, plan your protocol, and place your order. Just send us a message.</p>
+    <a href="https://wa.me/917505221639?text=Hi%20KGPEPS%2C%20I%20have%20a%20question%20about%20peptides" target="_blank" class="wa-big">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp — +91 75052 21639
+    </a>
+  </div>
+</section>
+
+<!-- NEWSLETTER / DISCOUNT -->
+<section class="section" id="newsletter">
+  <div class="nl-inner rv">
+    <h2>Get 15% Off Your First Order</h2>
+    <p>Enter your email and get exclusive access to your first-order discount code, new arrivals, and protocol guides.</p>
+    <div class="nl-code"><div class="nl-code-text">KGFIRST15</div><div class="nl-code-sub">Apply at checkout for 15% off</div></div>
+    <form class="nl-form" onsubmit="handleNL(event)">
+      <input class="nl-inp" type="email" id="nl-email" placeholder="Your email address" required>
+      <button class="nl-btn" type="submit">Claim Discount</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb">
+      <a href="#" class="logo" style="margin-bottom:.5rem">
+        <svg viewBox="0 0 40 40" fill="none" style="width:32px;height:32px"><defs><linearGradient id="lg3" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#7b2fff"/></linearGradient></defs><circle cx="20" cy="20" r="19" stroke="url(#lg3)" stroke-width="1.5" fill="rgba(0,212,255,.05)"/><path d="M12 13 L12 27 M12 20 L20 13 M12 20 L20 27" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 13 Q25 17 28 20 Q25 23 22 27" stroke="#7b2fff" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        <span class="logo-name" style="font-size:1.3rem">KGPEPS</span>
+      </a>
+      <p class="fb-desc">India's most trusted source for research-grade peptides. 99.9% purity, independently verified. Your performance, our science.</p>
+      <div class="socials">
+        <a href="https://wa.me/917505221639" target="_blank" class="soc" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--cyan)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a href="#" class="soc" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="soc" title="Telegram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+      </div>
+    </div>
+    <div class="fc">
+      <h4>Peptides</h4>
+      <ul>
+        <li><a href="#products">BPC-157</a></li>
+        <li><a href="#products">TB-500</a></li>
+        <li><a href="#products">Semax</a></li>
+        <li><a href="#products">GHK-Cu</a></li>
+        <li><a href="#products">CJC-1295</a></li>
+        <li><a href="#products">View All →</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#" onclick="openLegal();return false">Legal Notice</a></li>
+        <li><a href="#">Contact Information</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Contact</h4>
+      <div class="fc-contact">
+        <div>📱 <a href="https://wa.me/917505221639">+91 75052 21639</a></div>
+        <div>📧 <a href="mailto:info@kgpeps.in">info@kgpeps.in</a></div>
+        <div style="margin-top:.6rem;font-size:.74rem;line-height:1.6">For Research Use Only.<br>Not for human consumption.</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2025 KGPEPS. All rights reserved. For research purposes only.</p>
+    <div class="pay-icons">
+      <span class="pay">UPI</span><span class="pay">VISA</span><span class="pay">MC</span><span class="pay">AMEX</span><span class="pay">COD</span><span class="pay">NEFT</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<div class="wa-float">
+  <a href="https://wa.me/917505221639?text=Hi%20KGPEPS%2C%20I%27d%20like%20to%20order" target="_blank">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- POPUP -->
+<div class="pop-ov" id="pop-ov">
+  <div class="pop">
+    <div class="pop-head">
+      <span style="font-size:2.5rem;display:block;margin-bottom:.3rem">🎁</span>
+      <h2>Welcome to KGPEPS!</h2>
+      <p>Get 15% off your very first order</p>
+    </div>
+    <button class="pop-x" onclick="closePopup()">✕</button>
+    <div class="pop-body">
+      <div class="code-wrap">
+        <div class="code-box"><div class="code-val">KGFIRST15</div></div>
+        <div class="code-hint">Use this code for 15% off — valid on your first order</div>
+      </div>
+      <div id="pop-form-wrap">
+        <form class="pop-form" onsubmit="handlePopup(event)">
+          <input class="pop-inp" type="text" id="pop-name" placeholder="Your Name" required>
+          <input class="pop-inp" type="email" id="pop-email" placeholder="Email Address" required>
+          <input class="pop-inp" type="tel" id="pop-phone" placeholder="WhatsApp Number (optional)">
+          <button class="pop-sub" type="submit">Claim My 15% Discount →</button>
+        </form>
+        <div class="pop-skip" onclick="closePopup()">No thanks, I'll pay full price</div>
+      </div>
+      <div id="pop-ok" class="pop-ok" style="display:none">
+        <span class="pop-ok-ic">🎉</span>
+        <h3>You're In!</h3>
+        <p>Code <strong>KGFIRST15</strong> is ready. WhatsApp us at <strong>+91 75052 21639</strong> to place your order!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ <span id="toast-msg"></span></div>
+
+<!-- LEGAL NOTICE MODAL -->
+<div class="pop-ov" id="legal-ov" onclick="if(event.target===this)closeLegal()">
+  <div class="pop" style="max-width:640px;max-height:85vh;overflow-y:auto">
+    <div class="pop-head" style="padding:1.5rem 2rem">
+      <h2 style="font-size:1.3rem">Legal Notice</h2>
+      <p>Last updated: April 2026</p>
+    </div>
+    <button class="pop-x" onclick="closeLegal()">✕</button>
+    <div class="pop-body" style="font-size:.84rem;line-height:1.75;color:var(--muted)">
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Business Information</strong><br>
+      This website is owned and operated by <strong style="color:var(--cyan)">KGPEPS</strong>, located in India. For inquiries, contact us at <a href="mailto:info@kgpeps.in" style="color:var(--cyan)">info@kgpeps.in</a> or WhatsApp <a href="https://wa.me/917505221639" style="color:var(--cyan)">+91 75052 21639</a>.</p>
+
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Research Use Only</strong><br>
+      All products listed on this website are intended strictly for <strong style="color:var(--red)">in-vitro laboratory and analytical research purposes only</strong>. They are not intended for human or animal consumption, nor for any medical, therapeutic, or diagnostic use. By purchasing from KGPEPS, you confirm that you are a qualified researcher or professional acquiring these compounds solely for legitimate research purposes.</p>
+
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Compliance</strong><br>
+      Visitors and purchasers must comply with all applicable laws and regulations of their jurisdiction when accessing this site and purchasing products. It is the sole responsibility of the buyer to ensure that purchasing and possessing these compounds is legal in their country, state, or region.</p>
+
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Limitation of Liability</strong><br>
+      KGPEPS shall not be held liable for any direct, indirect, incidental, or consequential damages arising from the use, misuse, or inability to use any products purchased through this website. All sales are final once dispatched, subject to our Refund Policy.</p>
+
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Intellectual Property</strong><br>
+      All content on this website, including text, images, logos, and branding, is the intellectual property of KGPEPS. Unauthorised reproduction, distribution, or use of any content is strictly prohibited without prior written consent.</p>
+
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">External Links</strong><br>
+      KGPEPS takes no responsibility for the content, accuracy, or privacy practices of any third-party websites linked to or from this site.</p>
+
+      <p style="margin-bottom:1.5rem"><strong style="color:var(--text)">Governing Law & Jurisdiction</strong><br>
+      This legal notice and all matters arising from use of this website are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.</p>
+
+      <button class="nl-btn" onclick="closeLegal()" style="width:100%">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="admin-ov" id="adm-ov">
+  <button class="adm-x" onclick="document.getElementById('adm-ov').classList.remove('show')">✕ Close</button>
+  <div class="adm">
+    <h2>📊 KGPEPS Leads Dashboard</h2>
+    <table class="adm-tbl" id="adm-tbl"><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Source</th><th>Date</th></tr></thead><tbody id="adm-body"></tbody></table>
+    <div class="adm-btns">
+      <button class="adm-btn" onclick="dlCSV()">⬇ Export CSV</button>
+      <button class="adm-btn" onclick="dlXLS()">📊 Export Excel</button>
+      <button class="adm-btn del" onclick="clrLeads()">🗑 Clear All</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── HERO CANVAS ──────────────────────────────────
+(function(){
+  const cv=document.getElementById('hero-canvas'),ctx=cv.getContext('2d');
+  let W,H,pts=[],particles=[];
+  function rsz(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;build()}
+  function build(){
+    pts=[];particles=[];
+    const cx=W*.72,cy=H*.5,rH=Math.min(H*.78,580),r=Math.min(W*.075,75),turns=5,n=110;
+    for(let i=0;i<=n;i++){const t=i/n,a=t*turns*Math.PI*2,y=cy-rH/2+t*rH;pts.push({x1:cx+Math.cos(a)*r,x2:cx+Math.cos(a+Math.PI)*r,y:y,a});}
+    for(let i=0;i<55;i++)particles.push({x:Math.random()*W*.85,y:Math.random()*H,r:Math.random()*1.8+.4,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,c:Math.random()>.5?'#00d4ff':'#7b2fff'});
+  }
+  rsz();window.addEventListener('resize',rsz);
+  let fr=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);fr++;
+    const off=fr*.007;
+    for(let pass=0;pass<2;pass++){
+      ctx.beginPath();
+      for(let i=0;i<pts.length;i++){
+        const p=pts[i],a=p.a+off,cx=W*.72,r=Math.min(W*.075,75);
+        const x=pass===0?cx+Math.cos(a)*r:cx+Math.cos(a+Math.PI)*r;
+        if(i===0)ctx.moveTo(x,p.y);else ctx.lineTo(x,p.y);
+      }
+      const g=ctx.createLinearGradient(W*.55,0,W*.9,H);
+      g.addColorStop(0,pass===0?'rgba(0,212,255,.55)':'rgba(123,47,255,.55)');
+      g.addColorStop(1,pass===0?'rgba(0,212,255,.08)':'rgba(123,47,255,.08)');
+      ctx.strokeStyle=g;ctx.lineWidth=1.8;ctx.stroke();
+    }
+    for(let i=0;i<pts.length;i+=5){
+      const p=pts[i],a=p.a+off,cx=W*.72,r=Math.min(W*.075,75);
+      const x1=cx+Math.cos(a)*r,x2=cx+Math.cos(a+Math.PI)*r;
+      const dp=(Math.cos(a)+1)*.22;
+      ctx.beginPath();ctx.moveTo(x1,p.y);ctx.lineTo(x2,p.y);
+      ctx.strokeStyle=`rgba(0,212,255,${.08+dp})`;ctx.lineWidth=.8;ctx.stroke();
+      [x1,x2].forEach((x,j)=>{ctx.beginPath();ctx.arc(x,p.y,2.2,0,Math.PI*2);ctx.fillStyle=j===0?`rgba(0,212,255,${.2+dp})`:`rgba(123,47,255,${.2+dp})`;ctx.fill()});
+    }
+    particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+'44';ctx.fill()});
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── PRODUCTS ─────────────────────────────────────
+const CATS=['All','Recovery','Brain','Skin','Hormones','Fat Loss','Longevity','Immunity'];
+const VIAL='https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553';
+const prods=[
+  {name:'BPC-157',        img:'https://www.corepeptides.in/cdn/shop/files/BPC-157.png?v=1778652786&width=533',                                                                          cat:'Recovery', tgt:'Gut & Joints',            desc:'Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.',         p:4999, op:7999, badges:['top','sale'], dose:'250–500 mcg/day',   half:'~4h',  purity:'99.9%'},
+  {name:'TB-500',         img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.22PM.jpg?v=1776194801&width=533',                                              cat:'Recovery', tgt:'Muscle & Tissue',         desc:'Thymosin Beta-4 fragment. Accelerates muscle repair, reduces DOMS, promotes angiogenesis.',                             p:6499, op:10999,badges:['sale'],       dose:'2–2.5 mg 2×/wk',   half:'~24h', purity:'99.9%'},
+  {name:'BPC-157 + TB-500',img:VIAL,                                                                                                                                                   cat:'Recovery', tgt:'Ultimate Recovery Stack',  desc:'Gold standard healing stack. Synergistic combo targets gut, muscle, tendon & ligament simultaneously.',               p:10999,op:17498,badges:['top','sale','stack'],dose:'See individual',half:'Combo',purity:'99.9%'},
+  {name:'LL-37',          img:VIAL,                                                                                                                                                    cat:'Immunity', tgt:'Immune & Wound Healing',  desc:'Host-defence peptide with potent antimicrobial & anti-inflammatory properties. Accelerates wound healing.',            p:5999, op:9999, badges:['new'],        dose:'100–500 mcg/day',   half:'~2h',  purity:'99.5%'},
+  {name:'Semax',          img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.31PM.jpg?v=1776194890&width=533',                                             cat:'Brain',    tgt:'Cognition & Focus',        desc:'ACTH-derived nootropic that upregulates BDNF, enhances working memory, focus, and neuroregeneration.',                 p:4999, op:8999, badges:['new'],        dose:'300–600 mcg/day',   half:'~8h',  purity:'99.9%'},
+  {name:'Selank',         img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.36PM.jpg?v=1776241384&width=533',                                             cat:'Brain',    tgt:'Anxiety & Stress',         desc:'Anxiolytic peptide modulating GABA & serotonin. Reduces cortisol, improves mood without sedation.',                   p:4999, op:10999,badges:['new'],        dose:'250–500 mcg/day',   half:'~8h',  purity:'99.9%'},
+  {name:'DSIP',           img:'https://www.corepeptides.in/cdn/shop/files/ChatGPTImageMay16_2026_03_04_14PM.png?v=1778924069&width=533',                                               cat:'Brain',    tgt:'Sleep & Recovery',         desc:'Delta Sleep-Inducing Peptide. Promotes deep wave sleep, lowers cortisol, and improves stress resilience.',             p:3999, op:4999, badges:[],             dose:'250 mcg before bed',half:'~30m', purity:'99%'},
+  {name:'Dihexa',         img:VIAL,                                                                                                                                                    cat:'Brain',    tgt:'Memory & Neurogenesis',    desc:'10M× stronger than BDNF on synaptic potentiation. Dramatically improves memory consolidation and recall.',             p:7999, op:12999,badges:['new','top'],  dose:'10–15 mg/day oral', half:'~24h', purity:'98%'},
+  {name:'N-Acetyl Semax', img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.31PM.jpg?v=1776194890&width=533',                                             cat:'Brain',    tgt:'Enhanced Cognition',       desc:'Acetylated Semax with superior stability & bioavailability. Longer-lasting cognitive enhancement.',                   p:5999, op:8999, badges:['new'],        dose:'300 mcg/day',       half:'~12h', purity:'99%'},
+  {name:'GHK-Cu',         img:'https://www.corepeptides.in/cdn/shop/files/GHK_-_CU.jpg?v=1778616817&width=533',                                                                        cat:'Skin',     tgt:'Skin & Hair',              desc:'Copper tripeptide stimulating collagen synthesis, activating hair follicles, and delivering anti-aging effects.',     p:4999, op:11999,badges:['top','sale'], dose:'1–2 mg/day',        half:'~24h', purity:'99.9%'},
+  {name:'Melanotan II',   img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.59PM.jpg?v=1776241633&width=533',                                             cat:'Skin',     tgt:'Tanning & Libido',         desc:'MC1R/MC4R agonist inducing melanogenesis for natural tanning & libido. Minimal UV exposure needed.',                  p:4499, op:10000,badges:[],             dose:'0.5–1 mg/day',      half:'~40h', purity:'99.9%'},
+  {name:'PT-141',         img:VIAL,                                                                                                                                                    cat:'Skin',     tgt:'Libido & Sexual Health',   desc:'Bremelanotide — MC4R agonist activating sexual desire centrally. Effective for both male & female libido.',           p:5499, op:9999, badges:['new'],        dose:'1–2 mg as needed',  half:'~17h', purity:'99%'},
+  {name:'CJC-1295',       img:'https://www.corepeptides.in/cdn/shop/files/CJC-1295_without_DAC_5mg_a7955602-8c6f-43c3-9b5c-bf893b6e7c00_1.webp?v=1776242002&width=533',               cat:'Hormones', tgt:'Growth Hormone',           desc:'GHRH analogue for sustained GH pulse amplification. Ideal for body recomposition and anti-aging protocols.',          p:5499, op:10999,badges:['sale'],       dose:'1–2 mg/wk',         half:'~8d',  purity:'99.9%'},
+  {name:'Ipamorelin',     img:'https://www.corepeptides.in/cdn/shop/files/Ipamorelin_10mg_9680ec8d-a861-480b-9617-0dce361f54fb.webp?v=1776241766&width=533',                           cat:'Hormones', tgt:'GH Secretagogue',          desc:'Cleanest ghrelin mimetic — selectively triggers GH pulses without raising cortisol or prolactin.',                    p:5499, op:14999,badges:[],             dose:'200–300 mcg 2–3×/d',half:'~2h',  purity:'99.9%'},
+  {name:'Hexarelin',      img:VIAL,                                                                                                                                                    cat:'Hormones', tgt:'GH & Cardioprotection',   desc:'Most potent GHRP available. Strong GH stimulation + cardioprotective effects via GHS-R1a binding.',                  p:5499, op:9999, badges:['new'],        dose:'100–200 mcg 2–3×/d',half:'~70m', purity:'99%'},
+  {name:'Sermorelin',     img:VIAL,                                                                                                                                                    cat:'Hormones', tgt:'Anti-Aging GH',           desc:'First 29 amino acids of GHRH. Gentle, natural GH stimulation widely used for anti-aging & sleep quality.',           p:4999, op:8999, badges:[],             dose:'200–500 mcg/night', half:'~11m', purity:'99%'},
+  {name:'Kisspeptin',     img:'https://www.corepeptides.in/cdn/shop/files/ChatGPTImageMay16_2026_05_49_55PM.png?v=1778934007&width=533',                                               cat:'Hormones', tgt:'LH & Testosterone',       desc:'Neuroendocrine master regulator — triggers LH/FSH surge, supports testosterone & fertility research.',               p:5499, op:7999, badges:['new'],        dose:'1–10 mcg/kg',       half:'~28m', purity:'99%'},
+  {name:'Tesamorelin',    img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.16PM.jpg?v=1776194678&width=533',                                             cat:'Fat Loss', tgt:'Visceral Fat',            desc:'FDA-studied GHRH analogue specifically targeting visceral abdominal adipose tissue with proven clinical results.',    p:6999, op:19999,badges:['top'],        dose:'1–2 mg/day',        half:'~36m', purity:'99.9%'},
+  {name:'AOD-9604',       img:VIAL,                                                                                                                                                    cat:'Fat Loss', tgt:'Fat Burning',             desc:'C-terminus fragment of HGH (177-191). Activates fat-burning pathways without growth-promoting side effects.',        p:4999, op:8999, badges:['sale'],       dose:'300 mcg/day',       half:'~30m', purity:'99%'},
+  {name:'Retatrutide',    img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.10PM.jpg?v=1776194268&width=533',                                             cat:'Fat Loss', tgt:'Weight Management',       desc:'Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17–24% body weight reduction.',                           p:6999, op:16999,badges:['new','top'],  dose:'2–12 mg/wk',        half:'~6d',  purity:'98%'},
+  {name:'MOTS-C',         img:'https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.54PM.jpg?v=1776241496&width=533',                                             cat:'Fat Loss', tgt:'Mitochondria & Metabolism',desc:'Mitochondrial-derived peptide activating AMPK, enhancing insulin sensitivity & metabolic flexibility.',            p:5999, op:16999,badges:['new'],        dose:'5–10 mg 3×/wk',     half:'~24h', purity:'99%'},
+  {name:'Epithalon',      img:VIAL,                                                                                                                                                    cat:'Longevity',tgt:'Anti-Aging & Telomeres',  desc:'Tetrapeptide activating telomerase, extending telomere length, and restoring melatonin production.',               p:6999, op:12999,badges:['new','top'],  dose:'5–10 mg/day',       half:'~30m', purity:'99%'},
+  {name:'Thymosin Alpha-1',img:VIAL,                                                                                                                                                   cat:'Immunity', tgt:'Immune Modulation',       desc:'Thymic peptide modulating T-cell activity, enhancing innate immunity, with antiviral properties.',                  p:6499, op:11999,badges:['new'],        dose:'1.6 mg 2×/wk',      half:'~2h',  purity:'99%'},
+];
+
+let activeCat='All',activeView='g',lastFiltered=prods;
+
+function buildTabs(){
+  const el=document.getElementById('ftabs');
+  el.innerHTML=CATS.map(c=>`<button class="ftab${c===activeCat?' on':''}" onclick="setCat('${c}')">${c}</button>`).join('');
+}
+function setCat(c){activeCat=c;buildTabs();applyFilters()}
+function setView(v){
+  activeView=v;
+  document.getElementById('gbtn').classList.toggle('on',v==='g');
+  document.getElementById('lbtn').classList.toggle('on',v==='l');
+  document.getElementById('pgrid').classList.toggle('lv',v==='l');
+}
+function applyFilters(){
+  const q=(document.getElementById('srch').value||'').toLowerCase();
+  lastFiltered=prods.filter(p=>{
+    const mc=activeCat==='All'||p.cat===activeCat;
+    const mq=!q||p.name.toLowerCase().includes(q)||p.tgt.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q);
+    return mc&&mq;
+  });
+  renderPCards();
+}
+function renderPCards(){
+  const g=document.getElementById('pgrid');
+  document.getElementById('pcount').textContent=`${lastFiltered.length} peptide${lastFiltered.length!==1?'s':''}`;
+  if(!lastFiltered.length){g.innerHTML='<div class="no-res">🔬 No peptides match your search. Try a different filter.</div>';return}
+  g.innerHTML=lastFiltered.map((p,i)=>{
+    const waMsg=encodeURIComponent('Hi KGPEPS! I want to order '+p.name+' (₹'+p.p+'). Please share payment details.');
+    return`<div class="pcard rv" style="animation-delay:${i*.035}s">
+      <img class="pcard-img" src="${p.img}" alt="${p.name}" onerror="this.src='';this.style.cssText='display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--card2)';this.outerHTML='<div class=pcard-img style=display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--card2)>💊</div>'">
+      <div class="pcard-body">
+        <div class="pbadges">
+          ${p.badges.includes('sale')?'<span class="badge bs">Sale</span>':''}
+          ${p.badges.includes('new')?'<span class="badge bn">New</span>':''}
+          ${p.badges.includes('top')?'<span class="badge bt"><svg width="11" height="11" viewBox="0 0 24 24" fill="#f5c518"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg> Best Seller</span>':''}
+          ${p.badges.includes('stack')?'<span class="badge bst">Stack</span>':''}
+        </div>
+        <div class="pname">${p.name}</div>
+        <div class="ptarget"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="var(--cyan)" stroke="none"/></svg> ${p.tgt}</div>
+        <div class="pdesc">${p.desc}</div>
+        <div class="pmeta">
+          <span class="pchip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 3v18M15 3v18"/></svg> <strong>${p.dose}</strong></span>
+          <span class="pchip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> <strong>${p.half}</strong></span>
+          <span class="pchip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg> <strong>${p.purity}</strong></span>
+        </div>
+      </div>
+      <div class="pcard-foot">
+        <div class="pprice">
+          <span class="pold">₹${p.op.toLocaleString('en-IN')}</span>
+          <span class="pnew">₹${p.p.toLocaleString('en-IN')}</span>
+        </div>
+        <div class="pbtns">
+          <button class="pbtn" onclick="buyNow('${p.name}',${p.p})">Buy Now</button>
+          <a class="pbtn pbtn-wa" href="https://wa.me/917505221639?text=${waMsg}" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.523 5.824L0 24l6.318-1.498A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.384l-.36-.214-3.742.887.934-3.638-.235-.374A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg> WhatsApp</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  if(activeView==='l')document.getElementById('pgrid').classList.add('lv');
+  initReveal();
+}
+
+function buyNow(name,price){
+  const msg=encodeURIComponent(`Hi KGPEPS! I want to buy ${name} (₹${price}). Please confirm availability and share payment details.`);
+  window.open(`https://wa.me/917505221639?text=${msg}`,'_blank');
+  showToast(`Opening WhatsApp for ${name}…`);
+}
+
+// ── BODY MAP ─────────────────────────────────────
+const zoneMap={
+  brain:{em:'🧠',zone:'Brain & Cognition',title:'Nootropic Peptides',desc:'These peptides cross the blood-brain barrier to enhance BDNF, reduce anxiety, optimize sleep, and give you a measurable cognitive edge.',tags:['Semax','Selank','DSIP','Dihexa']},
+  skin:{em:'✨',zone:'Skin & Hair',title:'Regenerative Peptides',desc:'Stimulate collagen synthesis, activate hair follicles, trigger melanogenesis. Visible anti-aging and aesthetic results.',tags:['GHK-Cu','Melanotan II','PT-141']},
+  hormone:{em:'⚡',zone:'Hormones & GH',title:'Growth Hormone Peptides',desc:'Stimulate pituitary GH release through GHRH and ghrelin receptor pathways. Synergistic stacks for muscle gain and fat loss.',tags:['CJC-1295','Ipamorelin','Kisspeptin','Sermorelin']},
+  gut:{em:'🫃',zone:'Gut & Healing',title:'Healing Peptides',desc:'BPC-157 and LL-37 repair gut lining, reduce intestinal permeability, and accelerate healing throughout the body.',tags:['BPC-157','LL-37']},
+  muscle:{em:'💪',zone:'Muscle & Recovery',title:'Recovery Peptides',desc:'Accelerate muscle fiber repair, reduce DOMS, restore full function faster. TB-500 + BPC-157 = ultimate recovery protocol.',tags:['TB-500','BPC-157','BPC-157 + TB-500']},
+  fat:{em:'🔥',zone:'Fat & Metabolism',title:'Metabolic Peptides',desc:'Target visceral fat, enhance mitochondrial function, improve insulin sensitivity. Clinical-grade fat loss support.',tags:['Tesamorelin','AOD-9604','Retatrutide','MOTS-C']},
+};
+
+function pickZone(z){
+  const d=zoneMap[z];if(!d)return;
+  const el=document.getElementById('bm-info');
+  el.className='bm-info on';
+  const cat=catFromZone(z);
+  el.innerHTML=`<span class="bm-info-em">${d.em}</span><div class="bm-info-zone">${d.zone}</div><div class="bm-info-title">${d.title}</div><div class="bm-info-desc">${d.desc}</div><div class="bm-info-tags">${d.tags.map(t=>`<span class="bm-info-tag">${t}</span>`).join('')}</div><button class="bm-shop" onclick="setCat('${cat}');document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop ${d.zone} Peptides →</button>`;
+  // highlight side cards
+  document.querySelectorAll('.bmc').forEach(c=>c.classList.toggle('on',c.dataset.z===z));
+  // dim all zones then highlight selected
+  document.querySelectorAll('.zfill').forEach(e=>{e.style.opacity='0.08'});
+  const zg=document.getElementById('zg-'+z);
+  if(zg)zg.querySelectorAll('.zfill').forEach(e=>{e.style.opacity=''});
+  // skin also lights up on brain click (they overlap)
+  if(z==='skin'){const sg=document.getElementById('zg-skin');if(sg)sg.querySelectorAll('.zfill').forEach(e=>e.style.opacity='.55');}
+}
+function catFromZone(z){return{brain:'Brain',skin:'Skin',hormone:'Hormones',gut:'Recovery',muscle:'Recovery',fat:'Fat Loss'}[z]||'All'}
+
+// ── FAQ ───────────────────────────────────────────
+const faqs=[
+  {q:'What are research peptides?',a:'Research peptides are reference compounds intended strictly for in-vitro laboratory and analytical research use. They are not approved for human consumption. Always consult a qualified healthcare professional.'},
+  {q:'Do you ship peptides across India?',a:'Yes, we provide secure and discreet shipping across India. Standard delivery takes 3–5 business days. Express shipping is available in select cities.'},
+  {q:'Which peptides are available at KGPEPS?',a:'We offer 22+ premium research peptides including BPC-157, TB-500, GHK-Cu, CJC-1295, Semax, Selank, Tesamorelin, Retatrutide, Epithalon, and many more. View the full catalog above.'},
+  {q:'Are your products purity tested?',a:'Yes, every batch is independently tested by a third-party HPLC and mass spectrometry lab. A Certificate of Analysis (COA) is included with every single order so you can verify purity yourself.'},
+  {q:'Is COD (Cash on Delivery) available?',a:'Yes, COD is available across India. We also accept UPI, NEFT/IMPS, Visa, Mastercard, and American Express.'},
+  {q:'Can packaging or vial design differ from the image?',a:'Yes, vial appearance, cap color, and packaging design may vary depending on the batch and supplier updates. Product quality and purity standards remain unchanged.'},
+  {q:'Why choose KGPEPS in India?',a:'KGPEPS offers research-grade compounds with independently verified purity, secure discreet shipping, COA with every order, COD available, and direct WhatsApp support 7 days a week.'},
+  {q:'How should I store peptides?',a:'Lyophilized (powder) peptides should be stored at −20°C for long-term storage or 4°C for up to 3 months. Once reconstituted, store at 4°C and use within 30 days.'},
+];
+
+function renderFAQ(){
+  document.getElementById('faq-list').innerHTML=faqs.map((f,i)=>`
+    <div class="fi" id="fi${i}">
+      <div class="fq" onclick="togFAQ(${i})"><span>${f.q}</span><span class="fq-icon">+</span></div>
+      <div class="fa">${f.a}</div>
+    </div>`).join('');
+}
+function togFAQ(i){const el=document.getElementById('fi'+i),o=el.classList.contains('open');document.querySelectorAll('.fi').forEach(e=>e.classList.remove('open'));if(!o)el.classList.add('open')}
+
+// ── LEADS ─────────────────────────────────────────
+function getLeads(){try{return JSON.parse(localStorage.getItem('kg_leads')||'[]')}catch{return[]}}
+function saveLeads(l){localStorage.setItem('kg_leads',JSON.stringify(l))}
+function addLead(d){const l=getLeads();l.push({...d,date:new Date().toLocaleString('en-IN')});saveLeads(l)}
+
+// ── POPUP ─────────────────────────────────────────
+function closePopup(){document.getElementById('pop-ov').classList.remove('show');localStorage.setItem('kg_pop','1')}
+function handlePopup(e){
+  e.preventDefault();
+  addLead({name:document.getElementById('pop-name').value,email:document.getElementById('pop-email').value,phone:document.getElementById('pop-phone').value,source:'popup'});
+  document.getElementById('pop-form-wrap').style.display='none';
+  document.getElementById('pop-ok').style.display='block';
+  setTimeout(closePopup,4000);
+  showToast('🎉 Code KGFIRST15 is yours!');
+}
+function handleNL(e){
+  e.preventDefault();
+  addLead({name:'',email:document.getElementById('nl-email').value,phone:'',source:'newsletter'});
+  e.target.innerHTML='<p style="color:var(--green);font-weight:700">✅ Done! Your code: <strong>KGFIRST15</strong></p>';
+  showToast('🎉 Check your email for the discount code!');
+}
+
+// ── ADMIN ─────────────────────────────────────────
+function openAdmin(){
+  const leads=getLeads(),tb=document.getElementById('adm-body');
+  tb.innerHTML=leads.length?leads.map((l,i)=>`<tr><td>${i+1}</td><td>${l.name||'—'}</td><td>${l.email||'—'}</td><td>${l.phone||'—'}</td><td>${l.source||'—'}</td><td>${l.date||'—'}</td></tr>`).join(''):'<tr><td colspan="6" style="text-align:center;padding:2rem">No leads yet</td></tr>';
+  document.getElementById('adm-ov').classList.add('show');
+}
+function dlCSV(){
+  const l=getLeads();if(!l.length){showToast('No leads yet');return}
+  const h=['#','Name','Email','Phone','Source','Date'],rows=l.map((r,i)=>[i+1,r.name||'',r.email||'',r.phone||'',r.source||'',r.date||'']);
+  const csv=[h,...rows].map(r=>r.map(c=>`"${c}"`).join(',')).join('\n');
+  dl(new Blob([csv],{type:'text/csv'}),'kgpeps_leads.csv');showToast('CSV exported!');
+}
+function dlXLS(){
+  const l=getLeads();if(!l.length){showToast('No leads yet');return}
+  const h=['#','Name','Email','Phone','Source','Date'],rows=l.map((r,i)=>[i+1,r.name||'',r.email||'',r.phone||'',r.source||'',r.date||'']);
+  const html=`<html><head><meta charset="UTF-8"></head><body><table><tr>${h.map(c=>`<th>${c}</th>`).join('')}</tr>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</table></body></html>`;
+  dl(new Blob([html],{type:'application/vnd.ms-excel'}),'kgpeps_leads.xls');showToast('Excel exported!');
+}
+function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+function clrLeads(){if(confirm('Clear all leads?')){localStorage.removeItem('kg_leads');openAdmin();showToast('Cleared')}}
+
+// ── TOAST ─────────────────────────────────────────
+function showToast(m){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200)}
+
+// ── NAV ───────────────────────────────────────────
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50));
+function toggleMenu(){const l=document.querySelector('.nav-links');l.style.display=l.style.display==='flex'?'none':'flex';if(l.style.display==='flex'){Object.assign(l.style,{flexDirection:'column',position:'absolute',top:'66px',left:'0',right:'0',background:'rgba(7,8,15,.98)',padding:'1rem 5%',borderBottom:'1px solid rgba(0,212,255,.12)'})}}
+
+// ── STATS COUNTER ─────────────────────────────────
+function animStats(){document.querySelectorAll('[data-target]').forEach(el=>{const t=parseFloat(el.dataset.target),dec=t%1!==0;let c=0;const s=t/55,id=setInterval(()=>{c=Math.min(c+s,t);el.textContent=dec?c.toFixed(1):Math.floor(c);if(c>=t){el.textContent=dec?t.toFixed(1):t+'+';clearInterval(id)}},15)})}
+
+// ── REVEAL ────────────────────────────────────────
+function initReveal(){const o=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');o.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(el=>o.observe(el))}
+
+// ── LEGAL ─────────────────────────────────────────
+function openLegal(){document.getElementById('legal-ov').classList.add('show')}
+function closeLegal(){document.getElementById('legal-ov').classList.remove('show')}
+
+// ── HASH ADMIN ────────────────────────────────────
+window.addEventListener('hashchange',()=>{if(location.hash==='#admin')openAdmin()});
+if(location.hash==='#admin')openAdmin();
+
+// ── INIT ──────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  buildTabs();applyFilters();renderFAQ();initReveal();animStats();
+  if(!localStorage.getItem('kg_pop'))setTimeout(()=>document.getElementById('pop-ov').classList.add('show'),3000);
+});
+</script>
+</body>
+</html>
