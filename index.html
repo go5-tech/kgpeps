@@ -993,6 +993,25 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
       <button class="adm-btn" onclick="dlXLS()">📊 Export Excel</button>
       <button class="adm-btn del" onclick="clrLeads()">🗑 Clear All</button>
     </div>
+
+    <!-- CHANGE PASSWORD -->
+    <details style="margin-top:2rem;border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem">
+      <summary style="cursor:pointer;font-weight:700;font-size:.85rem;color:var(--muted);list-style:none;display:flex;align-items:center;gap:.5rem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Change Password
+      </summary>
+      <div style="margin-top:1rem;display:flex;flex-direction:column;gap:.75rem;max-width:340px">
+        <input id="pw-cur" type="password" placeholder="Current password"
+          style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+        <input id="pw-new" type="password" placeholder="New password"
+          style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+        <input id="pw-con" type="password" placeholder="Confirm new password"
+          style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box"
+          onkeydown="if(event.key==='Enter')changeAdminPw()">
+        <button class="adm-btn" style="align-self:flex-start;padding:9px 18px" onclick="changeAdminPw()">Update Password</button>
+        <div id="pw-msg" style="font-size:.8rem;display:none"></div>
+      </div>
+    </details>
   </div>
 </div>
 
@@ -1207,7 +1226,8 @@ function handleNL(e){
 }
 
 // ── ADMIN ─────────────────────────────────────────
-const ADM_PW='KGAdmin@2025';
+const ADM_PW_DEFAULT='KGAdmin@2025';
+function getAdmPw(){return localStorage.getItem('kg_adm_pw')||ADM_PW_DEFAULT}
 function openAdmin(){
   document.getElementById('adm-ov').classList.add('show');
   if(sessionStorage.getItem('kg_auth')==='1'){showDash()}
@@ -1216,11 +1236,24 @@ function openAdmin(){
 function adminLogin(){
   const pw=document.getElementById('adm-pw').value;
   const err=document.getElementById('adm-err');
-  if(pw===ADM_PW){sessionStorage.setItem('kg_auth','1');document.getElementById('adm-pw').value='';err.style.display='none';showDash()}
+  if(pw===getAdmPw()){sessionStorage.setItem('kg_auth','1');document.getElementById('adm-pw').value='';err.style.display='none';showDash()}
   else{err.style.display='block'}
 }
 function adminLogout(){sessionStorage.removeItem('kg_auth');document.getElementById('adm-dash').style.display='none';document.getElementById('adm-login').style.display='';setTimeout(()=>document.getElementById('adm-pw').focus(),100)}
 function closeAdmin(){document.getElementById('adm-ov').classList.remove('show');history.replaceState(null,'',location.pathname)}
+function changeAdminPw(){
+  const cur=document.getElementById('pw-cur').value;
+  const nw=document.getElementById('pw-new').value;
+  const con=document.getElementById('pw-con').value;
+  const msg=document.getElementById('pw-msg');
+  const show=(txt,ok)=>{msg.textContent=txt;msg.style.color=ok?'var(--green)':'#ff6b6b';msg.style.display='block'};
+  if(cur!==getAdmPw()){show('Current password is incorrect.',false);return}
+  if(nw.length<6){show('New password must be at least 6 characters.',false);return}
+  if(nw!==con){show('Passwords do not match.',false);return}
+  localStorage.setItem('kg_adm_pw',nw);
+  document.getElementById('pw-cur').value='';document.getElementById('pw-new').value='';document.getElementById('pw-con').value='';
+  show('Password updated successfully!',true);
+}
 function showDash(){
   const leads=getLeads(),tb=document.getElementById('adm-body');
   tb.innerHTML=leads.length?leads.map((l,i)=>`<tr><td>${i+1}</td><td>${l.name||'—'}</td><td>${l.email||'—'}</td><td>${l.phone||'—'}</td><td>${l.source||'—'}</td><td>${l.date||'—'}</td></tr>`).join(''):'<tr><td colspan="6" style="text-align:center;padding:2rem">No leads yet</td></tr>';
