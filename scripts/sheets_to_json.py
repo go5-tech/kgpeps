@@ -2,11 +2,12 @@ import sys, json, csv, io, requests, re
 from collections import defaultdict
 
 def fetch_csv(url):
-    # Convert Google Sheets URL to CSV export URL
-    m = re.search(r'/d/([a-zA-Z0-9_-]+)', url)
-    if m:
-        sid = m.group(1)
-        url = f'https://docs.google.com/spreadsheets/d/{sid}/export?format=csv'
+    # Leave published /pub? URLs as-is; convert edit URLs to CSV export
+    if '/pub?' not in url:
+        m = re.search(r'/d/(?!e/)([a-zA-Z0-9_-]+)', url)
+        if m:
+            sid = m.group(1)
+            url = f'https://docs.google.com/spreadsheets/d/{sid}/export?format=csv'
     r = requests.get(url, timeout=10)
     r.raise_for_status()
     return r.text
