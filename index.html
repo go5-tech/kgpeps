@@ -1106,11 +1106,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
           </div>
         </div>
         <div>
-          <div style="font-weight:700;font-size:.88rem;margin-bottom:.4rem;color:var(--text)">Deploy Secret</div>
-          <div style="color:var(--muted);font-size:.74rem;margin-bottom:.6rem">Set once to enable Save &amp; Deploy</div>
-          <input id="cfg-ghtoken" type="password" placeholder="Enter deploy secret…"
-            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
-          <button class="adm-btn" style="margin-top:.6rem;padding:8px 16px;font-size:.75rem" onclick="saveAdminSecret()">Save Secret</button>
         </div>
       </div>
     </div>
@@ -1384,16 +1379,8 @@ function saveSettings(){
   showToast('Saving config…');
 }
 const WORKER_URL='https://kgpeps-admin.YOURSUBDOMAIN.workers.dev';
-function saveAdminSecret(){
-  const t=document.getElementById('cfg-ghtoken').value.trim();
-  if(!t){showToast('Enter secret first');return}
-  localStorage.setItem('kg_adm_secret',t);
-  document.getElementById('cfg-ghtoken').value='';
-  showToast('Deploy secret saved!');
-}
 async function ghCommit(filename,content,message){
-  const secret=localStorage.getItem('kg_adm_secret');
-  if(!secret){showToast('Set deploy secret in Security tab first');return false;}
+  const secret=getAdmPw();
   try{
     const res=await fetch(WORKER_URL,{
       method:'POST',
