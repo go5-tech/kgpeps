@@ -18,7 +18,8 @@ def parse(csv_text):
     meta = {}
     for row in reader:
         name = row.get('name', '').strip()
-        if not name:
+        active = row.get('active', 'yes').strip().lower()
+        if not name or active in ('no', 'false', '0', 'inactive', ''):
             continue
         variant = {
             'mg': row.get('size', '').strip(),
