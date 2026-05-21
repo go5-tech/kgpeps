@@ -1,0 +1,393 @@
+[
+  {
+    "id": "bpc-157",
+    "name": "BPC-157",
+    "img": "https://www.corepeptides.in/cdn/shop/files/BPC-157.png?v=1778652786&width=533",
+    "cat": "Recovery",
+    "tgt": "Gut & Joints",
+    "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
+    "variants": [
+      {"mg": "5mg", "price": 4999, "origPrice": 7999},
+      {"mg": "10mg", "price": 8499, "origPrice": 13599}
+    ],
+    "dose": "250–500 mcg/day",
+    "half": "~4h",
+    "purity": "99.9%",
+    "badges": ["top", "sale"],
+    "wa": ""
+  },
+  {
+    "id": "tb-500",
+    "name": "TB-500",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.22PM.jpg?v=1776194801&width=533",
+    "cat": "Recovery",
+    "tgt": "Muscle & Tissue",
+    "desc": "Thymosin Beta-4 fragment. Accelerates muscle repair, reduces DOMS, promotes angiogenesis.",
+    "variants": [
+      {"mg": "5mg", "price": 6499, "origPrice": 10399},
+      {"mg": "10mg", "price": 10999, "origPrice": 17599}
+    ],
+    "dose": "2–2.5 mg 2×/wk",
+    "half": "~24h",
+    "purity": "99.9%",
+    "badges": ["sale"],
+    "wa": ""
+  },
+  {
+    "id": "bpc-157-tb-500",
+    "name": "BPC-157 + TB-500",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Recovery",
+    "tgt": "Ultimate Recovery Stack",
+    "desc": "Gold standard healing stack. Synergistic combo targets gut, muscle, tendon & ligament simultaneously.",
+    "variants": [
+      {"mg": "5mg+5mg", "price": 10999, "origPrice": 17598},
+      {"mg": "10mg+10mg", "price": 18999, "origPrice": 30399}
+    ],
+    "dose": "See individual",
+    "half": "Combo",
+    "purity": "99.9%",
+    "badges": ["top", "sale", "stack"],
+    "wa": ""
+  },
+  {
+    "id": "ll-37",
+    "name": "LL-37",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Immunity",
+    "tgt": "Immune & Wound Healing",
+    "desc": "Host-defence peptide with potent antimicrobial & anti-inflammatory properties. Accelerates wound healing.",
+    "variants": [
+      {"mg": "2mg", "price": 5999, "origPrice": 9599},
+      {"mg": "5mg", "price": 10999, "origPrice": 17599}
+    ],
+    "dose": "100–500 mcg/day",
+    "half": "~2h",
+    "purity": "99.5%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "semax",
+    "name": "Semax",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.31PM.jpg?v=1776194890&width=533",
+    "cat": "Brain",
+    "tgt": "Cognition & Focus",
+    "desc": "ACTH-derived nootropic that upregulates BDNF, enhances working memory, focus, and neuroregeneration.",
+    "variants": [
+      {"mg": "5mg", "price": 4999, "origPrice": 7999},
+      {"mg": "10mg", "price": 8999, "origPrice": 14399}
+    ],
+    "dose": "300–600 mcg/day",
+    "half": "~8h",
+    "purity": "99.9%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "selank",
+    "name": "Selank",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.36PM.jpg?v=1776241384&width=533",
+    "cat": "Brain",
+    "tgt": "Anxiety & Stress",
+    "desc": "Anxiolytic peptide modulating GABA & serotonin. Reduces cortisol, improves mood without sedation.",
+    "variants": [
+      {"mg": "5mg", "price": 4999, "origPrice": 7999},
+      {"mg": "10mg", "price": 9999, "origPrice": 15999}
+    ],
+    "dose": "250–500 mcg/day",
+    "half": "~8h",
+    "purity": "99.9%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "dsip",
+    "name": "DSIP",
+    "img": "https://www.corepeptides.in/cdn/shop/files/ChatGPTImageMay16_2026_03_04_14PM.png?v=1778924069&width=533",
+    "cat": "Brain",
+    "tgt": "Sleep & Recovery",
+    "desc": "Delta Sleep-Inducing Peptide. Promotes deep wave sleep, lowers cortisol, and improves stress resilience.",
+    "variants": [
+      {"mg": "2mg", "price": 3999, "origPrice": 6399},
+      {"mg": "5mg", "price": 7999, "origPrice": 12799}
+    ],
+    "dose": "250 mcg before bed",
+    "half": "~30m",
+    "purity": "99%",
+    "badges": [],
+    "wa": ""
+  },
+  {
+    "id": "dihexa",
+    "name": "Dihexa",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Brain",
+    "tgt": "Memory & Neurogenesis",
+    "desc": "10M× stronger than BDNF on synaptic potentiation. Dramatically improves memory consolidation and recall.",
+    "variants": [
+      {"mg": "5mg", "price": 7999, "origPrice": 12799},
+      {"mg": "10mg", "price": 14999, "origPrice": 23999}
+    ],
+    "dose": "10–15 mg/day oral",
+    "half": "~24h",
+    "purity": "98%",
+    "badges": ["new", "top"],
+    "wa": ""
+  },
+  {
+    "id": "n-acetyl-semax",
+    "name": "N-Acetyl Semax",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.31PM.jpg?v=1776194890&width=533",
+    "cat": "Brain",
+    "tgt": "Enhanced Cognition",
+    "desc": "Acetylated Semax with superior stability & bioavailability. Longer-lasting cognitive enhancement.",
+    "variants": [
+      {"mg": "5mg", "price": 5999, "origPrice": 9599},
+      {"mg": "10mg", "price": 10999, "origPrice": 17599}
+    ],
+    "dose": "300 mcg/day",
+    "half": "~12h",
+    "purity": "99%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "ghk-cu",
+    "name": "GHK-Cu",
+    "img": "https://www.corepeptides.in/cdn/shop/files/GHK_-_CU.jpg?v=1778616817&width=533",
+    "cat": "Skin",
+    "tgt": "Skin & Hair",
+    "desc": "Copper tripeptide stimulating collagen synthesis, activating hair follicles, and delivering anti-aging effects.",
+    "variants": [
+      {"mg": "50mg", "price": 4999, "origPrice": 7999},
+      {"mg": "100mg", "price": 8999, "origPrice": 14399}
+    ],
+    "dose": "1–2 mg/day",
+    "half": "~24h",
+    "purity": "99.9%",
+    "badges": ["top", "sale"],
+    "wa": ""
+  },
+  {
+    "id": "melanotan-ii",
+    "name": "Melanotan II",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.59PM.jpg?v=1776241633&width=533",
+    "cat": "Skin",
+    "tgt": "Tanning & Libido",
+    "desc": "MC1R/MC4R agonist inducing melanogenesis for natural tanning & libido. Minimal UV exposure needed.",
+    "variants": [
+      {"mg": "10mg", "price": 4499, "origPrice": 7199},
+      {"mg": "20mg", "price": 7999, "origPrice": 12799}
+    ],
+    "dose": "0.5–1 mg/day",
+    "half": "~40h",
+    "purity": "99.9%",
+    "badges": [],
+    "wa": ""
+  },
+  {
+    "id": "pt-141",
+    "name": "PT-141",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Skin",
+    "tgt": "Libido & Sexual Health",
+    "desc": "Bremelanotide — MC4R agonist activating sexual desire centrally. Effective for both male & female libido.",
+    "variants": [
+      {"mg": "10mg", "price": 5499, "origPrice": 8799},
+      {"mg": "20mg", "price": 9999, "origPrice": 15999}
+    ],
+    "dose": "1–2 mg as needed",
+    "half": "~17h",
+    "purity": "99%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "cjc-1295",
+    "name": "CJC-1295",
+    "img": "https://www.corepeptides.in/cdn/shop/files/CJC-1295_without_DAC_5mg_a7955602-8c6f-43c3-9b5c-bf893b6e7c00_1.webp?v=1776242002&width=533",
+    "cat": "Hormones",
+    "tgt": "Growth Hormone",
+    "desc": "GHRH analogue for sustained GH pulse amplification. Ideal for body recomposition and anti-aging protocols.",
+    "variants": [
+      {"mg": "5mg", "price": 5499, "origPrice": 8799},
+      {"mg": "10mg", "price": 9999, "origPrice": 15999}
+    ],
+    "dose": "1–2 mg/wk",
+    "half": "~8d",
+    "purity": "99.9%",
+    "badges": ["sale"],
+    "wa": ""
+  },
+  {
+    "id": "ipamorelin",
+    "name": "Ipamorelin",
+    "img": "https://www.corepeptides.in/cdn/shop/files/Ipamorelin_10mg_9680ec8d-a861-480b-9617-0dce361f54fb.webp?v=1776241766&width=533",
+    "cat": "Hormones",
+    "tgt": "GH Secretagogue",
+    "desc": "Cleanest ghrelin mimetic — selectively triggers GH pulses without raising cortisol or prolactin.",
+    "variants": [
+      {"mg": "5mg", "price": 5499, "origPrice": 8799},
+      {"mg": "10mg", "price": 9999, "origPrice": 15999}
+    ],
+    "dose": "200–300 mcg 2–3×/d",
+    "half": "~2h",
+    "purity": "99.9%",
+    "badges": [],
+    "wa": ""
+  },
+  {
+    "id": "hexarelin",
+    "name": "Hexarelin",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Hormones",
+    "tgt": "GH & Cardioprotection",
+    "desc": "Most potent GHRP available. Strong GH stimulation + cardioprotective effects via GHS-R1a binding.",
+    "variants": [
+      {"mg": "2mg", "price": 5499, "origPrice": 8799},
+      {"mg": "5mg", "price": 9999, "origPrice": 15999}
+    ],
+    "dose": "100–200 mcg 2–3×/d",
+    "half": "~70m",
+    "purity": "99%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "sermorelin",
+    "name": "Sermorelin",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Hormones",
+    "tgt": "Anti-Aging GH",
+    "desc": "First 29 amino acids of GHRH. Gentle, natural GH stimulation widely used for anti-aging & sleep quality.",
+    "variants": [
+      {"mg": "2mg", "price": 4999, "origPrice": 7999},
+      {"mg": "5mg", "price": 8999, "origPrice": 14399}
+    ],
+    "dose": "200–500 mcg/night",
+    "half": "~11m",
+    "purity": "99%",
+    "badges": [],
+    "wa": ""
+  },
+  {
+    "id": "kisspeptin",
+    "name": "Kisspeptin",
+    "img": "https://www.corepeptides.in/cdn/shop/files/ChatGPTImageMay16_2026_05_49_55PM.png?v=1778934007&width=533",
+    "cat": "Hormones",
+    "tgt": "LH & Testosterone",
+    "desc": "Neuroendocrine master regulator — triggers LH/FSH surge, supports testosterone & fertility research.",
+    "variants": [
+      {"mg": "5mg", "price": 5499, "origPrice": 8799},
+      {"mg": "10mg", "price": 9999, "origPrice": 15999}
+    ],
+    "dose": "1–10 mcg/kg",
+    "half": "~28m",
+    "purity": "99%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "tesamorelin",
+    "name": "Tesamorelin",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.16PM.jpg?v=1776194678&width=533",
+    "cat": "Fat Loss",
+    "tgt": "Visceral Fat",
+    "desc": "FDA-studied GHRH analogue specifically targeting visceral abdominal adipose tissue with proven clinical results.",
+    "variants": [
+      {"mg": "2mg", "price": 6999, "origPrice": 11199},
+      {"mg": "5mg", "price": 13999, "origPrice": 22399}
+    ],
+    "dose": "1–2 mg/day",
+    "half": "~36m",
+    "purity": "99.9%",
+    "badges": ["top"],
+    "wa": ""
+  },
+  {
+    "id": "aod-9604",
+    "name": "AOD-9604",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Fat Loss",
+    "tgt": "Fat Burning",
+    "desc": "C-terminus fragment of HGH (177-191). Activates fat-burning pathways without growth-promoting side effects.",
+    "variants": [
+      {"mg": "5mg", "price": 4999, "origPrice": 7999},
+      {"mg": "10mg", "price": 8999, "origPrice": 14399}
+    ],
+    "dose": "300 mcg/day",
+    "half": "~30m",
+    "purity": "99%",
+    "badges": ["sale"],
+    "wa": ""
+  },
+  {
+    "id": "retatrutide",
+    "name": "Retatrutide",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.10PM.jpg?v=1776194268&width=533",
+    "cat": "Fat Loss",
+    "tgt": "Weight Management",
+    "desc": "Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17–24% body weight reduction.",
+    "variants": [
+      {"mg": "5mg", "price": 6999, "origPrice": 11199},
+      {"mg": "10mg", "price": 12999, "origPrice": 20799}
+    ],
+    "dose": "2–12 mg/wk",
+    "half": "~6d",
+    "purity": "98%",
+    "badges": ["new", "top"],
+    "wa": ""
+  },
+  {
+    "id": "mots-c",
+    "name": "MOTS-C",
+    "img": "https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.54PM.jpg?v=1776241496&width=533",
+    "cat": "Fat Loss",
+    "tgt": "Mitochondria & Metabolism",
+    "desc": "Mitochondrial-derived peptide activating AMPK, enhancing insulin sensitivity & metabolic flexibility.",
+    "variants": [
+      {"mg": "5mg", "price": 5999, "origPrice": 9599},
+      {"mg": "10mg", "price": 10999, "origPrice": 17599}
+    ],
+    "dose": "5–10 mg 3×/wk",
+    "half": "~24h",
+    "purity": "99%",
+    "badges": ["new"],
+    "wa": ""
+  },
+  {
+    "id": "epithalon",
+    "name": "Epithalon",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Longevity",
+    "tgt": "Anti-Aging & Telomeres",
+    "desc": "Tetrapeptide activating telomerase, extending telomere length, and restoring melatonin production.",
+    "variants": [
+      {"mg": "10mg", "price": 6999, "origPrice": 11199},
+      {"mg": "20mg", "price": 12999, "origPrice": 20799}
+    ],
+    "dose": "5–10 mg/day",
+    "half": "~30m",
+    "purity": "99%",
+    "badges": ["new", "top"],
+    "wa": ""
+  },
+  {
+    "id": "thymosin-alpha-1",
+    "name": "Thymosin Alpha-1",
+    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "cat": "Immunity",
+    "tgt": "Immune Modulation",
+    "desc": "Thymic peptide modulating T-cell activity, enhancing innate immunity, with antiviral properties.",
+    "variants": [
+      {"mg": "5mg", "price": 6499, "origPrice": 10399},
+      {"mg": "10mg", "price": 11999, "origPrice": 19199}
+    ],
+    "dose": "1.6 mg 2×/wk",
+    "half": "~2h",
+    "purity": "99%",
+    "badges": ["new"],
+    "wa": ""
+  }
+]

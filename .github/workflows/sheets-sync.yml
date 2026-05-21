@@ -1,0 +1,32 @@
+name: Sync Google Sheets → products.json
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # every 30 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch & convert sheet
+        env:
+          SHEETS_URL: ${{ vars.SHEETS_CSV_URL }}
+        run: |
+          if [ -z "$SHEETS_URL" ]; then
+            echo "SHEETS_CSV_URL not set, skipping sync"
+            exit 0
+          fi
+          pip install -q requests
+          python3 scripts/sheets_to_json.py "$SHEETS_URL" products.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "sheets-sync[bot]"
+          git config user.email "bot@kgpeps"
+          git diff --quiet products.json || (git add products.json && git commit -m "Auto: sync products from Google Sheets" && git push)
