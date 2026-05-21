@@ -144,6 +144,10 @@ h1.hero-h .gr{background:linear-gradient(120deg,var(--cyan),var(--purple),var(--
 .pchip{font-size:.68rem;color:var(--muted);display:flex;align-items:center;gap:4px}
 .pchip svg{flex-shrink:0}
 .pchip strong{color:rgba(255,255,255,.8);font-weight:600}
+.variant-sel{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem}
+.v-opt{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:5px 11px;font-size:.72rem;cursor:pointer;transition:.2s;color:var(--muted);font-weight:600;user-select:none}
+.v-opt:hover{border-color:var(--cyan);color:var(--cyan)}
+.v-opt.on{border-color:var(--cyan);color:var(--cyan);background:rgba(0,196,167,.1)}
 .pprice{display:flex;flex-direction:column}
 .pold{font-size:.74rem;color:var(--muted);text-decoration:line-through}
 .pnew{font-size:1.2rem;font-weight:900;color:var(--cyan)}
@@ -331,10 +335,21 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
 .toast.show{transform:translateX(0)}
 
 /* ADMIN */
-.admin-ov{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.92);padding:2rem;overflow:auto}
+.admin-ov{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.93);padding:2rem;overflow:auto}
 .admin-ov.show{display:block}
-.adm{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:820px;margin:0 auto;padding:2rem}
+.adm{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:860px;margin:0 auto;padding:2rem}
 .adm h2{color:var(--cyan);margin-bottom:1.4rem;font-size:1.3rem}
+.adm-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+.adm-tab{background:transparent;border:none;border-bottom:2px solid transparent;color:var(--muted);padding:9px 18px;cursor:pointer;font-size:.8rem;font-weight:600;transition:.2s;margin-bottom:-1px}
+.adm-tab:hover{color:var(--text)}
+.adm-tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.adm-panel{display:none}.adm-panel.active{display:block}
+.site-toggle{position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0}
+.site-toggle input{opacity:0;width:0;height:0}
+.site-toggle-sl{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.12);border-radius:26px;transition:.3s}
+.site-toggle-sl::before{content:'';position:absolute;width:20px;height:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s}
+.site-toggle input:checked+.site-toggle-sl{background:var(--cyan)}
+.site-toggle input:checked+.site-toggle-sl::before{transform:translateX(22px)}
 .adm-tbl{width:100%;border-collapse:collapse;margin-bottom:1.4rem;font-size:.79rem}
 .adm-tbl th{background:rgba(0,196,167,.08);color:var(--cyan);padding:.6rem .9rem;text-align:left;font-size:.7rem;letter-spacing:1px;text-transform:uppercase}
 .adm-tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--muted)}
@@ -365,6 +380,23 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
 </style>
 </head>
 <body>
+
+<!-- MAINTENANCE OVERLAY -->
+<div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:#07111a;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem">
+  <svg viewBox="0 0 40 40" fill="none" style="width:64px;height:64px;margin-bottom:1.5rem" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="10,3 30,3 39,20 30,37 10,37 1,20" fill="rgba(0,196,167,.08)" stroke="#00c4a7" stroke-width="1.5"/>
+    <line x1="14" y1="12" x2="14" y2="28" stroke="#00c4a7" stroke-width="2" stroke-linecap="round"/>
+    <line x1="14" y1="12" x2="23" y2="12" stroke="#00c4a7" stroke-width="2" stroke-linecap="round"/>
+    <line x1="23" y1="12" x2="27" y2="17" stroke="#00c4a7" stroke-width="2" stroke-linecap="round"/>
+    <line x1="27" y1="17" x2="23" y2="21" stroke="#00c4a7" stroke-width="2" stroke-linecap="round"/>
+    <line x1="23" y1="21" x2="14" y2="21" stroke="#00c4a7" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="14" cy="12" r="2.2" fill="#00c4a7"/><circle cx="23" cy="12" r="2.2" fill="#00c4a7"/>
+    <circle cx="27" cy="17" r="2.2" fill="#0077b6"/><circle cx="14" cy="28" r="2.2" fill="#00c4a7"/>
+  </svg>
+  <h1 style="font-size:1.8rem;font-weight:900;letter-spacing:3px;background:linear-gradient(130deg,#00c4a7,#0077b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem">PEPTIDE CENTRAL</h1>
+  <p id="maint-msg" style="color:#6b7280;font-size:1rem;max-width:420px;line-height:1.6">We're updating our product catalogue. Back shortly!</p>
+  <p style="color:#374151;font-size:.75rem;margin-top:1.5rem">WhatsApp us at +91 75052 21639 for urgent orders</p>
+</div>
 
 <!-- PROMO BAR -->
 <div class="promo-bar">
@@ -993,38 +1025,94 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
 
   <!-- DASHBOARD (hidden until logged in) -->
   <div class="adm" id="adm-dash" style="display:none">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
-      <h2 style="margin:0">📊 Peptide Central Leads Dashboard</h2>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem">
+      <h2 style="margin:0;font-size:1.1rem">Peptide Central Admin</h2>
       <button class="adm-btn del" style="padding:7px 14px;font-size:.75rem" onclick="adminLogout()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
-        Logout
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg> Logout
       </button>
     </div>
-    <table class="adm-tbl" id="adm-tbl"><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Source</th><th>Date</th></tr></thead><tbody id="adm-body"></tbody></table>
-    <div class="adm-btns">
-      <button class="adm-btn" onclick="dlCSV()">⬇ Export CSV</button>
-      <button class="adm-btn" onclick="dlXLS()">📊 Export Excel</button>
-      <button class="adm-btn del" onclick="clrLeads()">🗑 Clear All</button>
+
+    <!-- TABS -->
+    <div class="adm-tabs">
+      <button class="adm-tab active" onclick="admTab('leads',this)">📋 Leads</button>
+      <button class="adm-tab" onclick="admTab('settings',this)">⚙️ Settings</button>
+      <button class="adm-tab" onclick="admTab('security',this)">🔐 Security</button>
     </div>
 
-    <!-- CHANGE PASSWORD -->
-    <details style="margin-top:2rem;border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem">
-      <summary style="cursor:pointer;font-weight:700;font-size:.85rem;color:var(--muted);list-style:none;display:flex;align-items:center;gap:.5rem">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        Change Password
-      </summary>
-      <div style="margin-top:1rem;display:flex;flex-direction:column;gap:.75rem;max-width:340px">
-        <input id="pw-cur" type="password" placeholder="Current password"
-          style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
-        <input id="pw-new" type="password" placeholder="New password"
-          style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
-        <input id="pw-con" type="password" placeholder="Confirm new password"
-          style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box"
-          onkeydown="if(event.key==='Enter')changeAdminPw()">
-        <button class="adm-btn" style="align-self:flex-start;padding:9px 18px" onclick="changeAdminPw()">Update Password</button>
-        <div id="pw-msg" style="font-size:.8rem;display:none"></div>
+    <!-- LEADS TAB -->
+    <div class="adm-panel active" id="adm-panel-leads">
+      <table class="adm-tbl" id="adm-tbl"><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Source</th><th>Date</th></tr></thead><tbody id="adm-body"></tbody></table>
+      <div class="adm-btns">
+        <button class="adm-btn" onclick="dlCSV()">⬇ Export CSV</button>
+        <button class="adm-btn" onclick="dlXLS()">📊 Export Excel</button>
+        <button class="adm-btn del" onclick="clrLeads()">🗑 Clear All</button>
       </div>
-    </details>
+    </div>
+
+    <!-- SETTINGS TAB -->
+    <div class="adm-panel" id="adm-panel-settings">
+      <div style="display:flex;flex-direction:column;gap:1.2rem;max-width:460px">
+
+        <!-- SITE ON/OFF -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem">
+          <div>
+            <div style="font-weight:700;font-size:.9rem">Site Active</div>
+            <div style="color:var(--muted);font-size:.75rem;margin-top:2px">Toggle off to show maintenance page</div>
+          </div>
+          <label class="site-toggle">
+            <input type="checkbox" id="cfg-active" checked onchange="toggleSite(this)">
+            <span class="site-toggle-sl"></span>
+          </label>
+        </div>
+
+        <div>
+          <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem">WhatsApp Number (with country code, no +)</label>
+          <input id="cfg-wa" type="text" value="917505221639" placeholder="917505221639"
+            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+        </div>
+
+        <div>
+          <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem">Maintenance Message</label>
+          <input id="cfg-maint" type="text" value="We're updating our product catalogue. Back shortly!"
+            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+        </div>
+
+        <div>
+          <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem">Google Sheets CSV URL</label>
+          <input id="cfg-sheets" type="text" placeholder="https://docs.google.com/..."
+            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+        </div>
+
+        <button class="adm-btn" style="align-self:flex-start;padding:10px 22px" onclick="saveSettings()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17,21 17,13 7,13 7,21"/><polyline points="7,3 7,8 15,8"/></svg>
+          Save &amp; Deploy
+        </button>
+        <div id="cfg-msg" style="font-size:.8rem;display:none"></div>
+      </div>
+    </div>
+
+    <!-- SECURITY TAB -->
+    <div class="adm-panel" id="adm-panel-security">
+      <div style="display:flex;flex-direction:column;gap:1.4rem;max-width:400px">
+        <div>
+          <div style="font-weight:700;font-size:.88rem;margin-bottom:.8rem;color:var(--text)">Change Password</div>
+          <div style="display:flex;flex-direction:column;gap:.65rem">
+            <input id="pw-cur" type="password" placeholder="Current password" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+            <input id="pw-new" type="password" placeholder="New password" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+            <input id="pw-con" type="password" placeholder="Confirm new password" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box" onkeydown="if(event.key==='Enter')changeAdminPw()">
+            <button class="adm-btn" style="align-self:flex-start;padding:9px 18px" onclick="changeAdminPw()">Update Password</button>
+            <div id="pw-msg" style="font-size:.8rem;display:none"></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:.88rem;margin-bottom:.4rem;color:var(--text)">GitHub Token</div>
+          <div style="color:var(--muted);font-size:.74rem;margin-bottom:.6rem">Required for Save &amp; Deploy to work</div>
+          <input id="cfg-ghtoken" type="password" placeholder="ghp_..."
+            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+          <button class="adm-btn" style="margin-top:.6rem;padding:8px 16px;font-size:.75rem" onclick="saveGHToken()">Save Token</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1125,17 +1213,22 @@ function applyFilters(){
 function renderPCards(){
   const g=document.getElementById('pgrid');
   document.getElementById('pcount').textContent=`${lastFiltered.length} peptide${lastFiltered.length!==1?'s':''}`;
-  if(!lastFiltered.length){g.innerHTML='<div class="no-res">🔬 No peptides match your search. Try a different filter.</div>';return}
+  if(!lastFiltered.length){g.innerHTML='<div class="no-res">No peptides match your search. Try a different filter.</div>';return}
+  const WA=document.getElementById('cfg-wa')?document.getElementById('cfg-wa').value||'917505221639':'917505221639';
   g.innerHTML=lastFiltered.map((p,i)=>{
-    const waMsg=encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' (₹'+p.p+'). Please share payment details.');
-    return`<div class="pcard rv" style="animation-delay:${i*.035}s">
-      <img class="pcard-img" src="${p.img}" alt="${p.name}" onerror="this.src='';this.style.cssText='display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--card2)';this.outerHTML='<div class=pcard-img style=display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--card2)>💊</div>'">
+    const variants=p.variants&&p.variants.length?p.variants:[{mg:p.dose||'',price:p.p||0,origPrice:p.op||0}];
+    const v0=variants[0];
+    const varSel=variants.length>1?`<div class="variant-sel">${variants.map((v,vi)=>`<span class="v-opt${vi===0?' on':''}" onclick="pickVariant(this,'${(p.id||p.name).replace(/'/g,'\\'')}',${vi})">${v.mg}</span>`).join('')}</div>`:'<div class="variant-sel"><span class="v-opt on">'+(v0.mg||'')+'</span></div>';
+    const waNum=p.wa||WA;
+    const waMsg0=encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
+    return`<div class="pcard rv" style="animation-delay:${i*.035}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
+      <img class="pcard-img" src="${p.img||''}" alt="${p.name}" onerror="this.outerHTML='<div class=pcard-img style=display:flex;align-items:center;justify-content:center;font-size:2.5rem>🧪</div>'">
       <div class="pcard-body">
         <div class="pbadges">
-          ${p.badges.includes('sale')?'<span class="badge bs">Sale</span>':''}
-          ${p.badges.includes('new')?'<span class="badge bn">New</span>':''}
-          ${p.badges.includes('top')?'<span class="badge bt"><svg width="11" height="11" viewBox="0 0 24 24" fill="#f5c518"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg> Best Seller</span>':''}
-          ${p.badges.includes('stack')?'<span class="badge bst">Stack</span>':''}
+          ${(p.badges||[]).includes('sale')?'<span class="badge bs">Sale</span>':''}
+          ${(p.badges||[]).includes('new')?'<span class="badge bn">New</span>':''}
+          ${(p.badges||[]).includes('top')?'<span class="badge bt"><svg width="11" height="11" viewBox="0 0 24 24" fill="#f5c518"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg> Best Seller</span>':''}
+          ${(p.badges||[]).includes('stack')?'<span class="badge bst">Stack</span>':''}
         </div>
         <div class="pname">${p.name}</div>
         <div class="ptarget"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="var(--cyan)" stroke="none"/></svg> ${p.tgt}</div>
@@ -1147,13 +1240,14 @@ function renderPCards(){
         </div>
       </div>
       <div class="pcard-foot">
+        ${varSel}
         <div class="pprice">
-          <span class="pold">₹${p.op.toLocaleString('en-IN')}</span>
-          <span class="pnew">₹${p.p.toLocaleString('en-IN')}</span>
+          <span class="pold">₹${v0.origPrice.toLocaleString('en-IN')}</span>
+          <span class="pnew">₹${v0.price.toLocaleString('en-IN')}</span>
         </div>
         <div class="pbtns">
-          <button class="pbtn" onclick="buyNow('${p.name}',${p.p})">Buy Now</button>
-          <a class="pbtn pbtn-wa" href="https://wa.me/917505221639?text=${waMsg}" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.523 5.824L0 24l6.318-1.498A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.384l-.36-.214-3.742.887.934-3.638-.235-.374A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg> WhatsApp</a>
+          <button class="pbtn pbtn-buy" onclick="buyNow('${p.name.replace(/'/g,"\\'")}','${v0.mg}',${v0.price},'${waNum}')">Buy Now</button>
+          <a class="pbtn pbtn-wa" href="https://wa.me/${waNum}?text=${waMsg0}" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.523 5.824L0 24l6.318-1.498A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.384l-.36-.214-3.742.887.934-3.638-.235-.374A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg> WhatsApp</a>
         </div>
       </div>
     </div>`;
@@ -1162,10 +1256,24 @@ function renderPCards(){
   initReveal();
 }
 
-function buyNow(name,price){
-  const msg=encodeURIComponent(`Hi Peptide Central! I want to buy ${name} (₹${price}). Please confirm availability and share payment details.`);
-  window.open(`https://wa.me/917505221639?text=${msg}`,'_blank');
-  showToast(`Opening WhatsApp for ${name}…`);
+function pickVariant(el,pid,vi){
+  const card=el.closest('.pcard');
+  const variants=JSON.parse(card.dataset.variants);
+  const v=variants[vi];
+  const waNum=card.dataset.wa||'917505221639';
+  const name=card.querySelector('.pname').textContent;
+  card.querySelectorAll('.v-opt').forEach((o,i)=>o.classList.toggle('on',i===vi));
+  card.querySelector('.pold').textContent='₹'+v.origPrice.toLocaleString('en-IN');
+  card.querySelector('.pnew').textContent='₹'+v.price.toLocaleString('en-IN');
+  card.querySelector('.pbtn-buy').onclick=()=>buyNow(name,v.mg,v.price,waNum);
+  card.querySelector('.pbtn-wa').href='https://wa.me/'+waNum+'?text='+encodeURIComponent('Hi Peptide Central! I want to order '+name+' '+v.mg+' (₹'+v.price+'). Please share payment details.');
+}
+
+function buyNow(name,mg,price,wa){
+  const waNum=wa||'917505221639';
+  const msg=encodeURIComponent('Hi Peptide Central! I want to buy '+name+' '+mg+' (₹'+price+'). Please confirm availability and share payment details.');
+  window.open('https://wa.me/'+waNum+'?text='+msg,'_blank');
+  showToast('Opening WhatsApp for '+name+' '+mg+'…');
 }
 
 // ── BODY MAP ─────────────────────────────────────
@@ -1267,9 +1375,63 @@ function changeAdminPw(){
   document.getElementById('pw-cur').value='';document.getElementById('pw-new').value='';document.getElementById('pw-con').value='';
   show('Password updated successfully!',true);
 }
+function admTab(t,btn){
+  document.querySelectorAll('.adm-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.adm-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('adm-panel-'+t).classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+function toggleSite(cb){
+  const cfg=JSON.parse(localStorage.getItem('kg_cfg')||'{}');
+  cfg.siteActive=cb.checked;
+  localStorage.setItem('kg_cfg',JSON.stringify(cfg));
+  const overlay=document.getElementById('maintenance-overlay');
+  if(overlay)overlay.style.display=cb.checked?'none':'flex';
+}
+function saveSettings(){
+  const active=document.getElementById('cfg-active').checked;
+  const wa=document.getElementById('cfg-wa').value.trim();
+  const maint=document.getElementById('cfg-maint').value.trim();
+  const sheets=document.getElementById('cfg-sheets').value.trim();
+  const cfg={siteActive:active,siteName:'Peptide Central',tagline:'Research-Grade Peptides in India',waNumber:wa,maintenanceMsg:maint,sheetsUrl:sheets};
+  localStorage.setItem('kg_cfg',JSON.stringify(cfg));
+  const msg=document.getElementById('cfg-msg');
+  ghCommit('config.json',cfg,'Admin: update site config').then(ok=>{
+    msg.style.display='block';
+    msg.style.color=ok?'var(--green)':'#ff6b6b';
+    msg.textContent=ok?'Saved! Site deploying in ~60s…':'Save failed — check GitHub token in Security tab';
+    setTimeout(()=>msg.style.display='none',5000);
+  });
+  showToast('Saving config…');
+}
+function saveGHToken(){
+  const t=document.getElementById('cfg-ghtoken').value.trim();
+  if(!t){showToast('Enter a token first');return}
+  localStorage.setItem('kg_gh_token',t);
+  document.getElementById('cfg-ghtoken').value='';
+  showToast('Token saved!');
+}
+async function ghCommit(filename,content,message){
+  const token=localStorage.getItem('kg_gh_token');
+  if(!token){showToast('Add GitHub token in Security tab first');return false;}
+  const repo='go5-tech/kgpeps';
+  try{
+    const getRes=await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`,{headers:{Authorization:`token ${token}`,Accept:'application/vnd.github.v3+json'}});
+    const fileData=await getRes.json();
+    const body={message,content:btoa(unescape(encodeURIComponent(typeof content==='string'?content:JSON.stringify(content,null,2)))),sha:fileData.sha};
+    const putRes=await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`,{method:'PUT',headers:{Authorization:`token ${token}`,'Content-Type':'application/json',Accept:'application/vnd.github.v3+json'},body:JSON.stringify(body)});
+    return putRes.ok;
+  }catch(e){return false;}
+}
 function showDash(){
   const leads=getLeads(),tb=document.getElementById('adm-body');
   tb.innerHTML=leads.length?leads.map((l,i)=>`<tr><td>${i+1}</td><td>${l.name||'—'}</td><td>${l.email||'—'}</td><td>${l.phone||'—'}</td><td>${l.source||'—'}</td><td>${l.date||'—'}</td></tr>`).join(''):'<tr><td colspan="6" style="text-align:center;padding:2rem">No leads yet</td></tr>';
+  // populate settings from stored config
+  const cfg=JSON.parse(localStorage.getItem('kg_cfg')||'{}');
+  if(document.getElementById('cfg-active'))document.getElementById('cfg-active').checked=cfg.siteActive!==false;
+  if(cfg.waNumber&&document.getElementById('cfg-wa'))document.getElementById('cfg-wa').value=cfg.waNumber;
+  if(cfg.maintenanceMsg&&document.getElementById('cfg-maint'))document.getElementById('cfg-maint').value=cfg.maintenanceMsg;
+  if(cfg.sheetsUrl&&document.getElementById('cfg-sheets'))document.getElementById('cfg-sheets').value=cfg.sheetsUrl;
   document.getElementById('adm-login').style.display='none';document.getElementById('adm-dash').style.display='';
 }
 function dlCSV(){
