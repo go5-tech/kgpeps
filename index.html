@@ -396,6 +396,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5r
   <h1 style="font-size:1.8rem;font-weight:900;letter-spacing:3px;background:linear-gradient(130deg,#00c4a7,#0077b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem">PEPTIDE CENTRAL</h1>
   <p id="maint-msg" style="color:#6b7280;font-size:1rem;max-width:420px;line-height:1.6">We're updating our product catalogue. Back shortly!</p>
   <p style="color:#374151;font-size:.75rem;margin-top:1.5rem">WhatsApp us at +91 75052 21639 for urgent orders</p>
+  <a href="#admin" style="color:#374151;font-size:.7rem;margin-top:2rem;text-decoration:none" onclick="document.getElementById('maintenance-overlay').style.display='none'">Admin</a>
 </div>
 
 <!-- PROMO BAR -->
@@ -1451,7 +1452,7 @@ if(location.hash==='#admin')openAdmin();
 // ── INIT ──────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
   const cfg=JSON.parse(localStorage.getItem('kg_cfg')||'{}');
-  if(cfg.siteActive===false){
+  if(cfg.siteActive===false&&window.location.hash!=='#admin'){
     const o=document.getElementById('maintenance-overlay');
     if(o){o.style.display='flex';if(cfg.maintenanceMsg)document.getElementById('maint-msg').textContent=cfg.maintenanceMsg;}
   }
@@ -1460,7 +1461,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     fetch('config.json').then(r=>r.json()).catch(()=>null)
   ]).then(([pdata,remCfg])=>{
     if(pdata&&pdata.length)prods=pdata;
-    if(remCfg&&cfg.siteActive===undefined&&remCfg.siteActive===false){
+    if(remCfg&&cfg.siteActive===undefined&&remCfg.siteActive===false&&window.location.hash!=='#admin'){
       const o=document.getElementById('maintenance-overlay');
       if(o){o.style.display='flex';if(remCfg.maintenanceMsg)document.getElementById('maint-msg').textContent=remCfg.maintenanceMsg;}
     }
