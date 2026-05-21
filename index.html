@@ -1194,7 +1194,9 @@ function renderPCards(){
   g.innerHTML=lastFiltered.map((p,i)=>{
     const variants=p.variants&&p.variants.length?p.variants:[{mg:p.dose||'',price:p.p||0,origPrice:p.op||0}];
     const v0=variants[0];
-    const varSel=variants.length>1?`<div class="variant-sel">${variants.map((v,vi)=>`<span class="v-opt${vi===0?' on':''}" onclick="pickVariant(this,'${(p.id||p.name).replace(/'/g,'\\'')}',${vi})">${v.mg}</span>`).join('')}</div>`:'<div class="variant-sel"><span class="v-opt on">'+(v0.mg||'')+'</span></div>';
+    const pid=(p.id||p.name).replace(/'/g,"\\'");
+    const pills=variants.map((v,vi)=>'<span class="v-opt'+(vi===0?' on':'')+'" onclick="pickVariant(this,\''+pid+'\','+vi+')">'+v.mg+'</span>').join('');
+    const varSel='<div class="variant-sel">'+pills+'</div>';
     const waNum=p.wa||WA;
     const waMsg0=encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
     return`<div class="pcard rv" style="animation-delay:${i*.035}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
