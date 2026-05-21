@@ -405,27 +405,5 @@
         "origPrice": 7999
       }
     ]
-  },
-  {
-    "id": "ss-31",
-    "name": "SS-31",
-    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
-    "cat": "Longevity",
-    "tgt": "Mitochondrial Support.",
-    "desc": "Szeto-Schiller peptide targeting mitochondrial inner membrane. Researched for energy production and cellular protection.",
-    "dose": "1â3 mg/day",
-    "half": "~4h",
-    "purity": "99%",
-    "badges": [
-      "new"
-    ],
-    "wa": "",
-    "variants": [
-      {
-        "mg": "10mg",
-        "price": 3999,
-        "origPrice": 5999
-      }
-    ]
   }
 ]
