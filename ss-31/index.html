@@ -99,6 +99,7 @@
 
 
 
+
 </head>
 <body>
 <nav class="pc-nav" id="pc-nav">
@@ -226,6 +227,13 @@
   </div>
 </div>
 
+<section class="ymal-section" id="ymal-section" style="display:none">
+  <div class="ymal-hd">
+    <h2>You May Also Like</h2>
+  </div>
+  <div class="ymal-grid" id="ymal-grid"></div>
+</section>
+
 <footer class="pc-footer">
   <div class="pc-footer-grid">
     <div class="pc-footer-col">
@@ -284,7 +292,7 @@
 </div>
 <script src="/cart.js"></script>
 <script>
-  var _pdv=[{"mg":"10mg","price":4999,"origPrice":5999}],_pdn="SS-31",_pid="ss-31",_pimg="https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553";
+  var _pdv=[{"mg":"10mg","price":4999,"origPrice":5999}],_pdn="SS-31",_pid="ss-31",_pimg="https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",_pcat="Longevity";
   function pdCurVi(){var vi=Array.from(document.querySelectorAll('.pd-var')).findIndex(function(e){return e.classList.contains('active')});return vi<0?0:vi;}
   function pdSyncCartBtn(){
     var vi=pdCurVi();
@@ -322,7 +330,28 @@
     if(window.pcUpdateCartFromStorage)window.pcUpdateCartFromStorage();
     pdSyncCartBtn();
   }
-  document.addEventListener('DOMContentLoaded',pdSyncCartBtn);
+  document.addEventListener('DOMContentLoaded',function(){
+    pdSyncCartBtn();
+    fetch('/products.json').then(function(r){return r.json();}).then(function(all){
+      var related=all.filter(function(p){return p.id!==_pid&&p.cat===_pcat;});
+      var others=all.filter(function(p){return p.id!==_pid&&p.cat!==_pcat;});
+      related=related.concat(others).slice(0,4);
+      if(!related.length)return;
+      var html=related.map(function(p){
+        var v0=p.variants[0];
+        var img=p.img?(p.img.startsWith('http')||p.img.startsWith('/')?p.img:'/'+p.img):'';
+        return '<a href="/'+p.id+'/" class="ymal-card">'
+          +'<div class="ymal-img-wrap">'+(img?'<img src="'+img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display='none'">':'')+'</div>'
+          +'<div class="ymal-body"><div class="ymal-cat">'+p.cat+'</div>'
+          +'<div class="ymal-name">'+p.name+'</div>'
+          +'<div class="ymal-price">from ₹'+v0.price.toLocaleString('en-IN')+'</div>'
+          +'</div></a>';
+      }).join('');
+      var sec=document.getElementById('ymal-section');
+      document.getElementById('ymal-grid').innerHTML=html;
+      sec.style.display='block';
+    }).catch(function(){});
+  });
 </script>
 <div class="pd-cart-toast" id="pd-cart-toast" style="display:none">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>

@@ -255,7 +255,7 @@ function buildProductScript(p) {
     pdSyncCartBtn();
   }` : '';
   return `<script>
-  var _pdv=${varData},_pdn=${JSON.stringify(p.name)},_pid=${JSON.stringify(p.id)},_pimg=${JSON.stringify(imgSrc)};${selVarFn}
+  var _pdv=${varData},_pdn=${JSON.stringify(p.name)},_pid=${JSON.stringify(p.id)},_pimg=${JSON.stringify(imgSrc)},_pcat=${JSON.stringify(p.cat)};${selVarFn}
   function pdCurVi(){var vi=Array.from(document.querySelectorAll('.pd-var')).findIndex(function(e){return e.classList.contains('active')});return vi<0?0:vi;}
   function pdSyncCartBtn(){
     var vi=pdCurVi();
@@ -293,7 +293,28 @@ function buildProductScript(p) {
     if(window.pcUpdateCartFromStorage)window.pcUpdateCartFromStorage();
     pdSyncCartBtn();
   }
-  document.addEventListener('DOMContentLoaded',pdSyncCartBtn);
+  document.addEventListener('DOMContentLoaded',function(){
+    pdSyncCartBtn();
+    fetch('/products.json').then(function(r){return r.json();}).then(function(all){
+      var related=all.filter(function(p){return p.id!==_pid&&p.cat===_pcat;});
+      var others=all.filter(function(p){return p.id!==_pid&&p.cat!==_pcat;});
+      related=related.concat(others).slice(0,4);
+      if(!related.length)return;
+      var html=related.map(function(p){
+        var v0=p.variants[0];
+        var img=p.img?(p.img.startsWith('http')||p.img.startsWith('/')?p.img:'/'+p.img):'';
+        return '<a href="/'+p.id+'/" class="ymal-card">'
+          +'<div class="ymal-img-wrap">'+(img?'<img src="'+img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\'">':'')+'</div>'
+          +'<div class="ymal-body"><div class="ymal-cat">'+p.cat+'</div>'
+          +'<div class="ymal-name">'+p.name+'</div>'
+          +'<div class="ymal-price">from ₹'+v0.price.toLocaleString('en-IN')+'</div>'
+          +'</div></a>';
+      }).join('');
+      var sec=document.getElementById('ymal-section');
+      document.getElementById('ymal-grid').innerHTML=html;
+      sec.style.display='block';
+    }).catch(function(){});
+  });
 <\/script>`;
 }
 
@@ -328,6 +349,13 @@ ${contentInner}
     <a class="btn-wa" href="https://wa.me/${WA_NUM}?text=${waOrderMsg}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem">${WA_SVG18} Order ${p.name} on WhatsApp</a>
   </div>
 </div>
+
+<section class="ymal-section" id="ymal-section" style="display:none">
+  <div class="ymal-hd">
+    <h2>You May Also Like</h2>
+  </div>
+  <div class="ymal-grid" id="ymal-grid"></div>
+</section>
 
 ${NEW_FOOTER}
 ${productScript}

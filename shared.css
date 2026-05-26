@@ -361,10 +361,24 @@ article a:hover{text-decoration:underline}
 .pd-qty-btn{background:#f1f5f9;border:1px solid #e2e8f0;color:#374151;width:32px;height:32px;border-radius:8px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;padding:0;line-height:1}
 .pd-qty-btn:hover{border-color:var(--cyan);color:var(--cyan)}
 .pd-qty-num{font-size:1rem;font-weight:800;color:#0f172a;min-width:28px;text-align:center}
+.ymal-section{max-width:1120px;margin:0 auto;padding:2.5rem 1.5rem 3.5rem}
+.ymal-hd{margin-bottom:1.5rem}
+.ymal-hd h2{font-size:1.3rem;font-weight:900;color:#0f172a}
+.ymal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.ymal-card{text-decoration:none;color:inherit;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;transition:.25s;display:block}
+.ymal-card:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 6px 24px rgba(29,78,216,.1)}
+.ymal-img-wrap{height:150px;overflow:hidden;background:#f1f5f9;display:flex;align-items:center;justify-content:center}
+.ymal-img-wrap img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.ymal-card:hover .ymal-img-wrap img{transform:scale(1.05)}
+.ymal-body{padding:.85rem 1rem}
+.ymal-cat{font-size:.66rem;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.25rem}
+.ymal-name{font-weight:800;font-size:.88rem;color:#0f172a;margin-bottom:.4rem;line-height:1.35}
+.ymal-price{font-size:.85rem;font-weight:700;color:#1d4ed8}
 @media(max-width:700px){
   .pd-hero{grid-template-columns:1fr;gap:1.8rem;padding:1rem 1rem 2rem}
   .pd-col-info h1{font-size:1.5rem}
   .pd-price-now{font-size:1.7rem}
   .pd-badges-row{grid-template-columns:repeat(4,1fr);gap:.4rem}
   .pd-badge-item{font-size:.65rem;padding:.45rem .4rem}
+  .ymal-grid{grid-template-columns:repeat(2,1fr)}
 }
