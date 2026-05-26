@@ -180,10 +180,10 @@ function buildHero(p) {
       ${imgHtml}
     </div>
     <div class="pd-badges-row">
-      <div class="pd-badge-item">✅ HPLC Verified</div>
-      <div class="pd-badge-item">📄 COA Included</div>
-      <div class="pd-badge-item">🚚 Pan-India</div>
-      <div class="pd-badge-item">💳 COD Available</div>
+      <div class="pd-badge-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>HPLC Verified</div>
+      <div class="pd-badge-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>COA Included</div>
+      <div class="pd-badge-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pan-India</div>
+      <div class="pd-badge-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>COD Available</div>
     </div>
   </div>
 
@@ -205,7 +205,7 @@ function buildHero(p) {
     <a class="pd-btn-order" id="pd-wa-btn" href="https://wa.me/${WA_NUM}?text=${waMsg0}" target="_blank" rel="noopener">
       ${WA_SVG20} Order ${p.name} on WhatsApp
     </a>
-    <p class="pd-ship-note">🚀 Ships within 24h &nbsp;·&nbsp; COD Available &nbsp;·&nbsp; Discreet Packaging</p>
+    <p class="pd-ship-note">Ships within 24h &nbsp;·&nbsp; COD Available &nbsp;·&nbsp; Discreet Packaging</p>
 
     <div class="pd-meta-row">
       <div class="pd-meta-item"><strong>Dose</strong>${p.dose}</div>
