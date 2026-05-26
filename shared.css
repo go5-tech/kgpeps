@@ -328,7 +328,7 @@ article a:hover{text-decoration:underline}
 /* ── PRODUCT PAGE – SHOPIFY STYLE ───────────────── */
 .pd-hero{max-width:1120px;margin:0 auto;padding:2rem 1.5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 .pd-img-wrap{position:relative;background:linear-gradient(135deg,#f1f5f9,#e8effc);border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0}
-.pd-img-wrap img{width:100%;height:100%;object-fit:cover;border-radius:20px}
+.pd-img-wrap img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:20px}
 .pd-img-fb{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;width:100%;height:100%}
 .pd-img-fb .pd-fb-abbr{font-size:4rem;font-weight:900;color:var(--cyan);line-height:1;letter-spacing:-.03em}
 .pd-img-fb .pd-fb-cat{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;margin-top:.6rem}
