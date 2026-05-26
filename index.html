@@ -178,6 +178,8 @@ h1.hero-h .gr{color:var(--cyan)}
 .btn-p:hover{background:var(--purple);transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,78,216,.35)}
 .btn-o{border:1px solid #e5e7eb;color:#374151;padding:13px 26px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.88rem;transition:.25s;background:#f8fafc}
 .btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-wa-hero{background:linear-gradient(135deg,#25d366,#1a9e4e);color:#fff;padding:13px 26px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.88rem;transition:.25s;display:inline-flex;align-items:center;gap:7px}
+.btn-wa-hero:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
 @keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:768px){#hero{grid-template-columns:1fr}.hero-content{padding:6rem 5% 3rem}.hero-panel{display:none}}
 
@@ -608,7 +610,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
     </div>
     <div class="hero-ctas">
       <a href="#products" class="btn-p">Shop Now</a>
-      <a href="https://wa.me/919758888951?text=Hi%20Peptide Central%2C%20I%27d%20like%20to%20order" target="_blank" class="btn-o">💬 WhatsApp Us</a>
+      <a href="https://wa.me/919758888951?text=Hi%20Peptide Central%2C%20I%27d%20like%20to%20order" target="_blank" class="btn-wa-hero"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg> WhatsApp Us</a>
     </div>
   </div>
   <div class="hero-panel">
@@ -640,6 +642,22 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
   </div>
 </div>
 
+
+<!-- TOP SELLERS -->
+<span id="products" style="display:block;height:0;visibility:hidden"></span>
+<section class="section" id="top-sellers">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Best Sellers</div>
+    <h2 class="sec-title">Top Selling Peptides</h2>
+    <p class="sec-desc">Our most popular research peptides — independently HPLC verified, shipped pan-India.</p>
+  </div>
+  <div class="pgrid" id="ts-grid"></div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="/products/" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--cyan);color:#fff;font-weight:700;padding:14px 32px;border-radius:10px;font-size:.95rem;text-decoration:none;transition:.25s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      View All 18 Peptides →
+    </a>
+  </div>
+</section>
 <!-- TRANSFORM YOUR BODY -->
 <section class="section" id="transform">
   <div class="sec-hd rv">
@@ -678,22 +696,6 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
         <span class="tf-stat">JOINT REPAIR</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TOP SELLERS -->
-<span id="products" style="display:block;height:0;visibility:hidden"></span>
-<section class="section" id="top-sellers">
-  <div class="sec-hd rv">
-    <div class="sec-tag">Best Sellers</div>
-    <h2 class="sec-title">Top Selling Peptides</h2>
-    <p class="sec-desc">Our most popular research peptides — independently HPLC verified, shipped pan-India.</p>
-  </div>
-  <div class="pgrid" id="ts-grid"></div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <a href="/products/" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--cyan);color:#fff;font-weight:700;padding:14px 32px;border-radius:10px;font-size:.95rem;text-decoration:none;transition:.25s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
-      View All 18 Peptides →
-    </a>
   </div>
 </section>
 
@@ -1436,7 +1438,7 @@ function renderTopSellers(){
           ${v0.origPrice>v0.price?`<span class="pold">₹${v0.origPrice.toLocaleString('en-IN')}</span>`:''}
         </div>
         <div class="pbtns">
-          <div class="pc-cb" data-pid="${pid}"><button class="pbtn pbtn-cart" onclick="addToCart('${pid}')">Add to Cart</button></div>
+          <div class="pc-cb" data-pid="${pid}"><button class="pbtn pbtn-cart" onclick="addToCart('${pid}',this)">Add to Cart</button></div>
           <a class="pbtn pbtn-wa" href="https://wa.me/${waNum}?text=${waMsg0}" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.523 5.824L0 24l6.318-1.498A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.384l-.36-.214-3.742.887.934-3.638-.235-.374A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg> WhatsApp</a>
         </div>
       </div>
@@ -1479,7 +1481,7 @@ function renderPCards(){
           ${v0.origPrice>v0.price?`<span class="pold">₹${v0.origPrice.toLocaleString('en-IN')}</span>`:''}
         </div>
         <div class="pbtns">
-          <div class="pc-cb" data-pid="${pid}"><button class="pbtn pbtn-cart" onclick="addToCart('${pid}')">Add to Cart</button></div>
+          <div class="pc-cb" data-pid="${pid}"><button class="pbtn pbtn-cart" onclick="addToCart('${pid}',this)">Add to Cart</button></div>
           <a class="pbtn pbtn-wa" href="https://wa.me/${waNum}?text=${waMsg0}" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.523 5.824L0 24l6.318-1.498A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.384l-.36-.214-3.742.887.934-3.638-.235-.374A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg> WhatsApp</a>
         </div>
       </div>
@@ -1696,8 +1698,8 @@ function closeLegal(){document.getElementById('legal-ov').classList.remove('show
 let cart=[];
 function openCart(){document.getElementById('cart-ov').classList.add('show');document.getElementById('cart-panel').classList.add('show');renderCart()}
 function closeCart(){document.getElementById('cart-ov').classList.remove('show');document.getElementById('cart-panel').classList.remove('show')}
-function addToCart(pid){
-  const card=document.querySelector(`.pcard[data-pid="${pid}"]`);
+function addToCart(pid,btn){
+  const card=btn?btn.closest('.pcard'):document.querySelector('.pcard[data-pid="'+pid+'"]');
   if(!card)return;
   const variants=JSON.parse(card.dataset.variants);
   const vi=Array.from(card.querySelectorAll('.v-opt')).findIndex(el=>el.classList.contains('on'));
@@ -1712,16 +1714,16 @@ function addToCart(pid){
   showToast('Added to cart!');
 }
 function syncCardBtn(pid){
-  const card=document.querySelector('.pcard[data-pid="'+pid+'"]');
-  if(!card)return;
-  const vi=Array.from(card.querySelectorAll('.v-opt')).findIndex(el=>el.classList.contains('on'));
-  const idx=vi>=0?vi:0;
-  const ex=cart.find(i=>i.pid===pid&&i.vi===idx);
   document.querySelectorAll('.pc-cb[data-pid="'+pid+'"]').forEach(ctl=>{
+    const card=ctl.closest('.pcard');
+    if(!card)return;
+    const vi=Array.from(card.querySelectorAll('.v-opt')).findIndex(el=>el.classList.contains('on'));
+    const idx=vi>=0?vi:0;
+    const ex=cart.find(i=>i.pid===pid&&i.vi===idx);
     if(ex&&ex.qty>0){
       ctl.innerHTML='<div class="pbtn-incart"><button class="pbtn-incart-btn" onclick="cardCartDec(\''+pid+'\','+idx+')">−</button><span class="pbtn-incart-qty">'+ex.qty+'</span><button class="pbtn-incart-btn" onclick="cardCartInc(\''+pid+'\','+idx+')">+</button></div>';
     }else{
-      ctl.innerHTML='<button class="pbtn pbtn-cart" onclick="addToCart(\''+pid+'\')">Add to Cart</button>';
+      ctl.innerHTML='<button class="pbtn pbtn-cart" onclick="addToCart(\''+pid+'\',this)">Add to Cart</button>';
     }
   });
 }
