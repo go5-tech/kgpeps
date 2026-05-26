@@ -564,8 +564,8 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
   </div>
 </section>
 
-<!-- BODY MAP -->
-<section class="section" id="bodymap">
+<!-- BODY MAP PLACEHOLDER (moved below testimonials) -->
+<section class="section" style="display:none">
   <div class="sec-hd rv">
     <div class="sec-tag">Interactive</div>
     <h2 class="sec-title">Peptide Body Map</h2>
@@ -862,6 +862,82 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
       <div class="tstars">★★★★★</div>
       <p class="ttext">"GHK-Cu results on my skin are visible in just 4 weeks. Premium quality is clear — HPLC report matched exactly what was advertised. Will order again."</p>
       <div class="tauthor"><div class="tav">PS</div><div><div class="tname">Priya S.</div><div class="trole">Researcher, Delhi</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY MAP -->
+<section class="section" id="bodymap">
+  <div class="sec-hd rv">
+    <div class="sec-tag">Interactive</div>
+    <h2 class="sec-title">Peptide Body Map</h2>
+    <p class="sec-desc">Click any body zone to discover which peptides target that area.</p>
+  </div>
+  <div class="bm-wrap">
+    <div class="bm-panel">
+      <div class="bmc" data-z="brain" onclick="pickZone('brain')"><div class="bmc-zone">🧠 Brain &amp; Cognition</div><div class="bmc-tags"><span class="bmc-tag">Semax</span><span class="bmc-tag">Selank</span><span class="bmc-tag">DSIP</span></div><div class="bmc-desc">Nootropic &amp; anxiolytic peptides for focus, memory &amp; stress</div></div>
+      <div class="bmc" data-z="skin" onclick="pickZone('skin')"><div class="bmc-zone">✨ Skin &amp; Hair</div><div class="bmc-tags"><span class="bmc-tag">GHK-Cu</span><span class="bmc-tag">Melanotan II</span></div><div class="bmc-desc">Collagen synthesis, hair regrowth &amp; skin tanning</div></div>
+      <div class="bmc" data-z="hormone" onclick="pickZone('hormone')"><div class="bmc-zone">⚡ Hormones &amp; GH</div><div class="bmc-tags"><span class="bmc-tag">CJC-1295</span><span class="bmc-tag">Ipamorelin</span></div><div class="bmc-desc">Growth hormone release &amp; hormonal balance</div></div>
+    </div>
+    <div class="bm-svg-col">
+      <div class="bm-svg-wrap">
+        <svg viewBox="0 0 260 520" xmlns="http://www.w3.org/2000/svg" style="max-width:360px">
+          <defs>
+            <linearGradient id="silGrad2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#cbd5e1"/><stop offset="100%" stop-color="#94a3b8"/></linearGradient>
+            <filter id="glow3"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g>
+            <ellipse cx="130" cy="48" rx="32" ry="36" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.5"/>
+            <ellipse cx="98" cy="52" rx="6" ry="9" fill="#b0bec5" stroke="#90a4ae" stroke-width="1"/>
+            <ellipse cx="162" cy="52" rx="6" ry="9" fill="#b0bec5" stroke="#90a4ae" stroke-width="1"/>
+            <rect x="118" y="80" width="24" height="22" rx="6" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M88 100 Q72 110 70 140 Q68 170 70 200 Q72 218 80 224 L180 224 Q188 218 190 200 Q192 170 190 140 Q188 110 172 100 Q152 92 130 90 Q108 92 88 100Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.5"/>
+            <path d="M75 105 Q55 115 46 140 Q40 158 42 178 L58 178 Q58 162 62 144 Q68 122 82 110Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M42 178 Q38 200 40 222 L56 222 Q56 202 58 178Z" fill="#94a3b8" stroke="#90a4ae" stroke-width="1"/>
+            <path d="M185 105 Q205 115 214 140 Q220 158 218 178 L202 178 Q202 162 198 144 Q192 122 178 110Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M218 178 Q222 200 220 222 L204 222 Q204 202 202 178Z" fill="#94a3b8" stroke="#90a4ae" stroke-width="1"/>
+            <path d="M80 222 Q70 235 72 252 L188 252 Q190 235 180 222Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M72 252 Q65 275 66 310 Q67 330 70 348 L90 348 Q90 328 90 308 Q90 278 88 252Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M172 252 Q180 275 194 310 Q194 330 190 348 L170 348 Q170 328 170 308 Q170 278 172 252Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M70 358 Q68 390 70 420 L90 420 Q92 390 90 358Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M170 358 Q168 390 170 420 L190 420 Q192 390 190 358Z" fill="url(#silGrad2)" stroke="#90a4ae" stroke-width="1.2"/>
+            <path d="M68 420 Q62 430 60 436 L92 436 Q94 430 90 420Z" fill="#94a3b8" stroke="#90a4ae" stroke-width="1"/>
+            <path d="M168 420 Q166 430 168 436 L200 436 Q198 430 190 420Z" fill="#94a3b8" stroke="#90a4ae" stroke-width="1"/>
+          </g>
+          <g id="zg-brain" onclick="pickZone('brain')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="44" rx="30" ry="33" fill="#1d4ed8" opacity=".22"/>
+            <text x="130" y="48" text-anchor="middle" font-size="8.5" fill="#1d4ed8" font-weight="800" pointer-events="none" letter-spacing="1">BRAIN</text>
+          </g>
+          <g id="zg-hormone" onclick="pickZone('hormone')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="126" rx="34" ry="24" fill="#1e40af" opacity=".22"/>
+            <text x="130" y="130" text-anchor="middle" font-size="7.5" fill="#1e40af" font-weight="700" pointer-events="none">HORMONES</text>
+          </g>
+          <g id="zg-gut" onclick="pickZone('gut')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="168" rx="28" ry="20" fill="#059669" opacity=".22"/>
+            <text x="163" y="162" text-anchor="start" font-size="7.5" fill="#059669" font-weight="700" pointer-events="none">GUT</text>
+          </g>
+          <g id="zg-fat" onclick="pickZone('fat')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="130" cy="200" rx="42" ry="20" fill="#d97706" opacity=".18"/>
+            <text x="173" y="205" text-anchor="start" font-size="7" fill="#d97706" font-weight="700" pointer-events="none">FAT</text>
+          </g>
+          <g id="zg-muscle" onclick="pickZone('muscle')" style="cursor:pointer">
+            <ellipse class="zfill zpulse" cx="50" cy="145" rx="17" ry="32" fill="#dc2626" opacity=".18"/>
+            <ellipse class="zfill zpulse" cx="210" cy="145" rx="17" ry="32" fill="#dc2626" opacity=".18"/>
+            <text x="22" y="138" font-size="7" fill="#dc2626" font-weight="700" pointer-events="none">MUSCLE</text>
+          </g>
+        </svg>
+      </div>
+      <div class="bm-info" id="bm-info">
+        <span class="bm-info-em">👆</span>
+        <div class="bm-info-zone">Select a Zone</div>
+        <div class="bm-info-title">Explore the Body Map</div>
+        <div class="bm-info-desc">Click any highlighted zone to see which peptides target that area.</div>
+      </div>
+    </div>
+    <div class="bm-panel">
+      <div class="bmc" data-z="gut" onclick="pickZone('gut')"><div class="bmc-zone">🫃 Gut &amp; Healing</div><div class="bmc-tags"><span class="bmc-tag">BPC-157</span><span class="bmc-tag">KPV</span></div><div class="bmc-desc">Gut lining repair, wound healing &amp; anti-inflammatory</div></div>
+      <div class="bmc" data-z="muscle" onclick="pickZone('muscle')"><div class="bmc-zone">💪 Muscle &amp; Recovery</div><div class="bmc-tags"><span class="bmc-tag">TB-500</span><span class="bmc-tag">BPC-157</span></div><div class="bmc-desc">Accelerate muscle repair, reduce DOMS &amp; recover faster</div></div>
+      <div class="bmc" data-z="fat" onclick="pickZone('fat')"><div class="bmc-zone">🔥 Fat &amp; Metabolism</div><div class="bmc-tags"><span class="bmc-tag">Retatrutide</span><span class="bmc-tag">MOTS-C</span><span class="bmc-tag">AOD-9604</span></div><div class="bmc-desc">Visceral fat reduction &amp; metabolic enhancement</div></div>
     </div>
   </div>
 </section>
