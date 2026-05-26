@@ -23,9 +23,10 @@ const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
   </ul>
   <div class="pc-nav-right">
     <a class="pc-nav-wa" href="https://wa.me/919758888951" target="_blank" rel="noopener">${NAV_WA_SVG}Order on WhatsApp</a>
-    <button class="pc-hamburger" onclick="document.getElementById('pc-nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="pc-hamburger" onclick="pcToggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>`;
+</nav>
+<script>function pcToggleNav(){var m=document.getElementById('pc-nav-links');if(m.style.display==='flex'){m.style.display='none';}else{m.style.display='flex';m.style.flexDirection='column';m.style.position='fixed';m.style.top='66px';m.style.left='0';m.style.right='0';m.style.background='#fff';m.style.borderBottom='1px solid #e2e8f0';m.style.boxShadow='0 8px 24px rgba(0,0,0,.12)';m.style.padding='.5rem 0';m.style.zIndex='9999';}}<\/script>`;
 
 const NEW_FOOTER = `<footer class="pc-footer">
   <div class="pc-footer-grid">
