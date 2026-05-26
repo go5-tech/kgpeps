@@ -27,8 +27,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["LocalBusiness", "Store"],
+  "@id": "https://peptidecentral.in/#business",
   "name": "Peptide Central",
+  "alternateName": "PeptideCentral.in",
+  "description": "India's trusted domestic supplier of HPLC-verified research-grade peptides. ≥99% purity, Certificate of Analysis with every order, COD available, pan-India delivery in 3–5 days.",
   "url": "https://peptidecentral.in",
   "logo": {
     "@type": "ImageObject",
@@ -36,15 +39,59 @@
     "width": 300,
     "height": 300
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-75052-21639",
-    "contactType": "customer service",
-    "areaServed": "IN",
-    "availableLanguage": ["English", "Hindi"]
+  "image": "https://peptidecentral.in/og-image.png",
+  "telephone": "+91-97588-88951",
+  "email": "info@peptidecentral.in",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IN"
   },
-  "sameAs": [],
-  "description": "India's premier research peptide supplier. 99% HPLC-verified purity with COA with every order."
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "priceRange": "₹₹",
+  "paymentAccepted": "Cash on Delivery, UPI, IMPS, NEFT",
+  "currenciesAccepted": "INR",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "21:00"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-97588-88951",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-75052-21639",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi"]
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Research Peptides India",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "BPC-157", "url": "https://peptidecentral.in/bpc-157/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "TB-500", "url": "https://peptidecentral.in/tb-500/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "GHK-Cu", "url": "https://peptidecentral.in/ghk-cu/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Retatrutide", "url": "https://peptidecentral.in/retatrutide/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Tirzepatide", "url": "https://peptidecentral.in/tirzepatide/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Semax", "url": "https://peptidecentral.in/semax/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Epitalon", "url": "https://peptidecentral.in/epitalon/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Selank", "url": "https://peptidecentral.in/selank/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "MOTS-c", "url": "https://peptidecentral.in/mots-c/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "SS-31", "url": "https://peptidecentral.in/ss-31/"}}
+    ]
+  },
+  "sameAs": []
 }
 </script>
 <script type="application/ld+json">
