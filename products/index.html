@@ -71,7 +71,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .bn{background:rgba(5,150,105,.08);color:var(--green);border:1px solid rgba(5,150,105,.2)}
 .bt{background:rgba(217,119,6,.08);color:var(--gold);border:1px solid rgba(217,119,6,.2)}
 .bst{background:rgba(30,64,175,.10);color:var(--purple);border:1px solid rgba(30,64,175,.2)}
-.pcard-body{flex:1;padding:1.2rem 1.4rem .6rem;display:flex;flex-direction:column}
+.pcard-body{padding:.9rem 1.2rem .5rem;display:flex;flex-direction:column}
 .brand{font-size:.72rem;color:var(--muted);margin-bottom:.2rem;font-weight:500}
 .pname{font-weight:800;font-size:1rem;margin-bottom:.2rem;color:var(--text)}
 .ptgt{font-size:.72rem;color:var(--cyan);margin-bottom:.5rem}
@@ -311,7 +311,6 @@ function renderCards(){
         <div class="brand">Peptide Central</div>
         <div class="pname">${p.name}</div>
         <div class="ptgt">${p.tgt||p.cat}</div>
-        <div class="pdesc">${p.desc}</div>
       </div>
       <div class="pcard-foot" onclick="event.stopPropagation()">
         <div class="variant-sel">${pills}</div>
