@@ -32,7 +32,7 @@ const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
   </ul>
   <div class="pc-nav-right">
     <a class="pc-nav-wa" href="https://wa.me/${WA_NUM}" target="_blank" rel="noopener">${WA_SVG15}Order on WhatsApp</a>
-    <button class="pc-hamburger" onclick="var m=document.getElementById('pc-nav-links');m.style.display=m.style.display==='flex'?'none':'flex'" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="pc-hamburger" onclick="document.getElementById('pc-nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>`;
 
