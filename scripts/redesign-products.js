@@ -19,7 +19,7 @@ const WA_SVG18 = WA_SVG20.replace('width="20" height="20"', 'width="18" height="
 const WA_SVG15 = WA_SVG20.replace('width="20" height="20"', 'width="15" height="15"');
 
 const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
-  <a class="logo" href="/"><img src="/favicon.svg" alt="Peptide Central" height="44" loading="lazy"></a>
+  <a class="logo" href="/"><img src="/logo-icon.png" alt="Peptide Central" height="44" loading="lazy"></a>
   <ul class="pc-nav-links" id="pc-nav-links">
     <li><a href="/">Home</a></li>
     <li><a href="/products/">Peptides</a></li>
@@ -40,7 +40,7 @@ const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
 const NEW_FOOTER = `<footer class="pc-footer">
   <div class="pc-footer-grid">
     <div class="pc-footer-col">
-      <img src="/logo.jpeg" alt="Peptide Central" style="height:40px;border-radius:6px;margin-bottom:.8rem;display:block">
+      <img src="/logo-icon.png" alt="Peptide Central" style="height:44px;width:44px;object-fit:contain;border-radius:8px;margin-bottom:.8rem;display:block">
       <p class="pc-footer-brand">India's most trusted source for research-grade peptides. Every batch HPLC-verified with COA included.</p>
       <div class="pc-footer-contact">
         <a href="https://wa.me/${WA_NUM}">📱 WhatsApp Order</a><br>
