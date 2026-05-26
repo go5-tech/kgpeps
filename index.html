@@ -1866,7 +1866,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(o){o.style.display='flex';if(cfg.maintenanceMsg)document.getElementById('maint-msg').textContent=cfg.maintenanceMsg;}
   }
   Promise.all([
-    fetch('products.json').then(r=>r.json()).catch(()=>[]),
+    fetch('products.json?v='+Date.now()).then(r=>r.json()).catch(()=>[]),
     fetch('config.json').then(r=>r.json()).catch(()=>null)
   ]).then(([pdata,remCfg])=>{
     if(pdata&&pdata.length)prods=pdata;
