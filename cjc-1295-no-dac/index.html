@@ -90,109 +90,25 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-:root{
-  --bg:#0a0a0f;
-  --card:#12121a;
-  --cyan:#00e5ff;
-  --cyan2:#00b8d9;
-  --text:#e0e0e0;
-  --muted:#888;
-  --border:rgba(255,255,255,.08);
-  --green:#00c853;
-}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;margin:0;overflow-x:hidden;line-height:1.6}
-
-/* TOP NAV */
-.topnav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 5%;background:rgba(10,10,15,.95);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
-.topnav-logo{color:var(--cyan);font-weight:900;font-size:1.15rem;letter-spacing:2px;text-decoration:none}
-.topnav-back{color:var(--muted);font-size:.82rem;text-decoration:none;display:flex;align-items:center;gap:.35rem;transition:.2s}
-.topnav-back:hover{color:var(--cyan)}
-.topnav-wa{background:#25d366;color:#fff;padding:7px 15px;border-radius:20px;font-size:.78rem;font-weight:700;text-decoration:none;transition:.2s;display:flex;align-items:center;gap:5px}
-.topnav-wa:hover{background:#1da851;transform:scale(1.04)}
-
-/* HERO SECTION */
-.hero{padding:4rem 5% 3rem;max-width:900px;margin:0 auto;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(0,229,255,.25);background:rgba(0,229,255,.06);border-radius:20px;padding:5px 14px;font-size:.72rem;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;margin-bottom:1.5rem}
-.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.15;margin-bottom:1rem;color:#fff}
-h1 .hl{color:var(--cyan)}
-.hero-sub{color:var(--muted);font-size:.95rem;max-width:620px;margin:0 auto 2rem;line-height:1.7}
-.meta-chips{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.chip{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:5px}
-.chip strong{color:var(--text)}
-.chip .cl{color:var(--cyan)}
-
-/* CTA BUTTON */
-.cta-wrap{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
-.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25d366;color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:.25s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
-.btn-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,.45)}
-.btn-home{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);color:var(--muted);padding:14px 24px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;transition:.25s}
-.btn-home:hover{border-color:var(--cyan);color:var(--cyan)}
-
-/* CONTENT SECTIONS */
-.content{max-width:860px;margin:0 auto;padding:0 5% 4rem}
-.section-block{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.2rem;margin-bottom:1.5rem}
-h2{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
-h2::before{content:'';display:inline-block;width:3px;height:1.2em;background:var(--cyan);border-radius:3px;flex-shrink:0}
-p{color:var(--muted);line-height:1.75;font-size:.92rem}
-ul.benefits{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-top:.5rem}
-ul.benefits li{color:var(--muted);font-size:.9rem;line-height:1.6;display:flex;gap:.7rem;align-items:flex-start}
-ul.benefits li::before{content:'✓';color:var(--cyan);font-weight:700;flex-shrink:0;margin-top:1px}
-
-/* PRICING TABLE */
-.price-row{display:flex;align-items:center;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
-.price-row:last-child{border-bottom:none}
-.price-qty{font-weight:700;color:#fff;min-width:70px;font-size:.95rem}
-.price-orig{color:var(--muted);text-decoration:line-through;font-size:.82rem}
-.price-now{font-size:1.25rem;font-weight:900;color:var(--cyan);flex:1}
-.btn-order-sm{background:#25d366;color:#fff;padding:8px 18px;border-radius:8px;font-size:.8rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:.2s}
-.btn-order-sm:hover{background:#1da851;transform:scale(1.04)}
-
-/* FAQ */
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-item:last-child{border-bottom:none}
-.faq-q{width:100%;background:none;border:none;color:var(--text);font-size:.92rem;font-weight:600;padding:.9rem 0;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:.5rem;font-family:inherit}
-.faq-arrow{color:var(--cyan);font-size:.8rem;transition:.3s;flex-shrink:0}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-item.open .faq-a{max-height:300px}
-.faq-a p{padding-bottom:1rem;font-size:.88rem}
-
-/* TRUST STRIP */
-.trust{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:1.5rem 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.5rem}
-.trust-item{display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--muted)}
-.trust-item .ti{color:var(--cyan);font-size:1rem}
-
-/* FOOTER */
-footer{text-align:center;padding:2rem 5%;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border)}
-footer a{color:var(--cyan);text-decoration:none}
-footer a:hover{text-decoration:underline}
-
-@media(max-width:600px){
-  .hero{padding:2.5rem 5% 2rem}
-  h1{font-size:1.6rem}
-  .section-block{padding:1.4rem}
-  .price-row{gap:.6rem}
-  .topnav-wa span{display:none}
-}
-</style>
+<link rel="stylesheet" href="/shared.css">
 </head>
 <body>
 
-<nav class="topnav">
-  <a href="https://peptidecentral.in" class="topnav-logo">PEPTIDE CENTRAL</a>
-  <a href="https://peptidecentral.in" class="topnav-back">&#8592; All Peptides</a>
-  <a href="https://wa.me/919758888951?text=Hi%2C%20I%20want%20to%20order%20CJC-1295%20(no-DAC)" class="topnav-wa" target="_blank" rel="noopener">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
-    <span>Order on WhatsApp</span>
-  </a>
+<nav class="pc-nav" id="pc-nav">
+  <a class="logo" href="/"><img src="/logo.jpeg" alt="Peptide Central" height="44" loading="lazy"></a>
+  <ul class="pc-nav-links" id="pc-nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/products/">Peptides</a></li>
+    <li><a href="/fat-loss-peptides/">Fat Loss</a></li>
+    <li><a href="/recovery-peptides/">Recovery</a></li>
+    <li><a href="/brain-peptides/">Brain</a></li>
+    <li><a href="/longevity-peptides/">Longevity</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <div class="pc-nav-right">
+    <a class="pc-nav-wa" href="https://wa.me/919758888951" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>Order on WhatsApp</a>
+    <button class="pc-hamburger" onclick="var m=document.getElementById('pc-nav-links');m.style.display=m.style.display==='flex'?'none':'flex'" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <section class="hero">
@@ -284,14 +200,62 @@ footer a:hover{text-decoration:underline}
 
 </div>
 
-<footer>
-  <p>Research peptides for in-vitro laboratory use only. Not for human consumption.</p>
-  <p style="margin-top:.5rem">
-    <a href="https://peptidecentral.in">&#8592; Back to Peptide Central</a>
-    &nbsp;&middot;&nbsp;
-    <a href="https://peptidecentral.in">India's Premier Research Peptide Supplier</a>
-  </p>
+<footer class="pc-footer">
+  <div class="pc-footer-grid">
+    <div class="pc-footer-col">
+      <img src="/logo.jpeg" alt="Peptide Central" style="height:40px;border-radius:6px;margin-bottom:.8rem;display:block">
+      <p class="pc-footer-brand">India's most trusted source for research-grade peptides. Every batch HPLC-verified with COA included.</p>
+      <div class="pc-footer-contact">
+        <a href="https://wa.me/919758888951">📱 WhatsApp Order</a><br>
+        <a href="mailto:info@peptidecentral.in">✉ info@peptidecentral.in</a>
+      </div>
+    </div>
+    <div class="pc-footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="/fat-loss-peptides/">Fat Loss Peptides</a></li>
+        <li><a href="/recovery-peptides/">Recovery Peptides</a></li>
+        <li><a href="/anti-aging-peptides/">Anti-Aging Peptides</a></li>
+        <li><a href="/brain-peptides/">Brain Peptides</a></li>
+        <li><a href="/longevity-peptides/">Longevity Peptides</a></li>
+      </ul>
+    </div>
+    <div class="pc-footer-col">
+      <h4>Top Products</h4>
+      <ul>
+        <li><a href="/bpc-157/">BPC-157</a></li>
+        <li><a href="/ghk-cu/">GHK-Cu</a></li>
+        <li><a href="/retatrutide/">Retatrutide</a></li>
+        <li><a href="/tb-500/">TB-500</a></li>
+        <li><a href="/semax/">Semax</a></li>
+        <li><a href="/epitalon/">Epitalon</a></li>
+      </ul>
+    </div>
+    <div class="pc-footer-col">
+      <h4>Blog</h4>
+      <ul>
+        <li><a href="/blog/">All Articles</a></li>
+        <li><a href="/blog/buy-peptides-online-india-2026/">Buy Peptides India</a></li>
+        <li><a href="/blog/research-peptides-legal-india/">Legal in India?</a></li>
+        <li><a href="/blog/top-10-best-peptides-india-2026/">Top 10 Peptides</a></li>
+        <li><a href="/blog/best-peptides-fat-loss-india/">Fat Loss Guide</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pc-footer-bot">
+    <p>© 2026 Peptide Central. All products for in-vitro research use only. Not for human consumption.</p>
+    <div class="pc-pay-icons">
+      <span class="pc-pay">COD</span>
+      <span class="pc-pay">UPI</span>
+      <span class="pc-pay">IMPS</span>
+    </div>
+  </div>
 </footer>
+<div class="pc-wa-float">
+  <a href="https://wa.me/919758888951" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+  </a>
+</div>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peptidecentral.in/"},{"@type":"ListItem","position":2,"name":"Cjc 1295 No Dac","item":"https://peptidecentral.in/cjc-1295-no-dac/"}]}</script>
 </body>
