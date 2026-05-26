@@ -443,8 +443,13 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 .ci-name{font-weight:700;font-size:.85rem;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ci-variant{font-size:.72rem;color:#64748b;margin-bottom:.3rem}
 .ci-price{font-size:.88rem;font-weight:800;color:var(--cyan)}
-.ci-rm{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1rem;padding:0 2px;transition:.2s;flex-shrink:0}
+.ci-rm{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1rem;padding:0 2px;transition:.2s}
 .ci-rm:hover{color:#dc2626}
+.ci-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0}
+.ci-qty{display:flex;align-items:center;gap:5px}
+.ci-qty-btn{background:#f1f5f9;border:1px solid #e5e7eb;color:#374151;width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;padding:0;line-height:1;transition:.2s}
+.ci-qty-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.ci-qty-num{font-size:.82rem;font-weight:700;color:#0f172a;min-width:18px;text-align:center}
 .cart-foot{padding:1.2rem 1.5rem;border-top:1px solid #e2e8f0}
 .cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
 .cart-total span{font-size:.85rem;color:#64748b}
@@ -1699,6 +1704,7 @@ function addToCart(pid){
   showToast(prod.name+' added to cart');
 }
 function removeFromCart(i){cart.splice(i,1);updateCartCount();renderCart()}
+function changeCartQty(i,delta){if(!cart[i])return;cart[i].qty+=delta;if(cart[i].qty<1)cart.splice(i,1);updateCartCount();renderCart();}
 function updateCartCount(){
   const n=cart.reduce((s,i)=>s+i.qty,0);
   const el=document.getElementById('cart-count');
@@ -1716,10 +1722,17 @@ function renderCart(){
     <img class="ci-img" src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">
     <div class="ci-body">
       <div class="ci-name">${item.name}</div>
-      <div class="ci-variant">${item.variant}${item.qty>1?' × '+item.qty:''}</div>
-      <div class="ci-price">₹${(item.price*item.qty).toLocaleString('en-IN')}</div>
+      <div class="ci-variant">${item.variant}</div>
+      <div class="ci-qty">
+        <button class="ci-qty-btn" onclick="changeCartQty(${i},-1)">−</button>
+        <span class="ci-qty-num">${item.qty}</span>
+        <button class="ci-qty-btn" onclick="changeCartQty(${i},1)">+</button>
+      </div>
     </div>
-    <button class="ci-rm" onclick="removeFromCart(${i})">✕</button>
+    <div class="ci-right">
+      <div class="ci-price">₹${(item.price*item.qty).toLocaleString('en-IN')}</div>
+      <button class="ci-rm" onclick="removeFromCart(${i})">✕</button>
+    </div>
   </div>`).join('');
   const total=cart.reduce((s,i)=>s+(i.price*i.qty),0);
   document.getElementById('cart-total-amt').textContent='₹'+total.toLocaleString('en-IN');

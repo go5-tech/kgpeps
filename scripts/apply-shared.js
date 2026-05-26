@@ -81,7 +81,8 @@ const NEW_FOOTER = `<footer class="pc-footer">
   <a href="https://wa.me/919758888951" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
     ${WA_SVG}
   </a>
-</div>`;
+</div>
+<script src="/cart.js"></script>`;
 
 const CSS_LINK = `<link rel="stylesheet" href="/shared.css">`;
 
