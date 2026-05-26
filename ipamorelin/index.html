@@ -100,6 +100,8 @@
 
 
 
+
+
 </head>
 <body>
 <nav class="pc-nav" id="pc-nav">
@@ -220,6 +222,14 @@
     </div>
   </div>
 
+  
+</div>
+
+
+
+  
+</div>
+
   <div class="section-block" style="text-align:center">
     <h2>Order Ipamorelin in India</h2>
     <p>Message us on WhatsApp — we'll confirm stock and share COD / UPI options. Your order ships within 24 hours with tracking.</p>
@@ -227,11 +237,14 @@
   </div>
 </div>
 
-<section class="ymal-section" id="ymal-section" style="display:none">
-  <div class="ymal-hd">
-    <h2>You May Also Like</h2>
+<section class="ymal-section">
+  <div class="ymal-hd"><h2>You May Also Like</h2></div>
+  <div class="ymal-grid">
+  <a href="/tesamorelin/" class="ymal-card"><div class="ymal-img-wrap"><img src="https://www.corepeptides.in/cdn/shop/files/WhatsAppImage2026-04-14at11.41.16PM.jpg?v=1776194678&width=533" alt="Tesamorelin" loading="lazy"></div><div class="ymal-body"><div class="ymal-cat">Hormones</div><div class="ymal-name">Tesamorelin</div><div class="ymal-price">from ₹4,499</div></div></a>
+  <a href="/cjc-1295-(no-dac)/" class="ymal-card"><div class="ymal-img-wrap"><img src="https://www.corepeptides.in/cdn/shop/files/CJC-1295_without_DAC_5mg_a7955602-8c6f-43c3-9b5c-bf893b6e7c00_1.webp?v=1776242002&width=533" alt="CJC-1295 (no-DAC)" loading="lazy"></div><div class="ymal-body"><div class="ymal-cat">Hormones</div><div class="ymal-name">CJC-1295 (no-DAC)</div><div class="ymal-price">from ₹4,999</div></div></a>
+  <a href="/cjc---ipamorelin-blend/" class="ymal-card"><div class="ymal-img-wrap"><img src="https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553" alt="CJC + Ipamorelin Blend" loading="lazy"></div><div class="ymal-body"><div class="ymal-cat">Hormones</div><div class="ymal-name">CJC + Ipamorelin Blend</div><div class="ymal-price">from ₹4,499</div></div></a>
+  <a href="/ghk-cu/" class="ymal-card"><div class="ymal-img-wrap"></div><div class="ymal-body"><div class="ymal-cat">Recovery</div><div class="ymal-name">GHK-Cu</div><div class="ymal-price">from ₹4,999</div></div></a>
   </div>
-  <div class="ymal-grid" id="ymal-grid"></div>
 </section>
 
 <footer class="pc-footer">
@@ -332,25 +345,6 @@
   }
   document.addEventListener('DOMContentLoaded',function(){
     pdSyncCartBtn();
-    fetch('/products.json').then(function(r){return r.json();}).then(function(all){
-      var related=all.filter(function(p){return p.id!==_pid&&p.cat===_pcat;});
-      var others=all.filter(function(p){return p.id!==_pid&&p.cat!==_pcat;});
-      related=related.concat(others).slice(0,4);
-      if(!related.length)return;
-      var html=related.map(function(p){
-        var v0=p.variants[0];
-        var img=p.img?(p.img.startsWith('http')||p.img.startsWith('/')?p.img:'/'+p.img):'';
-        return '<a href="/'+p.id+'/" class="ymal-card">'
-          +'<div class="ymal-img-wrap">'+(img?'<img src="'+img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display='none'">':'')+'</div>'
-          +'<div class="ymal-body"><div class="ymal-cat">'+p.cat+'</div>'
-          +'<div class="ymal-name">'+p.name+'</div>'
-          +'<div class="ymal-price">from ₹'+v0.price.toLocaleString('en-IN')+'</div>'
-          +'</div></a>';
-      }).join('');
-      var sec=document.getElementById('ymal-section');
-      document.getElementById('ymal-grid').innerHTML=html;
-      sec.style.display='block';
-    }).catch(function(){});
   });
 </script>
 <div class="pd-cart-toast" id="pd-cart-toast" style="display:none">

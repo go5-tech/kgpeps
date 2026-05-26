@@ -125,6 +125,8 @@ function extractContent(html) {
   raw = removeSectionBlock(raw, 'Pricing');
   // Strip previously injected order CTA to prevent duplication on re-runs
   raw = raw.replace(/<div class="section-block" style="text-align:center">\s*<h2>Order [^<]+ in India<\/h2>[\s\S]*?<\/div>/g, '');
+  // Strip old ymal section (now generated statically outside content div)
+  raw = raw.replace(/<section class="ymal-section"[\s\S]*?<\/section>/g, '');
   return raw.trim();
 }
 
@@ -295,27 +297,31 @@ function buildProductScript(p) {
   }
   document.addEventListener('DOMContentLoaded',function(){
     pdSyncCartBtn();
-    fetch('/products.json').then(function(r){return r.json();}).then(function(all){
-      var related=all.filter(function(p){return p.id!==_pid&&p.cat===_pcat;});
-      var others=all.filter(function(p){return p.id!==_pid&&p.cat!==_pcat;});
-      related=related.concat(others).slice(0,4);
-      if(!related.length)return;
-      var html=related.map(function(p){
-        var v0=p.variants[0];
-        var img=p.img?(p.img.startsWith('http')||p.img.startsWith('/')?p.img:'/'+p.img):'';
-        return '<a href="/'+p.id+'/" class="ymal-card">'
-          +'<div class="ymal-img-wrap">'+(img?'<img src="'+img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\'">':'')+'</div>'
-          +'<div class="ymal-body"><div class="ymal-cat">'+p.cat+'</div>'
-          +'<div class="ymal-name">'+p.name+'</div>'
-          +'<div class="ymal-price">from ₹'+v0.price.toLocaleString('en-IN')+'</div>'
-          +'</div></a>';
-      }).join('');
-      var sec=document.getElementById('ymal-section');
-      document.getElementById('ymal-grid').innerHTML=html;
-      sec.style.display='block';
-    }).catch(function(){});
   });
 <\/script>`;
+}
+
+function buildYmalHtml(p) {
+  let related = products.filter(q => q.id !== p.id && q.cat === p.cat);
+  const others = products.filter(q => q.id !== p.id && q.cat !== p.cat);
+  related = related.concat(others).slice(0, 4);
+  if (!related.length) return '';
+  const cards = related.map(q => {
+    const v0 = q.variants[0];
+    const img = getImgSrc(q.img) || '';
+    return `<a href="/${q.id}/" class="ymal-card">`
+      + `<div class="ymal-img-wrap">${img ? `<img src="${img}" alt="${q.name}" loading="lazy">` : ''}</div>`
+      + `<div class="ymal-body"><div class="ymal-cat">${q.cat}</div>`
+      + `<div class="ymal-name">${q.name}</div>`
+      + `<div class="ymal-price">from ₹${v0.price.toLocaleString('en-IN')}</div>`
+      + `</div></a>`;
+  }).join('\n  ');
+  return `<section class="ymal-section">
+  <div class="ymal-hd"><h2>You May Also Like</h2></div>
+  <div class="ymal-grid">
+  ${cards}
+  </div>
+</section>`;
 }
 
 function redesignProduct(slug) {
@@ -332,6 +338,7 @@ function redesignProduct(slug) {
   const productScript = buildProductScript(p);
   const waOrderMsg = encodeURIComponent('Hi, I want to order ' + p.name);
 
+  const ymalHtml = buildYmalHtml(p);
   const out = `<!DOCTYPE html>
 <html lang="en">
 <head>${head}
@@ -350,12 +357,7 @@ ${contentInner}
   </div>
 </div>
 
-<section class="ymal-section" id="ymal-section" style="display:none">
-  <div class="ymal-hd">
-    <h2>You May Also Like</h2>
-  </div>
-  <div class="ymal-grid" id="ymal-grid"></div>
-</section>
+${ymalHtml}
 
 ${NEW_FOOTER}
 ${productScript}
