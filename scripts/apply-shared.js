@@ -26,7 +26,7 @@ const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
     <button class="pc-hamburger" onclick="pcToggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<script>function pcToggleNav(){var m=document.getElementById('pc-nav-links');if(m.style.display==='flex'){m.style.display='none';}else{m.style.display='flex';m.style.flexDirection='column';m.style.position='fixed';m.style.top='66px';m.style.left='0';m.style.right='0';m.style.background='#fff';m.style.borderBottom='1px solid #e2e8f0';m.style.boxShadow='0 8px 24px rgba(0,0,0,.12)';m.style.padding='.5rem 0';m.style.zIndex='9999';}}<\/script>`;
+<script>function pcToggleNav(){var m=document.getElementById('pc-nav-links');if(m.style.display==='flex'){m.style.display='none';}else{m.style.display='flex';m.style.flexDirection='column';m.style.position='absolute';m.style.top='66px';m.style.left='0';m.style.right='0';m.style.background='rgba(255,255,255,.97)';m.style.borderBottom='1px solid #e2e8f0';m.style.boxShadow='0 8px 24px rgba(0,0,0,.08)';m.style.padding='1rem 5%';m.style.zIndex='9999';}}<\/script>`;
 
 const NEW_FOOTER = `<footer class="pc-footer">
   <div class="pc-footer-grid">
