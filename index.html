@@ -132,7 +132,9 @@ h1.hero-h .gr{color:var(--cyan)}
 .pcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.4rem;transition:.3s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:0}
 .pcard:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:var(--gc)}
 /* grid view: image on top, body grows, foot at bottom */
-.pcard-img{width:100%;height:220px;border-radius:10px 10px 0 0;background:linear-gradient(135deg,#eef2ff,#dbeafe);border:none;border-bottom:1px solid #e5e7eb;overflow:hidden;margin:-1.4rem -1.4rem 1.2rem;width:calc(100% + 2.8rem);object-fit:cover;transition:.35s;display:block;flex-shrink:0}
+.pcard-img-wrap{margin:-1.4rem -1.4rem 1.2rem;position:relative;overflow:hidden;border-radius:10px 10px 0 0;border-bottom:1px solid #e5e7eb}
+.pcard-img{width:100%;height:220px;background:linear-gradient(135deg,#eef2ff,#dbeafe);object-fit:cover;transition:.35s;display:block;flex-shrink:0}
+.pcard:hover .pcard-img{transform:scale(1.04)}
 .pcard:hover .pcard-img{transform:scale(1.06)}
 /* fallback div uses flex centering */
 .pcard-img.fb-div{display:flex;align-items:center;justify-content:center;font-size:2.5rem}
@@ -449,10 +451,17 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">
-    <img src="logo.svg" alt="Peptide Central" style="width:40px;height:40px;object-fit:contain">
+    <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- DNA knot / interlaced X mark -->
+      <path d="M50 8 C30 8 15 22 15 42 C15 55 22 62 32 68 C42 74 50 78 50 88" stroke="#1d4ed8" stroke-width="8" stroke-linecap="round" fill="none"/>
+      <path d="M50 8 C70 8 85 22 85 42 C85 55 78 62 68 68 C58 74 50 78 50 88" stroke="#1d4ed8" stroke-width="8" stroke-linecap="round" fill="none"/>
+      <path d="M20 30 C35 38 50 42 80 30" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round" fill="none" opacity=".5"/>
+      <path d="M20 55 C35 63 50 67 80 55" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round" fill="none" opacity=".5"/>
+      <circle cx="50" cy="8" r="5" fill="#1d4ed8"/>
+      <circle cx="50" cy="88" r="5" fill="#1d4ed8"/>
+    </svg>
     <div class="logo-wordmark">
-      <span class="logo-name" style="font-size:1.05rem;letter-spacing:3px;line-height:1.15">PEPTIDE<br>CENTRAL</span>
-      <span class="logo-tagline">Research Peptides</span>
+      <span class="logo-name" style="font-size:1rem;letter-spacing:1px;line-height:1.1;font-weight:700;color:#1a1a1a">Peptide<br>Central</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -1304,9 +1313,9 @@ function renderPCards(){
     const waMsg0=encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
     const discPct=v0.origPrice>v0.price?Math.round((1-v0.price/v0.origPrice)*100):0;
     return`<div class="pcard rv" style="animation-delay:${i*.035}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
-      <div style="position:relative">
+      <div class="pcard-img-wrap">
         <img class="pcard-img" src="${p.img||''}" alt="${p.name}" onerror="this.style.display='none'">
-        <div style="position:absolute;top:.6rem;left:.6rem;display:flex;gap:.3rem;flex-wrap:wrap">
+        <div style="position:absolute;top:.6rem;left:.6rem;display:flex;gap:.3rem;flex-wrap:wrap;z-index:1">
           ${(p.badges||[]).includes('top')?'<span class="badge bt">⭐ Best Seller</span>':''}
           ${(p.badges||[]).includes('new')?'<span class="badge bn">New</span>':''}
           ${discPct>0?`<span class="badge bs">${discPct}% OFF</span>`:''}
