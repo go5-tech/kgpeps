@@ -101,7 +101,7 @@ function processStandard(filepath) {
   html = html.replace(/<nav[\s\S]*?<\/nav>/, NEW_NAV);
 
   // Replace first <footer...>...</footer> + any trailing pc-wa-float div
-  html = html.replace(/<footer[\s\S]*?<\/footer>(\s*<div class="pc-wa-float">[\s\S]*?<\/div>)?/, NEW_FOOTER);
+  html = html.replace(/<footer[\s\S]*?<\/footer>(\s*<div class="pc-wa-float">[\s\S]*?<\/div>)?(\s*<script[^>]*cart\.js[^>]*><\/script>)?/, NEW_FOOTER);
 
   fs.writeFileSync(filepath, html);
   console.log('✓', filepath.replace(BASE + '/', ''));
@@ -136,12 +136,12 @@ function processProductsCatalog(filepath) {
     .replace(/rgba\(14,116,144,/g, 'rgba(30,64,175,')
     .replace(/'Inter'/g, "'Segoe UI'");
 
-  // Inject shared.css BEFORE the <style> tag so inline CSS wins the cascade
-  html = html.replace('<style>', CSS_LINK + '\n<style>');
+  // Inject shared.css BEFORE the <style> tag so inline CSS wins the cascade (idempotent)
+  if (!html.includes(CSS_LINK)) html = html.replace('<style>', CSS_LINK + '\n<style>');
 
   // Replace nav and footer
   html = html.replace(/<nav[\s\S]*?<\/nav>/, NEW_NAV);
-  html = html.replace(/<footer[\s\S]*?<\/footer>(\s*<div class="pc-wa-float">[\s\S]*?<\/div>)?/, NEW_FOOTER);
+  html = html.replace(/<footer[\s\S]*?<\/footer>(\s*<div class="pc-wa-float">[\s\S]*?<\/div>)?(\s*<script[^>]*cart\.js[^>]*><\/script>)?/, NEW_FOOTER);
 
   fs.writeFileSync(filepath, html);
   console.log('✓ products/index.html (catalog — vars patched)');

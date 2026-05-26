@@ -206,12 +206,6 @@ function buildHero(p) {
       ${WA_SVG20} Order ${p.name} on WhatsApp
     </a>
     <div id="pd-precart">
-      <div class="pd-qty-row">
-        <span class="pd-qty-label">Vials:</span>
-        <button class="pd-qty-btn" onclick="pdQtyDec()" aria-label="Decrease quantity">−</button>
-        <span class="pd-qty-num" id="pd-qty-num">1</span>
-        <button class="pd-qty-btn" onclick="pdQtyInc()" aria-label="Increase quantity">+</button>
-      </div>
       <button class="pd-btn-cart" onclick="pdAddToCart()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg>
         Add to Cart
@@ -259,10 +253,8 @@ function buildProductScript(p) {
     pdSyncCartBtn();
   }` : '';
   return `<script>
-  var _pdv=${varData},_pdn=${JSON.stringify(p.name)},_pid=${JSON.stringify(p.id)},_pimg=${JSON.stringify(imgSrc)},_pdqty=1;${selVarFn}
+  var _pdv=${varData},_pdn=${JSON.stringify(p.name)},_pid=${JSON.stringify(p.id)},_pimg=${JSON.stringify(imgSrc)};${selVarFn}
   function pdCurVi(){var vi=Array.from(document.querySelectorAll('.pd-var')).findIndex(function(e){return e.classList.contains('active')});return vi<0?0:vi;}
-  function pdQtyDec(){if(_pdqty>1){_pdqty--;document.getElementById('pd-qty-num').textContent=_pdqty;}}
-  function pdQtyInc(){_pdqty++;document.getElementById('pd-qty-num').textContent=_pdqty;}
   function pdSyncCartBtn(){
     var vi=pdCurVi();
     var c=JSON.parse(localStorage.getItem('kg_cart')||'[]');
@@ -294,10 +286,9 @@ function buildProductScript(p) {
     var vi=pdCurVi();var v=_pdv[vi]||_pdv[0];
     var c=JSON.parse(localStorage.getItem('kg_cart')||'[]');
     var ex=c.find(function(i){return i.pid===_pid&&i.vi===vi});
-    if(ex){ex.qty+=_pdqty;}else{c.push({pid:_pid,name:_pdn,img:_pimg,variant:v.mg,price:v.price,vi:vi,qty:_pdqty});}
+    if(ex){ex.qty++;}else{c.push({pid:_pid,name:_pdn,img:_pimg,variant:v.mg,price:v.price,vi:vi,qty:1});}
     localStorage.setItem('kg_cart',JSON.stringify(c));
     if(window.pcUpdateCartFromStorage)window.pcUpdateCartFromStorage();
-    _pdqty=1;document.getElementById('pd-qty-num').textContent='1';
     pdSyncCartBtn();
   }
   document.addEventListener('DOMContentLoaded',pdSyncCartBtn);

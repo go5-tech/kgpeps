@@ -16,8 +16,6 @@
 <link rel="icon" href="/logo.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en-in" href="https://peptidecentral.in/products/">
 <link rel="stylesheet" href="/shared.css">
-<link rel="stylesheet" href="/shared.css">
-<link rel="stylesheet" href="/shared.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -214,7 +212,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
   </a>
 </div>
 <script src="/cart.js"></script>
-<script src="/cart.js"></script>
 
 <script>
 const WA = '919758888951';
@@ -284,6 +281,7 @@ function renderCards(){
     const waMsg = encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
     const discPct = v0.origPrice>v0.price ? Math.round((1-v0.price/v0.origPrice)*100) : 0;
     const slug = p.id || p.name.toLowerCase().replace(/\s+/g,'-');
+    const imgSrc = p.img ? (p.img.startsWith('http')||p.img.startsWith('/') ? p.img : '/'+p.img) : '';
     const badgesHtml = [
       (p.badges||[]).includes('top') ? '<span class="badge bt">⭐ Best Seller</span>' : '',
       (p.badges||[]).includes('new') ? '<span class="badge bn">New</span>' : '',
@@ -293,7 +291,7 @@ function renderCards(){
 
     return `<div class="pcard" data-pid="${slug}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}" onclick="window.location='/${slug}/'">
       <div class="pcard-img-wrap">
-        <img class="pcard-img" src="${p.img||''}" alt="${p.name}" onerror="this.style.display='none'">
+        <img class="pcard-img" src="${imgSrc}" alt="${p.name}" onerror="this.style.display='none'">
         <div class="badges">${badgesHtml}</div>
       </div>
       <div class="pcard-body">
@@ -320,5 +318,6 @@ function renderCards(){
   }).join('');
 }
 </script>
+
 </body>
 </html>
