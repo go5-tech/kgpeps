@@ -205,6 +205,10 @@ function buildHero(p) {
     <a class="pd-btn-order" id="pd-wa-btn" href="https://wa.me/${WA_NUM}?text=${waMsg0}" target="_blank" rel="noopener">
       ${WA_SVG20} Order ${p.name} on WhatsApp
     </a>
+    <button class="pd-btn-cart" onclick="pdAddToCart()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg>
+      Add to Cart
+    </button>
     <p class="pd-ship-note">Ships within 24h &nbsp;·&nbsp; COD Available &nbsp;·&nbsp; Discreet Packaging</p>
 
     <div class="pd-meta-row">
@@ -217,7 +221,6 @@ function buildHero(p) {
 }
 
 function buildVariants(p) {
-  const varData = JSON.stringify(p.variants.map(v => ({ mg: v.mg, price: v.price, origPrice: v.origPrice })));
   const pills = p.variants.map((v, i) => {
     const d = v.origPrice > v.price ? Math.round((1 - v.price / v.origPrice) * 100) : 0;
     return `<button class="pd-var${i === 0 ? ' active' : ''}" onclick="pdSelVar(${i})">${v.mg}<small>₹${v.price.toLocaleString('en-IN')}${d > 0 ? ' · ' + d + '% off' : ''}</small></button>`;
@@ -225,19 +228,36 @@ function buildVariants(p) {
   return `<div class="pd-variant-label">Select Size:</div>
     <div class="pd-variants">
       ${pills}
-    </div>
-    <script>
-    var _pdv=${varData},_pdn=${JSON.stringify(p.name)};
-    function pdSelVar(i){
-      document.querySelectorAll('.pd-var').forEach(function(e,j){e.classList.toggle('active',i===j)});
-      var v=_pdv[i];
-      document.getElementById('pd-price-now').textContent='₹'+v.price.toLocaleString('en-IN');
-      document.getElementById('pd-price-orig').textContent='₹'+v.origPrice.toLocaleString('en-IN');
-      var s=v.origPrice>v.price?Math.round((1-v.price/v.origPrice)*100):0;
-      var st=document.getElementById('pd-save-pct');if(st)st.textContent='Save '+s+'%';
-      document.getElementById('pd-wa-btn').href='https://wa.me/${WA_NUM}?text='+encodeURIComponent('Hi, I want to order '+_pdn+' – '+v.mg);
-    }
-    <\/script>`;
+    </div>`;
+}
+
+function buildProductScript(p) {
+  const varData = JSON.stringify(p.variants.map(v => ({ mg: v.mg, price: v.price, origPrice: v.origPrice })));
+  const imgSrc = getImgSrc(p.img) || '';
+  const selVarFn = p.variants.length > 1 ? `
+  function pdSelVar(i){
+    document.querySelectorAll('.pd-var').forEach(function(e,j){e.classList.toggle('active',i===j)});
+    var v=_pdv[i];
+    document.getElementById('pd-price-now').textContent='₹'+v.price.toLocaleString('en-IN');
+    document.getElementById('pd-price-orig').textContent='₹'+v.origPrice.toLocaleString('en-IN');
+    var s=v.origPrice>v.price?Math.round((1-v.price/v.origPrice)*100):0;
+    var st=document.getElementById('pd-save-pct');if(st)st.textContent='Save '+s+'%';
+    document.getElementById('pd-wa-btn').href='https://wa.me/${WA_NUM}?text='+encodeURIComponent('Hi, I want to order '+_pdn+' – '+v.mg);
+  }` : '';
+  return `<script>
+  var _pdv=${varData},_pdn=${JSON.stringify(p.name)},_pid=${JSON.stringify(p.id)},_pimg=${JSON.stringify(imgSrc)};${selVarFn}
+  function pdAddToCart(){
+    var vi=Array.from(document.querySelectorAll('.pd-var')).findIndex(function(e){return e.classList.contains('active')});
+    if(vi<0)vi=0;
+    var v=_pdv[vi]||_pdv[0];
+    var c=JSON.parse(localStorage.getItem('kg_cart')||'[]');
+    var ex=c.find(function(i){return i.pid===_pid&&i.vi===vi});
+    if(ex){ex.qty++;}else{c.push({pid:_pid,name:_pdn,img:_pimg,variant:v.mg,price:v.price,vi:vi,qty:1});}
+    localStorage.setItem('kg_cart',JSON.stringify(c));
+    var t=document.getElementById('pd-cart-toast');t.style.display='flex';
+    setTimeout(function(){t.style.display='none';},3000);
+  }
+<\/script>`;
 }
 
 function redesignProduct(slug) {
@@ -251,6 +271,7 @@ function redesignProduct(slug) {
   const contentInner = extractContent(html);
   const bcSchema = extractBreadcrumbSchema(html);
   const heroHtml = buildHero(p);
+  const productScript = buildProductScript(p);
   const waOrderMsg = encodeURIComponent('Hi, I want to order ' + p.name);
 
   const out = `<!DOCTYPE html>
@@ -272,6 +293,12 @@ ${contentInner}
 </div>
 
 ${NEW_FOOTER}
+${productScript}
+<div class="pd-cart-toast" id="pd-cart-toast" style="display:none">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+  <span>Added to cart!</span>
+  <a href="/">View Cart &rarr;</a>
+</div>
 ${bcSchema}
 </body>
 </html>`;

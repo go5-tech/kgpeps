@@ -1406,13 +1406,13 @@ function renderTopSellers(){
     const waMsg0=encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
     const discPct=v0.origPrice>v0.price?Math.round((1-v0.price/v0.origPrice)*100):0;
     return`<div class="pcard rv" style="animation-delay:${i*.07}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
-      <div class="pcard-img-wrap">
+      <a class="pcard-img-wrap" href="/${p.id}/" style="display:block;text-decoration:none">
         <img class="pcard-img" src="${p.img||''}" alt="${p.name}" onerror="this.style.display='none'">
         <div style="position:absolute;top:.6rem;left:.6rem;display:flex;gap:.3rem;flex-wrap:wrap;z-index:1">
           ${(p.badges||[]).includes('top')?'<span class="badge bt">⭐ Best Seller</span>':(p.badges||[]).includes('new')?'<span class="badge bn">New</span>':''}
           ${discPct>0?`<span class="badge bs">${discPct}% OFF</span>`:''}
         </div>
-      </div>
+      </a>
       <div class="pcard-body">
         <div style="font-size:.72rem;color:var(--muted);margin-bottom:.3rem;font-weight:500">Peptide Central</div>
         <a href="/${p.id}/" class="pname" style="text-decoration:none;color:inherit">${p.name}</a>
@@ -1449,16 +1449,16 @@ function renderPCards(){
     const waMsg0=encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
     const discPct=v0.origPrice>v0.price?Math.round((1-v0.price/v0.origPrice)*100):0;
     return`<div class="pcard rv" style="animation-delay:${i*.035}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
-      <div class="pcard-img-wrap">
+      <a class="pcard-img-wrap" href="/${p.id}/" style="display:block;text-decoration:none">
         <img class="pcard-img" src="${p.img||''}" alt="${p.name}" onerror="this.style.display='none'">
         <div style="position:absolute;top:.6rem;left:.6rem;display:flex;gap:.3rem;flex-wrap:wrap;z-index:1">
           ${(p.badges||[]).includes('top')?'<span class="badge bt">⭐ Best Seller</span>':(p.badges||[]).includes('new')?'<span class="badge bn">New</span>':''}
           ${discPct>0?`<span class="badge bs">${discPct}% OFF</span>`:''}
         </div>
-      </div>
+      </a>
       <div class="pcard-body">
         <div style="font-size:.72rem;color:var(--muted);margin-bottom:.3rem;font-weight:500">Peptide Central</div>
-        <div class="pname">${p.name}</div>
+        <a href="/${p.id}/" class="pname" style="text-decoration:none;color:inherit">${p.name}</a>
         <div class="pdesc">${p.desc}</div>
       </div>
       <div class="pcard-foot">
@@ -1703,6 +1703,7 @@ function updateCartCount(){
   const n=cart.reduce((s,i)=>s+i.qty,0);
   const el=document.getElementById('cart-count');
   if(el){el.textContent=n;el.classList.toggle('show',n>0)}
+  localStorage.setItem('kg_cart',JSON.stringify(cart));
 }
 function renderCart(){
   const el=document.getElementById('cart-items');
@@ -1739,6 +1740,8 @@ if(location.hash==='#admin')openAdmin();
 
 // ── INIT ──────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
+  const savedCart=JSON.parse(localStorage.getItem('kg_cart')||'[]');
+  if(savedCart.length){cart=savedCart;updateCartCount();}
   const cfg=JSON.parse(localStorage.getItem('kg_cfg')||'{}');
   if(cfg.siteActive===false&&window.location.hash!=='#admin'){
     const o=document.getElementById('maintenance-overlay');
