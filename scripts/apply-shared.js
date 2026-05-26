@@ -19,6 +19,7 @@ const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
     <li><a href="/brain-peptides/">Brain</a></li>
     <li><a href="/longevity-peptides/">Longevity</a></li>
     <li><a href="/blog/">Blog</a></li>
+    <li><a href="/request-peptide/">Request</a></li>
   </ul>
   <div class="pc-nav-right">
     <a class="pc-nav-wa" href="https://wa.me/919758888951" target="_blank" rel="noopener">${NAV_WA_SVG}Order on WhatsApp</a>

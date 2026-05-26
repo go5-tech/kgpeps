@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Request a Peptide | Peptide Central</title>
+  <meta name="description" content="Can't find the peptide you're looking for? Submit a request and we'll try to source it for you.">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    .rp-wrap{max-width:560px;margin:0 auto;padding:3rem 5% 5rem}
+    .rp-head{text-align:center;margin-bottom:2.5rem}
+    .rp-head h1{font-size:1.8rem;font-weight:900;color:#0f172a;margin-bottom:.5rem}
+    .rp-head p{color:#64748b;font-size:.95rem;line-height:1.6}
+    .rp-form{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:2rem}
+    .rp-field{margin-bottom:1.2rem}
+    .rp-label{display:block;font-size:.82rem;font-weight:700;color:#374151;margin-bottom:.4rem}
+    .rp-input,.rp-textarea{width:100%;box-sizing:border-box;padding:.75rem 1rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.9rem;color:#0f172a;font-family:inherit;outline:none;transition:.2s;background:#f8fafc}
+    .rp-input:focus,.rp-textarea:focus{border-color:#1d4ed8;background:#fff;box-shadow:0 0 0 3px rgba(29,78,216,.08)}
+    .rp-textarea{resize:vertical;min-height:90px}
+    .rp-btn-wa{width:100%;background:linear-gradient(130deg,#25d366,#1a9e4e);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.25s;margin-top:.5rem}
+    .rp-btn-wa:hover{box-shadow:0 4px 18px rgba(37,211,102,.4);transform:translateY(-1px)}
+    .rp-divider{display:flex;align-items:center;gap:.8rem;margin:1.5rem 0;color:#94a3b8;font-size:.8rem}
+    .rp-divider::before,.rp-divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
+    .rp-direct{display:flex;align-items:center;justify-content:center;gap:.5rem;color:#25d366;font-weight:700;font-size:.88rem;text-decoration:none;border:1.5px solid #25d366;border-radius:10px;padding:11px;transition:.2s}
+    .rp-direct:hover{background:rgba(37,211,102,.06)}
+    .rp-note{text-align:center;margin-top:1.5rem;font-size:.78rem;color:#94a3b8;line-height:1.6}
+  </style>
+</head>
+<body>
+<nav class="pc-nav" id="pc-nav">
+  <a class="logo" href="/"><img src="/logo.jpeg" alt="Peptide Central" height="44" loading="lazy"></a>
+  <ul class="pc-nav-links" id="pc-nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/products/">Peptides</a></li>
+    <li><a href="/fat-loss-peptides/">Fat Loss</a></li>
+    <li><a href="/recovery-peptides/">Recovery</a></li>
+    <li><a href="/brain-peptides/">Brain</a></li>
+    <li><a href="/longevity-peptides/">Longevity</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <div class="pc-nav-right">
+    <a class="pc-nav-wa" href="https://wa.me/919758888951" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>Order on WhatsApp</a>
+    <button class="pc-hamburger" onclick="var m=document.getElementById('pc-nav-links');m.style.display=m.style.display==='flex'?'none':'flex'" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="rp-wrap">
+  <div class="rp-head">
+    <h1>Request a Peptide</h1>
+    <p>Looking for a peptide not listed on our website? Tell us what you need and we'll try to source it for you.</p>
+  </div>
+
+  <div class="rp-form">
+    <div class="rp-field">
+      <label class="rp-label" for="rp-name">Your Name</label>
+      <input class="rp-input" id="rp-name" type="text" placeholder="e.g. Rahul">
+    </div>
+    <div class="rp-field">
+      <label class="rp-label" for="rp-peptide">Peptide Name <span style="color:#ef4444">*</span></label>
+      <input class="rp-input" id="rp-peptide" type="text" placeholder="e.g. Hexarelin, PT-141, Sermorelin">
+    </div>
+    <div class="rp-field">
+      <label class="rp-label" for="rp-dose">Dose / Quantity</label>
+      <input class="rp-input" id="rp-dose" type="text" placeholder="e.g. 2mg vial, 5mg, 10mg">
+    </div>
+    <div class="rp-field">
+      <label class="rp-label" for="rp-msg">Anything else?</label>
+      <textarea class="rp-textarea" id="rp-msg" placeholder="Purity requirements, quantity needed, research purpose..."></textarea>
+    </div>
+    <button class="rp-btn-wa" onclick="sendRequest()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+      Send Request via WhatsApp
+    </button>
+
+    <div class="rp-divider">or chat directly</div>
+
+    <a class="rp-direct" href="https://wa.me/919758888951" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+      Open WhatsApp Chat
+    </a>
+
+    <p class="rp-note">We typically respond within a few hours. All sourcing is subject to availability and research-grade quality verification.</p>
+  </div>
+</div>
+
+<footer class="pc-footer">
+  <div class="pc-footer-grid">
+    <div class="pc-footer-col">
+      <img src="/logo.jpeg" alt="Peptide Central" style="height:40px;border-radius:6px;margin-bottom:.8rem;display:block">
+      <p class="pc-footer-brand">India's most trusted source for research-grade peptides. Every batch HPLC-verified with COA included.</p>
+      <div class="pc-footer-contact">
+        <a href="https://wa.me/919758888951">📱 WhatsApp Order</a><br>
+        <a href="mailto:info@peptidecentral.in">✉ info@peptidecentral.in</a>
+      </div>
+    </div>
+    <div class="pc-footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="/fat-loss-peptides/">Fat Loss Peptides</a></li>
+        <li><a href="/recovery-peptides/">Recovery Peptides</a></li>
+        <li><a href="/anti-aging-peptides/">Anti-Aging Peptides</a></li>
+        <li><a href="/brain-peptides/">Brain Peptides</a></li>
+        <li><a href="/longevity-peptides/">Longevity Peptides</a></li>
+      </ul>
+    </div>
+    <div class="pc-footer-col">
+      <h4>Top Products</h4>
+      <ul>
+        <li><a href="/bpc-157/">BPC-157</a></li>
+        <li><a href="/ghk-cu/">GHK-Cu</a></li>
+        <li><a href="/retatrutide/">Retatrutide</a></li>
+        <li><a href="/tb-500/">TB-500</a></li>
+        <li><a href="/semax/">Semax</a></li>
+        <li><a href="/epitalon/">Epitalon</a></li>
+      </ul>
+    </div>
+    <div class="pc-footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/products/">All Peptides</a></li>
+        <li><a href="/request-peptide/">Request a Peptide</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pc-footer-bot">
+    <p>© 2026 Peptide Central. All products for in-vitro research use only. Not for human consumption.</p>
+    <div class="pc-pay-icons">
+      <span class="pc-pay">COD</span>
+      <span class="pc-pay">UPI</span>
+      <span class="pc-pay">IMPS</span>
+    </div>
+  </div>
+</footer>
+<div class="pc-wa-float">
+  <a href="https://wa.me/919758888951" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.337-1.502A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.359-.213-3.724.882.943-3.614-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+  </a>
+</div>
+
+<script src="/cart.js"></script>
+<script>
+function sendRequest() {
+  var peptide = document.getElementById('rp-peptide').value.trim();
+  if (!peptide) { document.getElementById('rp-peptide').focus(); return; }
+  var name = document.getElementById('rp-name').value.trim();
+  var dose = document.getElementById('rp-dose').value.trim();
+  var msg = document.getElementById('rp-msg').value.trim();
+  var text = 'Hi Peptide Central! I\'d like to request a peptide:\n\n';
+  if (name) text += 'Name: ' + name + '\n';
+  text += 'Peptide: ' + peptide + '\n';
+  if (dose) text += 'Dose/Qty: ' + dose + '\n';
+  if (msg) text += 'Notes: ' + msg + '\n';
+  text += '\nPlease let me know availability and pricing. Thanks!';
+  window.open('https://wa.me/919758888951?text=' + encodeURIComponent(text), '_blank');
+}
+document.getElementById('rp-peptide').addEventListener('keydown', function(e){ if(e.key==='Enter') sendRequest(); });
+</script>
+</body>
+</html>
