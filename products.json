@@ -2,18 +2,29 @@
   {
     "id": "ghk-cu",
     "name": "GHK-Cu",
-    "img": "https://drive.google.com/file/d/126ZUagvGnT94nDIsjXMiQ-mJtqxO4ydo/view?usp=drivesdk",
+    "img": "/ghkcu_mockup.jpeg",
     "cat": "Recovery",
     "tgt": "Skin / Hair / Recovery",
     "desc": "Copper tripeptide stimulating collagen synthesis, activating hair follicles, and delivering powerful anti-aging and recovery effects.",
-    "dose": "1–2 mg/day",
+    "dose": "1\u20132 mg/day",
     "half": "~24h",
     "purity": "99%",
-    "badges": ["top", "sale"],
+    "badges": [
+      "top",
+      "sale"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "50mg", "price": 4999, "origPrice": 7999},
-      {"mg": "100mg", "price": 7999, "origPrice": 12999}
+      {
+        "mg": "50mg",
+        "price": 4999,
+        "origPrice": 7999
+      },
+      {
+        "mg": "100mg",
+        "price": 7999,
+        "origPrice": 12999
+      }
     ]
   },
   {
@@ -22,16 +33,31 @@
     "img": "reta_mockup.jpeg",
     "cat": "Fat Loss",
     "tgt": "Fat Loss / Body Recomposition",
-    "desc": "Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17–24% body weight reduction. Most potent fat loss peptide available.",
-    "dose": "2–12 mg/wk",
+    "desc": "Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17\u201324% body weight reduction. Most potent fat loss peptide available.",
+    "dose": "2\u201312 mg/wk",
     "half": "~6d",
     "purity": "98%",
-    "badges": ["top", "new"],
+    "badges": [
+      "top",
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4999, "origPrice": 7999},
-      {"mg": "20mg", "price": 7999, "origPrice": 12999},
-      {"mg": "30mg", "price": 9999, "origPrice": 15999}
+      {
+        "mg": "10mg",
+        "price": 4999,
+        "origPrice": 7999
+      },
+      {
+        "mg": "20mg",
+        "price": 7999,
+        "origPrice": 12999
+      },
+      {
+        "mg": "30mg",
+        "price": 9999,
+        "origPrice": 15999
+      }
     ]
   },
   {
@@ -41,14 +67,25 @@
     "cat": "Fat Loss",
     "tgt": "Energy Metabolism",
     "desc": "Mitochondrial-derived peptide activating AMPK, enhancing insulin sensitivity & metabolic flexibility. Researched for longevity.",
-    "dose": "5–10 mg 3×/wk",
+    "dose": "5\u201310 mg 3\u00d7/wk",
     "half": "~24h",
     "purity": "99%",
-    "badges": ["top", "new"],
+    "badges": [
+      "top",
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 2999, "origPrice": 4999},
-      {"mg": "40mg", "price": 6999, "origPrice": 10999}
+      {
+        "mg": "10mg",
+        "price": 2999,
+        "origPrice": 4999
+      },
+      {
+        "mg": "40mg",
+        "price": 6999,
+        "origPrice": 10999
+      }
     ]
   },
   {
@@ -61,10 +98,17 @@
     "dose": "See individual compounds",
     "half": "Combo",
     "purity": "99%",
-    "badges": ["top", "stack"],
+    "badges": [
+      "top",
+      "stack"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "80mg", "price": 6999, "origPrice": 11999}
+      {
+        "mg": "80mg",
+        "price": 6999,
+        "origPrice": 11999
+      }
     ]
   },
   {
@@ -74,13 +118,17 @@
     "cat": "Recovery",
     "tgt": "Soft Tissue Research",
     "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
-    "dose": "250–500 mcg/day",
+    "dose": "250\u2013500 mcg/day",
     "half": "~4h",
     "purity": "99%",
     "badges": [],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4499, "origPrice": 6999}
+      {
+        "mg": "10mg",
+        "price": 4499,
+        "origPrice": 6999
+      }
     ]
   },
   {
@@ -90,13 +138,19 @@
     "cat": "Recovery",
     "tgt": "Recovery Signaling",
     "desc": "Thymosin Beta-4 fragment. Accelerates muscle repair, reduces DOMS, promotes angiogenesis and systemic healing.",
-    "dose": "2–2.5 mg 2×/wk",
+    "dose": "2\u20132.5 mg 2\u00d7/wk",
     "half": "~24h",
     "purity": "99%",
-    "badges": ["sale"],
+    "badges": [
+      "sale"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 5999, "origPrice": 9999}
+      {
+        "mg": "10mg",
+        "price": 5999,
+        "origPrice": 9999
+      }
     ]
   },
   {
@@ -106,13 +160,19 @@
     "cat": "Recovery",
     "tgt": "Inflammation and IBS",
     "desc": "Alpha-MSH-derived tripeptide with potent anti-inflammatory effects. Researched for IBS, gut inflammation, and wound healing.",
-    "dose": "500 mcg–1 mg/day",
+    "dose": "500 mcg\u20131 mg/day",
     "half": "~2h",
     "purity": "99%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 3999, "origPrice": 5999}
+      {
+        "mg": "10mg",
+        "price": 3999,
+        "origPrice": 5999
+      }
     ]
   },
   {
@@ -122,14 +182,24 @@
     "cat": "Fat Loss",
     "tgt": "Appetite Suppression / Insulin Regulation",
     "desc": "Dual GIP/GLP-1 receptor agonist. Clinically proven for weight management and type 2 diabetes research.",
-    "dose": "2.5–15 mg/wk",
+    "dose": "2.5\u201315 mg/wk",
     "half": "~5d",
     "purity": "98%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "20mg", "price": 5999, "origPrice": 9999},
-      {"mg": "30mg", "price": 10999, "origPrice": 16999}
+      {
+        "mg": "20mg",
+        "price": 5999,
+        "origPrice": 9999
+      },
+      {
+        "mg": "30mg",
+        "price": 10999,
+        "origPrice": 16999
+      }
     ]
   },
   {
@@ -142,11 +212,21 @@
     "dose": "300 mcg/day",
     "half": "~30m",
     "purity": "99%",
-    "badges": ["sale"],
+    "badges": [
+      "sale"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "5mg", "price": 3799, "origPrice": 5999},
-      {"mg": "10mg", "price": 6499, "origPrice": 9999}
+      {
+        "mg": "5mg",
+        "price": 3799,
+        "origPrice": 5999
+      },
+      {
+        "mg": "10mg",
+        "price": 6499,
+        "origPrice": 9999
+      }
     ]
   },
   {
@@ -156,13 +236,17 @@
     "cat": "Hormones",
     "tgt": "GHRH / Visceral Fat",
     "desc": "FDA-studied GHRH analogue specifically targeting visceral abdominal adipose tissue with proven clinical results.",
-    "dose": "1–2 mg/day",
+    "dose": "1\u20132 mg/day",
     "half": "~36m",
     "purity": "99%",
     "badges": [],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4499, "origPrice": 6999}
+      {
+        "mg": "10mg",
+        "price": 4499,
+        "origPrice": 6999
+      }
     ]
   },
   {
@@ -172,13 +256,17 @@
     "cat": "Hormones",
     "tgt": "GHRH Analog",
     "desc": "GHRH analogue for sustained GH pulse amplification. Ideal for body recomposition and anti-aging protocols.",
-    "dose": "1–2 mg/wk",
+    "dose": "1\u20132 mg/wk",
     "half": "~30m",
     "purity": "99%",
     "badges": [],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4999, "origPrice": 7999}
+      {
+        "mg": "10mg",
+        "price": 4999,
+        "origPrice": 7999
+      }
     ]
   },
   {
@@ -187,14 +275,18 @@
     "img": "https://www.corepeptides.in/cdn/shop/files/Ipamorelin_10mg_9680ec8d-a861-480b-9617-0dce361f54fb.webp?v=1776241766&width=533",
     "cat": "Hormones",
     "tgt": "Ghrelin Receptor Agonist",
-    "desc": "Cleanest ghrelin mimetic — selectively triggers GH pulses without raising cortisol or prolactin.",
-    "dose": "200–300 mcg 2–3×/day",
+    "desc": "Cleanest ghrelin mimetic \u2014 selectively triggers GH pulses without raising cortisol or prolactin.",
+    "dose": "200\u2013300 mcg 2\u20133\u00d7/day",
     "half": "~2h",
     "purity": "99%",
     "badges": [],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 2999, "origPrice": 4999}
+      {
+        "mg": "10mg",
+        "price": 2999,
+        "origPrice": 4999
+      }
     ]
   },
   {
@@ -207,10 +299,17 @@
     "dose": "See individual compounds",
     "half": "Combo",
     "purity": "99%",
-    "badges": ["new", "stack"],
+    "badges": [
+      "new",
+      "stack"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "5+5mg", "price": 4499, "origPrice": 6999}
+      {
+        "mg": "5+5mg",
+        "price": 4499,
+        "origPrice": 6999
+      }
     ]
   },
   {
@@ -220,13 +319,19 @@
     "cat": "Brain",
     "tgt": "Focus / Neuroplasticity",
     "desc": "ACTH-derived nootropic that upregulates BDNF, enhances working memory, focus, and neuroregeneration.",
-    "dose": "300–600 mcg/day",
+    "dose": "300\u2013600 mcg/day",
     "half": "~8h",
     "purity": "99%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 2999, "origPrice": 4999}
+      {
+        "mg": "10mg",
+        "price": 2999,
+        "origPrice": 4999
+      }
     ]
   },
   {
@@ -236,13 +341,19 @@
     "cat": "Brain",
     "tgt": "Calm Focus / Stress Support",
     "desc": "Anxiolytic peptide modulating GABA & serotonin. Reduces cortisol, improves mood and focus without sedation.",
-    "dose": "250–500 mcg/day",
+    "dose": "250\u2013500 mcg/day",
     "half": "~8h",
     "purity": "99%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 2999, "origPrice": 4999}
+      {
+        "mg": "10mg",
+        "price": 2999,
+        "origPrice": 4999
+      }
     ]
   },
   {
@@ -252,13 +363,19 @@
     "cat": "Brain",
     "tgt": "Cognitive Function / Vividness",
     "desc": "Pineal gland-derived tripeptide. Researched for cognitive enhancement, sleep quality, and neuroprotective properties.",
-    "dose": "5–10 mg/day",
+    "dose": "5\u201310 mg/day",
     "half": "~24h",
     "purity": "99%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4999, "origPrice": 7999}
+      {
+        "mg": "10mg",
+        "price": 4999,
+        "origPrice": 7999
+      }
     ]
   },
   {
@@ -268,13 +385,19 @@
     "cat": "Longevity",
     "tgt": "Longevity Pathways / Pineal Healing",
     "desc": "Tetrapeptide activating telomerase, extending telomere length, and restoring melatonin production.",
-    "dose": "5–10 mg/day",
+    "dose": "5\u201310 mg/day",
     "half": "~30m",
     "purity": "99%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4999, "origPrice": 7999}
+      {
+        "mg": "10mg",
+        "price": 4999,
+        "origPrice": 7999
+      }
     ]
   },
   {
@@ -284,13 +407,19 @@
     "cat": "Longevity",
     "tgt": "Mitochondrial Support",
     "desc": "Szeto-Schiller peptide targeting mitochondrial inner membrane. Researched for energy production and cellular protection.",
-    "dose": "1–3 mg/day",
+    "dose": "1\u20133 mg/day",
     "half": "~4h",
     "purity": "99%",
-    "badges": ["new"],
+    "badges": [
+      "new"
+    ],
     "wa": "",
     "variants": [
-      {"mg": "10mg", "price": 4999, "origPrice": 5999}
+      {
+        "mg": "10mg",
+        "price": 4999,
+        "origPrice": 5999
+      }
     ]
   }
 ]
