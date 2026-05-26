@@ -145,7 +145,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 nav{position:fixed;top:34px;left:0;right:0;z-index:900;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid #e2e8f0;transition:.3s}
 nav.scrolled{top:0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo img{height:44px;width:auto;border-radius:9px;display:block;flex-shrink:0}
+.logo-wrap{width:42px;height:42px;border-radius:9px;background:linear-gradient(to bottom,#FF9933 0%,#FF9933 33%,#f5f5f5 33%,#f5f5f5 66%,#138808 66%,#138808 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.logo-wrap img{width:36px;height:36px;object-fit:contain}
+.logo-brand{font-size:12px;font-weight:900;line-height:1.3;color:#0f172a;letter-spacing:.5px;text-transform:uppercase}
 .logo-wordmark{display:flex;flex-direction:column;line-height:1}
 .logo-name{font-size:1.45rem;font-weight:900;letter-spacing:2px;color:var(--cyan)}
 .logo-tagline{font-size:.5rem;letter-spacing:3px;color:#64748b;text-transform:uppercase;-webkit-text-fill-color:#64748b}
@@ -590,7 +592,8 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 <!-- NAV -->
 <nav id="nav">
   <a href="/" class="logo">
-    <img src="/logo-icon.jpeg" alt="Peptide Central" height="44" loading="lazy">
+    <div class="logo-wrap"><img src="/logo-icon.png" alt="" height="36" loading="lazy"></div>
+    <span class="logo-brand">Peptide<br>Central</span>
   </a>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
@@ -1112,7 +1115,8 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
   <div class="footer-grid">
     <div class="fb">
       <a href="/" class="logo" style="margin-bottom:.5rem">
-        <img src="/logo-icon.jpeg" alt="Peptide Central" style="height:44px;width:auto;border-radius:8px;display:block">
+        <div class="logo-wrap"><img src="/logo-icon.png" alt="" height="36" loading="lazy"></div>
+        <span class="logo-brand">Peptide<br>Central</span>
       </a>
       <p class="fb-desc">India's most trusted source for research-grade peptides. 99% purity, independently verified. Your performance, our science.</p>
       <div class="socials">
