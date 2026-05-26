@@ -350,6 +350,11 @@ ${heroHtml}
 
 ${ymalHtml}
 
+<div class="ruo-disclaimer">
+  <strong>Research Use Only Disclaimer</strong>
+  All products listed on this website are intended strictly for research purposes only. They are not for human consumption, medical, veterinary, or therapeutic use. By purchasing this product, you confirm that you are a qualified professional or part of a research organization, and will use these products strictly for laboratory and research purposes in compliance with all applicable laws.
+</div>
+
 <div class="content">
 ${contentInner}
 </div>

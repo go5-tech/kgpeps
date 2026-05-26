@@ -363,7 +363,9 @@ article a:hover{text-decoration:underline}
 .pd-qty-btn{background:#f1f5f9;border:1px solid #e2e8f0;color:#374151;width:32px;height:32px;border-radius:8px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;padding:0;line-height:1}
 .pd-qty-btn:hover{border-color:var(--cyan);color:var(--cyan)}
 .pd-qty-num{font-size:1rem;font-weight:800;color:#0f172a;min-width:28px;text-align:center}
-.ymal-section{max-width:1120px;margin:0 auto;padding:2.5rem 1.5rem 3.5rem}
+.ruo-disclaimer{max-width:1120px;margin:0 auto;padding:.75rem 1.5rem;background:#fffbeb;border-top:1px solid #fde68a;border-bottom:1px solid #fde68a;font-size:.75rem;color:#92400e;line-height:1.6}
+.ruo-disclaimer strong{font-weight:700;display:block;margin-bottom:.2rem;color:#78350f}
+.ymal-section{max-width:1120px;margin:0 auto;padding:2.5rem 1.5rem 2rem}
 .ymal-hd{margin-bottom:1.5rem}
 .ymal-hd h2{font-size:1.3rem;font-weight:900;color:#0f172a}
 .ymal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
