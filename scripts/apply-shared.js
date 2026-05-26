@@ -31,7 +31,10 @@ const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
 const NEW_FOOTER = `<footer class="pc-footer">
   <div class="pc-footer-grid">
     <div class="pc-footer-col">
-      <img src="/logo-icon.png" alt="Peptide Central" style="height:44px;width:44px;object-fit:contain;border-radius:8px;margin-bottom:.8rem;display:block">
+      <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:.9rem">
+        <div class="pc-logo-wrap"><img src="/logo-icon.png" alt="" height="36" loading="lazy"></div>
+        <span class="pc-nav-brand">Peptide<br>Central</span>
+      </a>
       <p class="pc-footer-brand">India's most trusted source for research-grade peptides. Every batch HPLC-verified with COA included.</p>
       <div class="pc-footer-contact">
         <a href="https://wa.me/919758888951">📱 WhatsApp Order</a><br>
