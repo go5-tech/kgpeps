@@ -515,9 +515,9 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 .pbtn-incart-qty{min-width:40px;text-align:center;font-size:.88rem;font-weight:800;color:#0f172a;border-left:1px solid #e2e8f0;border-right:1px solid #e2e8f0;padding:.55rem 0}
 
 /* ADMIN */
-.admin-ov{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.93);padding:2rem;overflow:auto}
+.admin-ov{display:none;position:fixed;inset:0;z-index:10000;background:rgba(248,250,252,.97);padding:2rem;overflow:auto}
 .admin-ov.show{display:block}
-.adm{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:860px;margin:0 auto;padding:2rem}
+.adm{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:860px;margin:0 auto;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.07)}
 .adm h2{color:var(--cyan);margin-bottom:1.4rem;font-size:1.3rem}
 .adm-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
 .adm-tab{background:transparent;border:none;border-bottom:2px solid transparent;color:var(--muted);padding:9px 18px;cursor:pointer;font-size:.8rem;font-weight:600;transition:.2s;margin-bottom:-1px}
@@ -526,18 +526,20 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 .adm-panel{display:none}.adm-panel.active{display:block}
 .site-toggle{position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0}
 .site-toggle input{opacity:0;width:0;height:0}
-.site-toggle-sl{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.12);border-radius:26px;transition:.3s}
-.site-toggle-sl::before{content:'';position:absolute;width:20px;height:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s}
+.site-toggle-sl{position:absolute;cursor:pointer;inset:0;background:#e2e8f0;border-radius:26px;transition:.3s}
+.site-toggle-sl::before{content:'';position:absolute;width:20px;height:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;box-shadow:0 1px 4px rgba(0,0,0,.15)}
 .site-toggle input:checked+.site-toggle-sl{background:var(--cyan)}
 .site-toggle input:checked+.site-toggle-sl::before{transform:translateX(22px)}
 .adm-tbl{width:100%;border-collapse:collapse;margin-bottom:1.4rem;font-size:.79rem}
-.adm-tbl th{background:rgba(0,168,150,.08);color:var(--cyan);padding:.6rem .9rem;text-align:left;font-size:.7rem;letter-spacing:1px;text-transform:uppercase}
+.adm-tbl th{background:rgba(29,78,216,.06);color:var(--cyan);padding:.6rem .9rem;text-align:left;font-size:.7rem;letter-spacing:1px;text-transform:uppercase}
 .adm-tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--muted)}
 .adm-btns{display:flex;gap:.8rem;flex-wrap:wrap}
 .adm-btn{background:linear-gradient(130deg,var(--cyan),var(--purple));color:#fff;border:none;padding:9px 18px;border-radius:18px;font-weight:700;cursor:pointer;font-size:.79rem;transition:.25s}
 .adm-btn:hover{box-shadow:var(--gc)}
 .adm-btn.del{background:linear-gradient(130deg,#ff4757,#c0392b)}
-.adm-x{position:fixed;top:1.2rem;right:1.8rem;background:rgba(255,255,255,.1);border:none;color:#fff;padding:7px 14px;border-radius:18px;cursor:pointer;font-size:.79rem}
+.adm-x{position:fixed;top:1.2rem;right:1.8rem;background:rgba(0,0,0,.07);border:1px solid var(--border);color:var(--text);padding:7px 14px;border-radius:18px;cursor:pointer;font-size:.79rem}
+.adm-inp{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-size:.88rem;outline:none;width:100%;box-sizing:border-box}
+.adm-inp:focus{border-color:var(--cyan)}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(26px);transition:.65s ease}
@@ -578,13 +580,13 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 <body>
 
 <!-- MAINTENANCE OVERLAY -->
-<div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:#0f172a;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem">
-  <div style="width:80px;height:80px;border-radius:16px;background:linear-gradient(to bottom,rgba(255,153,51,.22) 0%,rgba(255,153,51,.22) 33%,rgba(255,255,255,.08) 33%,rgba(255,255,255,.08) 66%,rgba(19,136,8,.22) 66%,rgba(19,136,8,.22) 100%);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(0,0,0,.3)">
+<div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:#f8fafc;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem">
+  <div style="width:80px;height:80px;border-radius:16px;background:linear-gradient(to bottom,rgba(255,153,51,.18) 0%,rgba(255,153,51,.18) 33%,rgba(245,245,245,.6) 33%,rgba(245,245,245,.6) 66%,rgba(19,136,8,.18) 66%,rgba(19,136,8,.18) 100%);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(0,0,0,.08)">
     <img src="/logo-icon.png" alt="Peptide Central" style="width:64px;height:64px;object-fit:contain">
   </div>
-  <h1 style="font-size:2rem;font-weight:900;letter-spacing:3px;margin-bottom:.5rem"><span style="color:#4d8eff">Peptide</span> <span style="color:#fff">Central</span></h1>
-  <p id="maint-msg" style="color:#94a3b8;font-size:1rem;max-width:420px;line-height:1.6">We're updating our product catalogue. Back shortly!</p>
-  <p style="color:#64748b;font-size:.75rem;margin-top:1.5rem">WhatsApp us at +91 75052 21639 for urgent orders</p>
+  <h1 style="font-size:2rem;font-weight:900;letter-spacing:3px;margin-bottom:.5rem"><span style="color:#1d4ed8">Peptide</span> <span style="color:#0f172a">Central</span></h1>
+  <p id="maint-msg" style="color:#6b7280;font-size:1rem;max-width:420px;line-height:1.6">We're updating our product catalogue. Back shortly!</p>
+  <p style="color:#9ca3af;font-size:.75rem;margin-top:1.5rem">WhatsApp us at +91 75052 21639 for urgent orders</p>
   <a href="#admin" style="color:#64748b;font-size:.7rem;margin-top:2rem;text-decoration:none" onclick="document.getElementById('maintenance-overlay').style.display='none'">Admin</a>
 </div>
 
@@ -1265,7 +1267,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
     </div>
     <div style="max-width:340px;margin:0 auto;display:flex;flex-direction:column;gap:1rem">
       <input id="adm-pw" type="password" placeholder="Enter admin password" autocomplete="current-password"
-        style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:#fff;font-size:.95rem;outline:none;width:100%;box-sizing:border-box"
+        class="adm-inp" style="border-radius:10px;padding:13px 16px;font-size:.95rem"
         onkeydown="if(event.key==='Enter')adminLogin()">
       <button class="adm-btn" style="width:100%;justify-content:center;padding:13px" onclick="adminLogin()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
@@ -1306,7 +1308,7 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
       <div style="display:flex;flex-direction:column;gap:1.2rem;max-width:460px">
 
         <!-- SITE ON/OFF -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem">
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem">
           <div>
             <div style="font-weight:700;font-size:.9rem">Site Active</div>
             <div style="color:var(--muted);font-size:.75rem;margin-top:2px">Toggle off to show maintenance page</div>
@@ -1319,20 +1321,17 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 
         <div>
           <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem">WhatsApp Number (with country code, no +)</label>
-          <input id="cfg-wa" type="text" value="919758888951" placeholder="919758888951"
-            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+          <input id="cfg-wa" type="text" value="919758888951" placeholder="919758888951" class="adm-inp">
         </div>
 
         <div>
           <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem">Maintenance Message</label>
-          <input id="cfg-maint" type="text" value="We're updating our product catalogue. Back shortly!"
-            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+          <input id="cfg-maint" type="text" value="We're updating our product catalogue. Back shortly!" class="adm-inp">
         </div>
 
         <div>
           <label style="font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem">Google Sheets CSV URL</label>
-          <input id="cfg-sheets" type="text" placeholder="https://docs.google.com/..."
-            style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
+          <input id="cfg-sheets" type="text" placeholder="https://docs.google.com/..." class="adm-inp">
         </div>
 
         <button class="adm-btn" style="align-self:flex-start;padding:10px 22px" onclick="saveSettings()">
@@ -1349,9 +1348,9 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
         <div>
           <div style="font-weight:700;font-size:.88rem;margin-bottom:.8rem;color:var(--text)">Change Password</div>
           <div style="display:flex;flex-direction:column;gap:.65rem">
-            <input id="pw-cur" type="password" placeholder="Current password" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
-            <input id="pw-new" type="password" placeholder="New password" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box">
-            <input id="pw-con" type="password" placeholder="Confirm new password" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:#fff;font-size:.88rem;outline:none;width:100%;box-sizing:border-box" onkeydown="if(event.key==='Enter')changeAdminPw()">
+            <input id="pw-cur" type="password" placeholder="Current password" class="adm-inp">
+            <input id="pw-new" type="password" placeholder="New password" class="adm-inp">
+            <input id="pw-con" type="password" placeholder="Confirm new password" class="adm-inp" onkeydown="if(event.key==='Enter')changeAdminPw()">
             <button class="adm-btn" style="align-self:flex-start;padding:9px 18px" onclick="changeAdminPw()">Update Password</button>
             <div id="pw-msg" style="font-size:.8rem;display:none"></div>
           </div>
