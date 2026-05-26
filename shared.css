@@ -383,4 +383,6 @@ article a:hover{text-decoration:underline}
   .pd-badges-row{grid-template-columns:repeat(4,1fr);gap:.4rem}
   .pd-badge-item{font-size:.65rem;padding:.45rem .4rem}
   .ymal-grid{grid-template-columns:repeat(2,1fr)}
+  .ymal-section{padding:1.5rem 1rem 2rem}
+  .ymal-img-wrap{height:110px}
 }
