@@ -175,10 +175,13 @@ const blogSlugs = [
   'blog/ghk-cu-complete-guide-india',
 ];
 
+const otherSlugs = ['request-peptide'];
+
 const standardFiles = [
   ...productSlugs.map(s => path.join(BASE, s, 'index.html')),
   ...categorySlugs.map(s => path.join(BASE, s, 'index.html')),
   ...blogSlugs.map(s => path.join(BASE, s, 'index.html')),
+  ...otherSlugs.map(s => path.join(BASE, s, 'index.html')),
 ];
 
 console.log('Applying shared.css to all sub-pages...\n');
