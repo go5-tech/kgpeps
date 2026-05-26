@@ -285,7 +285,7 @@ function renderCards(){
     const waNum = p.wa || WA;
     const waMsg = encodeURIComponent('Hi Peptide Central! I want to order '+p.name+' '+v0.mg+' (₹'+v0.price+'). Please share payment details.');
     const discPct = v0.origPrice>v0.price ? Math.round((1-v0.price/v0.origPrice)*100) : 0;
-    const slug = p.id || p.name.toLowerCase().replace(/\s+/g,'-');
+    const slug = (p.id || p.name.toLowerCase().replace(/\s+/g,'-')).replace(/[()]/g,'').replace(/-{2,}/g,'-');
     const imgSrc = p.img ? (p.img.startsWith('http')||p.img.startsWith('/') ? p.img : '/'+p.img) : '';
     const badgesHtml = [
       (p.badges||[]).includes('top') ? '<span class="badge bt">⭐ Best Seller</span>' : '',

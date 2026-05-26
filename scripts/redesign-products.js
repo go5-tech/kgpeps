@@ -310,7 +310,7 @@ function buildYmalHtml(p) {
   const cards = related.map(q => {
     const v0 = q.variants[0];
     const img = getImgSrc(q.img) || '';
-    return `<a href="/${q.id}/" class="ymal-card">`
+    return `<a href="/${normalizeId(q.id)}/" class="ymal-card">`
       + `<div class="ymal-img-wrap">${img ? `<img src="${img}" alt="${q.name}" loading="lazy">` : ''}</div>`
       + `<div class="ymal-body"><div class="ymal-cat">${q.cat}</div>`
       + `<div class="ymal-name">${q.name}</div>`
