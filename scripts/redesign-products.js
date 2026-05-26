@@ -349,12 +349,6 @@ ${heroHtml}
 
 <div class="content">
 ${contentInner}
-
-  <div class="section-block" style="text-align:center">
-    <h2>Order ${p.name} in India</h2>
-    <p>Message us on WhatsApp — we'll confirm stock and share COD / UPI options. Your order ships within 24 hours with tracking.</p>
-    <a class="btn-wa" href="https://wa.me/${WA_NUM}?text=${waOrderMsg}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem">${WA_SVG18} Order ${p.name} on WhatsApp</a>
-  </div>
 </div>
 
 ${ymalHtml}
