@@ -145,7 +145,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 nav{position:fixed;top:34px;left:0;right:0;z-index:900;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid #e2e8f0;transition:.3s}
 nav.scrolled{top:0;box-shadow:0 2px 20px rgba(0,0,0,.08)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo svg{width:40px;height:40px}
+.logo img{height:44px;width:auto;border-radius:9px;display:block;flex-shrink:0}
 .logo-wordmark{display:flex;flex-direction:column;line-height:1}
 .logo-name{font-size:1.45rem;font-weight:900;letter-spacing:2px;color:var(--cyan)}
 .logo-tagline{font-size:.5rem;letter-spacing:3px;color:#64748b;text-transform:uppercase;-webkit-text-fill-color:#64748b}
@@ -589,8 +589,8 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="logo">
-    <img src="/favicon.svg" alt="Peptide Central" height="44" loading="lazy" style="display:block">
+  <a href="/" class="logo">
+    <img src="/logo.jpeg" alt="Peptide Central" height="44" loading="lazy">
   </a>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
