@@ -123,6 +123,8 @@ function extractContent(html) {
     : html.substring(s + startMark.length);
   raw = raw.trimEnd().replace(/\s*<\/div>\s*$/, '');
   raw = removeSectionBlock(raw, 'Pricing');
+  // Strip previously injected order CTA to prevent duplication on re-runs
+  raw = raw.replace(/<div class="section-block" style="text-align:center">\s*<h2>Order [^<]+ in India<\/h2>[\s\S]*?<\/div>/g, '');
   return raw.trim();
 }
 
