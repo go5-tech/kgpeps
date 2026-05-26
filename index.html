@@ -1484,7 +1484,7 @@ function renderTopSellers(){
     const discPct=v0.origPrice>v0.price?Math.round((1-v0.price/v0.origPrice)*100):0;
     return`<div class="pcard rv" style="animation-delay:${i*.07}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
       <a class="pcard-img-wrap" href="/${p.id}/" style="display:block;text-decoration:none">
-        <img class="pcard-img" src="${p.img||''}" alt="${p.name}" style="width:100%;height:auto;display:block;object-fit:contain;padding:.8rem;box-sizing:border-box" onerror="this.style.display='none'">
+        <img class="pcard-img" src="${(p.img||'').includes('drive.google.com/file')?'':p.img||''}" alt="${p.name}" style="width:100%;height:auto;display:block;object-fit:contain;padding:.8rem;box-sizing:border-box" onerror="this.style.display='none'">
         <div style="position:absolute;top:.6rem;left:.6rem;display:flex;gap:.3rem;flex-wrap:wrap;z-index:1">
           ${(p.badges||[]).includes('top')?'<span class="badge bt">⭐ Best Seller</span>':(p.badges||[]).includes('new')?'<span class="badge bn">New</span>':''}
           ${discPct>0?`<span class="badge bs">${discPct}% OFF</span>`:''}
@@ -1527,7 +1527,7 @@ function renderPCards(){
     const discPct=v0.origPrice>v0.price?Math.round((1-v0.price/v0.origPrice)*100):0;
     return`<div class="pcard rv" style="animation-delay:${i*.035}s" data-pid="${p.id||p.name}" data-variants='${JSON.stringify(variants).replace(/'/g,"&#39;")}' data-wa="${waNum}">
       <a class="pcard-img-wrap" href="/${p.id}/" style="display:block;text-decoration:none">
-        <img class="pcard-img" src="${p.img||''}" alt="${p.name}" style="width:100%;height:auto;display:block;object-fit:contain;padding:.8rem;box-sizing:border-box" onerror="this.style.display='none'">
+        <img class="pcard-img" src="${(p.img||'').includes('drive.google.com/file')?'':p.img||''}" alt="${p.name}" style="width:100%;height:auto;display:block;object-fit:contain;padding:.8rem;box-sizing:border-box" onerror="this.style.display='none'">
         <div style="position:absolute;top:.6rem;left:.6rem;display:flex;gap:.3rem;flex-wrap:wrap;z-index:1">
           ${(p.badges||[]).includes('top')?'<span class="badge bt">⭐ Best Seller</span>':(p.badges||[]).includes('new')?'<span class="badge bn">New</span>':''}
           ${discPct>0?`<span class="badge bs">${discPct}% OFF</span>`:''}
