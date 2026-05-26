@@ -1762,7 +1762,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       });
     }
     lastFiltered=prods;
-    buildTabs();applyFilters();renderTopSellers();renderFAQ();initReveal();animStats();
+    renderTopSellers();renderFAQ();initReveal();animStats();
     if(!localStorage.getItem('kg_pop'))setTimeout(()=>document.getElementById('pop-ov').classList.add('show'),3000);
   });
 });
