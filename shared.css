@@ -395,3 +395,23 @@ article a:hover{text-decoration:underline}
   .ymal-section{padding:1.5rem 1rem 2rem}
   .ymal-img-wrap{height:110px}
 }
+
+/* Request Peptide page */
+.rp-wrap{max-width:540px;margin:3rem auto;padding:0 5% 4rem}
+.rp-head{text-align:center;margin-bottom:2rem}
+.rp-head h1{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:900;color:#1e3a5f;margin-bottom:.6rem}
+.rp-head p{color:var(--muted);font-size:.93rem;line-height:1.7}
+.rp-form{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;display:flex;flex-direction:column;gap:1.1rem;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.rp-field{display:flex;flex-direction:column;gap:.4rem}
+.rp-label{font-size:.8rem;font-weight:600;color:#374151}
+.rp-input,.rp-textarea{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--text);font-size:.92rem;outline:none;font-family:inherit;transition:.2s}
+.rp-input:focus,.rp-textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(29,78,216,.08)}
+.rp-textarea{resize:vertical;min-height:90px}
+.rp-btn-wa{display:flex;align-items:center;justify-content:center;gap:.6rem;background:#25d366;color:#fff;border:none;border-radius:10px;padding:13px 20px;font-size:.95rem;font-weight:700;cursor:pointer;transition:.25s;font-family:inherit}
+.rp-btn-wa:hover{background:#1ebe5d;transform:translateY(-1px);box-shadow:0 4px 16px rgba(37,211,102,.3)}
+.rp-divider{text-align:center;color:var(--muted);font-size:.8rem;position:relative;margin:.2rem 0}
+.rp-divider::before,.rp-divider::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--border)}
+.rp-divider::before{left:0}.rp-divider::after{right:0}
+.rp-direct{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:11px 18px;color:var(--text);font-size:.88rem;font-weight:600;text-decoration:none;transition:.2s}
+.rp-direct:hover{border-color:var(--cyan);color:var(--cyan)}
+.rp-note{font-size:.78rem;color:var(--muted);text-align:center;line-height:1.6;margin-top:.4rem}

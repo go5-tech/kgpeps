@@ -63,13 +63,14 @@ const NEW_FOOTER = `<footer class="pc-footer">
       </ul>
     </div>
     <div class="pc-footer-col">
-      <h4>Blog</h4>
+      <h4>Learn</h4>
       <ul>
         <li><a href="/blog/">All Articles</a></li>
+        <li><a href="/blog/what-are-research-peptides/">What Are Peptides?</a></li>
+        <li><a href="/blog/peptide-synthesis-india/">Peptide Synthesis India</a></li>
         <li><a href="/blog/buy-peptides-online-india-2026/">Buy Peptides India</a></li>
         <li><a href="/blog/research-peptides-legal-india/">Legal in India?</a></li>
-        <li><a href="/blog/top-10-best-peptides-india-2026/">Top 10 Peptides</a></li>
-        <li><a href="/blog/best-peptides-fat-loss-india/">Fat Loss Guide</a></li>
+        <li><a href="/about/">About Us</a></li>
       </ul>
     </div>
   </div>
@@ -102,8 +103,8 @@ function processStandard(filepath) {
   // Replace <style>...</style> with shared.css link
   html = html.replace(/<style>[\s\S]*?<\/style>/, CSS_LINK);
 
-  // Replace first <nav...>...</nav>
-  html = html.replace(/<nav[\s\S]*?<\/nav>/, NEW_NAV);
+  // Replace nav + any duplicate pcToggleNav scripts left by previous runs
+  html = html.replace(/<nav[\s\S]*?<\/nav>(\s*<script>function pcToggleNav[\s\S]*?<\/script>)*/g, NEW_NAV);
 
   // Replace first <footer...>...</footer> + any trailing pc-wa-float div
   html = html.replace(/<footer[\s\S]*?<\/footer>(\s*<div class="pc-wa-float">[\s\S]*?<\/div>)?(\s*<script[^>]*cart\.js[^>]*><\/script>)?/, NEW_FOOTER);
@@ -173,9 +174,11 @@ const blogSlugs = [
   'blog/retatrutide-vs-tirzepatide-india',
   'blog/best-longevity-peptides-india',
   'blog/ghk-cu-complete-guide-india',
+  'blog/what-are-research-peptides',
+  'blog/peptide-synthesis-india',
 ];
 
-const otherSlugs = ['request-peptide'];
+const otherSlugs = ['request-peptide', 'about'];
 
 const standardFiles = [
   ...productSlugs.map(s => path.join(BASE, s, 'index.html')),
