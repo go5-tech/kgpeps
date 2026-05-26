@@ -347,11 +347,11 @@ function redesignProduct(slug) {
 ${NEW_NAV}
 ${heroHtml}
 
+${ymalHtml}
+
 <div class="content">
 ${contentInner}
 </div>
-
-${ymalHtml}
 
 ${NEW_FOOTER}
 ${productScript}

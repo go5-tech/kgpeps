@@ -246,12 +246,13 @@ ul li{margin-bottom:.4rem;font-size:.93rem}
 .trust-item .ti{color:var(--cyan);font-size:1rem}
 
 /* Product content wrapper */
-.content{max-width:860px;margin:0 auto;padding:0 5% 4rem}
-.section-block{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.2rem;margin-bottom:1.5rem}
-.section-block h2{display:flex;align-items:center;gap:.6rem;color:#1e3a5f;border-bottom:none;padding-bottom:0}
-.section-block h2::before{content:'';display:inline-block;width:3px;height:1.1em;background:var(--cyan);border-radius:3px;flex-shrink:0}
-ul.benefits{list-style:none;padding-left:0;display:flex;flex-direction:column;gap:.6rem;margin-top:.5rem}
-ul.benefits li{color:#374151;font-size:.9rem;line-height:1.6;display:flex;gap:.7rem;align-items:flex-start}
+.content{max-width:860px;margin:0 auto;padding:0 5% 2.5rem}
+.section-block{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1rem}
+.section-block h2{display:flex;align-items:center;gap:.5rem;color:#1e3a5f;border-bottom:none;padding-bottom:0;font-size:1rem;margin-bottom:.7rem}
+.section-block h2::before{content:'';display:inline-block;width:3px;height:1em;background:var(--cyan);border-radius:3px;flex-shrink:0}
+.section-block p{font-size:.85rem;color:#475569;line-height:1.65;margin-bottom:.5rem}
+ul.benefits{list-style:none;padding-left:0;display:flex;flex-direction:column;gap:.4rem;margin-top:.4rem}
+ul.benefits li{color:#374151;font-size:.85rem;line-height:1.55;display:flex;gap:.6rem;align-items:flex-start}
 ul.benefits li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
 
 /* Pricing table */
@@ -264,14 +265,14 @@ ul.benefits li::before{content:'✓';color:var(--green);font-weight:700;flex-shr
 .btn-order-sm:hover{box-shadow:0 4px 14px rgba(37,211,102,.4)}
 
 /* FAQ (product pages) */
-.faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:.6rem;overflow:hidden}
-.faq-q{padding:1rem 1.3rem;font-weight:600;font-size:.88rem;color:#1e3a5f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s;width:100%;background:none;border:none;text-align:left;font-family:inherit}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:10px;margin-bottom:.45rem;overflow:hidden}
+.faq-q{padding:.75rem 1.1rem;font-weight:600;font-size:.83rem;color:#1e3a5f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s;width:100%;background:none;border:none;text-align:left;font-family:inherit}
 .faq-q:hover{color:var(--cyan)}
 .faq-arrow{color:var(--cyan);font-size:.8rem;transition:.3s;flex-shrink:0}
 .faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-a{padding:0 1.3rem;max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a{padding:0 1.1rem;max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-item.open .faq-a{max-height:300px}
-.faq-a p{padding-bottom:1rem;font-size:.88rem}
+.faq-a p{padding-bottom:.8rem;font-size:.83rem}
 
 /* Category/blog container */
 .container{max-width:900px;margin:0 auto;padding:0 5% 4rem}
