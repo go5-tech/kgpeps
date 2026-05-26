@@ -678,6 +678,11 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
     <p class="sec-desc">Our most popular research peptides — independently HPLC verified, shipped pan-India.</p>
   </div>
   <div class="pgrid" id="ts-grid"></div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="/products/" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--cyan);color:#fff;font-weight:700;padding:14px 32px;border-radius:10px;font-size:.95rem;text-decoration:none;transition:.25s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      View All 18 Peptides →
+    </a>
+  </div>
 </section>
 
 <!-- BODY MAP PLACEHOLDER (moved below testimonials) -->
@@ -857,31 +862,6 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
   </div>
 </section>
 
-<!-- PRODUCTS / CATALOG -->
-<section class="section" id="products">
-  <div class="sec-hd rv">
-    <div class="sec-tag">Shop</div>
-    <h2 class="sec-title">Premium Peptide Catalog</h2>
-    <p class="sec-desc">22 research-grade peptides, all independently HPLC tested. Filter by goal, search by name — order directly via WhatsApp or COD.</p>
-  </div>
-
-  <div class="catalog-bar rv">
-    <div class="catalog-row1">
-      <div class="search-wrap">
-        <span class="si">🔍</span>
-        <input type="text" id="srch" placeholder="Search peptides…" oninput="applyFilters()">
-      </div>
-      <span class="p-count" id="pcount"></span>
-      <div class="view-btns">
-        <button class="vb on" id="gbtn" onclick="setView('g')" title="Grid">⊞</button>
-        <button class="vb" id="lbtn" onclick="setView('l')" title="List">☰</button>
-      </div>
-    </div>
-    <div class="filter-row" id="ftabs"></div>
-  </div>
-
-  <div class="pgrid" id="pgrid"></div>
-</section>
 
 <!-- PURITY / GOLD STANDARD -->
 <section class="section" id="purity">
@@ -1434,7 +1414,7 @@ function renderTopSellers(){
       </div>
       <div class="pcard-body">
         <div style="font-size:.72rem;color:var(--muted);margin-bottom:.3rem;font-weight:500">Peptide Central</div>
-        <div class="pname">${p.name}</div>
+        <a href="/${p.id}/" class="pname" style="text-decoration:none;color:inherit">${p.name}</a>
         <div class="pdesc">${p.desc}</div>
       </div>
       <div class="pcard-foot">
@@ -1444,7 +1424,7 @@ function renderTopSellers(){
           ${v0.origPrice>v0.price?`<span class="pold">₹${v0.origPrice.toLocaleString('en-IN')}</span>`:''}
         </div>
         <div class="pbtns">
-          <button class="pbtn pbtn-cart" onclick="addToCart('${pid}')">Add to Cart</button>
+          <a class="pbtn pbtn-cart" href="/${p.id}/" style="background:#f1f5f9;border:1px solid #e5e7eb;color:#374151;text-decoration:none">View Details</a>
           <a class="pbtn pbtn-wa" href="https://wa.me/${waNum}?text=${waMsg0}" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.523 5.824L0 24l6.318-1.498A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.384l-.36-.214-3.742.887.934-3.638-.235-.374A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg> WhatsApp</a>
         </div>
       </div>
