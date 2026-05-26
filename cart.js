@@ -16,6 +16,8 @@ var CSS=[
 '.pc-ch h3{font-size:1rem;font-weight:800;color:#0f172a;margin:0}',
 '.pc-cc{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:.85rem;color:#64748b;transition:.2s}',
 '.pc-cc:hover{color:#1d4ed8;border-color:#1d4ed8}',
+'.pc-clear{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:.78rem;padding:4px 8px;transition:.2s;border-radius:5px}',
+'.pc-clear:hover{color:#dc2626;background:rgba(220,38,38,.07)}',
 '.pc-ci-list{flex:1;overflow-y:auto;padding:1rem 1.5rem;display:flex;flex-direction:column;gap:.8rem}',
 '.pc-cempty{text-align:center;padding:3rem 1rem;color:#94a3b8}',
 '.pc-cempty svg{margin-bottom:.8rem;opacity:.4;display:block;margin-left:auto;margin-right:auto}',
@@ -65,6 +67,9 @@ window.pcCloseCart=function(){
   document.getElementById('pc-cov').classList.remove('show');
   document.getElementById('pc-cpanel').classList.remove('show');
 };
+window.pcClearCart=function(){
+  cart=[];pcUpdateCount();pcRenderCart();
+};
 window.pcRemove=function(i){
   cart.splice(i,1);pcUpdateCount();pcRenderCart();
 };
@@ -85,6 +90,8 @@ window.pcSendCart=function(){
 function pcRenderCart(){
   var el=document.getElementById('pc-ci-list');
   var foot=document.getElementById('pc-cfoot');
+  var clearBtn=document.getElementById('pc-clear-btn');
+  if(clearBtn)clearBtn.style.display=cart.length?'block':'none';
   if(!cart.length){
     el.innerHTML='<div class="pc-cempty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg><p>Your cart is empty</p></div>';
     foot.style.display='none';return;
@@ -115,7 +122,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // Inject cart panel into body
   var wrap=document.createElement('div');
-  wrap.innerHTML='<div class="pc-cov" id="pc-cov" onclick="pcCloseCart()"></div><div class="pc-cpanel" id="pc-cpanel"><div class="pc-ch"><h3>Your Cart</h3><button class="pc-cc" onclick="pcCloseCart()">✕ Close</button></div><div class="pc-ci-list" id="pc-ci-list"></div><div class="pc-cfoot" id="pc-cfoot" style="display:none"><div class="pc-ctotal"><span>Total</span><strong id="pc-ctotal-amt">₹0</strong></div><button class="pc-cwa" onclick="pcSendCart()">'+WA_SVG+' Send Order via WhatsApp</button></div></div>';
+  wrap.innerHTML='<div class="pc-cov" id="pc-cov" onclick="pcCloseCart()"></div><div class="pc-cpanel" id="pc-cpanel"><div class="pc-ch"><h3>Your Cart</h3><div style="display:flex;align-items:center;gap:.4rem"><button class="pc-clear" id="pc-clear-btn" onclick="pcClearCart()" style="display:none">Clear all</button><button class="pc-cc" onclick="pcCloseCart()">✕ Close</button></div></div><div class="pc-ci-list" id="pc-ci-list"></div><div class="pc-cfoot" id="pc-cfoot" style="display:none"><div class="pc-ctotal"><span>Total</span><strong id="pc-ctotal-amt">₹0</strong></div><button class="pc-cwa" onclick="pcSendCart()">'+WA_SVG+' Send Order via WhatsApp</button></div></div>';
   while(wrap.firstChild)document.body.appendChild(wrap.firstChild);
 
   // Load cart from localStorage
