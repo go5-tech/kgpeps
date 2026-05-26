@@ -19,7 +19,7 @@ const WA_SVG18 = WA_SVG20.replace('width="20" height="20"', 'width="18" height="
 const WA_SVG15 = WA_SVG20.replace('width="20" height="20"', 'width="15" height="15"');
 
 const NEW_NAV = `<nav class="pc-nav" id="pc-nav">
-  <a class="logo" href="/"><img src="/logo.jpeg" alt="Peptide Central" height="44" loading="lazy"></a>
+  <a class="logo" href="/"><div class="pc-logo-badge">PC</div><div class="pc-logo-text"><span>Peptide</span><span>Central</span></div></a>
   <ul class="pc-nav-links" id="pc-nav-links">
     <li><a href="/">Home</a></li>
     <li><a href="/products/">Peptides</a></li>
