@@ -431,7 +431,7 @@
   {
     "id": "ss-31",
     "name": "SS-31",
-    "img": "/images/vials/ss-31_upload.jpg",
+    "img": "/images/vials/ss-31_10mg.png",
     "cat": "Longevity",
     "tgt": "Mitochondrial Support.",
     "desc": "Szeto-Schiller peptide targeting mitochondrial inner membrane. Researched for energy production and cellular protection.",
@@ -447,7 +447,7 @@
         "mg": "10mg",
         "price": 4999,
         "origPrice": 5999,
-        "img": "/images/vials/ss-31_10mg.png"
+        "img": "/images/vials/ss-31_10mg.jpg"
       }
     ]
   }
