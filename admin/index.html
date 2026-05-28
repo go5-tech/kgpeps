@@ -31,7 +31,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .bs-section{margin:0 1.5rem .75rem;background:#fff;border:1.5px solid #fde68a;border-radius:14px;padding:1rem}
 .bs-section h2{font-size:.85rem;font-weight:900;color:#d97706;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.75rem}
 .bs-grid{display:flex;flex-wrap:wrap;gap:.5rem}
-.bs-chip{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;border-radius:20px;font-size:.8rem;font-weight:700;background:#fef3c7;color:#92400e;border:1.5px solid #fde68a}
+.bs-chip{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;border-radius:20px;font-size:.8rem;font-weight:700;background:#fef3c7;color:#92400e;border:1.5px solid #fde68a;cursor:grab;user-select:none}
+.bs-chip.dragging{opacity:.4;border-style:dashed}
+.bs-chip.drag-over{border-color:#d97706;border-width:2px}
 .bs-chip button{background:none;border:none;cursor:pointer;color:#dc2626;font-size:.9rem;line-height:1;padding:0}
 .bs-add{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap;align-items:center}
 .bs-add select{padding:.35rem .7rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;outline:none}
@@ -246,12 +248,21 @@ function renderList() {
   renderBestSellers();
 }
 
+let bsDragSrc = null;
+
 function renderBestSellers() {
   const bestSellers = products.filter(p => (p.badges||[]).includes('top'));
   document.getElementById('bs-grid').innerHTML = bestSellers.length
     ? bestSellers.map(p => {
         const i = products.indexOf(p);
-        return `<div class="bs-chip">${esc(p.name)}<button onclick="removeBestSeller(${i})" title="Remove">✕</button></div>`;
+        return `<div class="bs-chip" draggable="true"
+          ondragstart="bsDragStart(event,${i})"
+          ondragover="bsDragOver(event,${i})"
+          ondragleave="bsDragLeave(event,${i})"
+          ondrop="bsDragDrop(event,${i})"
+          ondragend="bsDragEnd()">
+          ⠿ ${esc(p.name)}<button onclick="event.stopPropagation();removeBestSeller(${i})" title="Remove">✕</button>
+        </div>`;
       }).join('')
     : '<span style="font-size:.8rem;color:#94a3b8">No best sellers set</span>';
   // Populate add dropdown with non-best-seller products
@@ -274,6 +285,23 @@ function removeBestSeller(i) {
   products[i].badges = (products[i].badges||[]).filter(b => b !== 'top');
   renderList();
   markUnsaved();
+}
+
+function bsDragStart(e, i) { bsDragSrc = i; setTimeout(() => e.target.classList.add('dragging'), 0); }
+function bsDragOver(e, i) { e.preventDefault(); if (i !== bsDragSrc) e.currentTarget.classList.add('drag-over'); }
+function bsDragLeave(e, i) { e.currentTarget.classList.remove('drag-over'); }
+function bsDragDrop(e, i) {
+  e.preventDefault();
+  if (bsDragSrc === null || bsDragSrc === i) return;
+  const moved = products.splice(bsDragSrc, 1)[0];
+  products.splice(bsDragSrc < i ? i - 1 : i, 0, moved);
+  bsDragSrc = null;
+  renderList();
+  markUnsaved();
+}
+function bsDragEnd() {
+  bsDragSrc = null;
+  document.querySelectorAll('.bs-chip').forEach(c => { c.classList.remove('dragging'); c.classList.remove('drag-over'); });
 }
 
 let dragSrcIdx = null;
