@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"firecrawl scrape \\\"https://github.com/inhouseseo/superseo-skills\\\" -o .firecrawl/superseo-skills.md 2>&1 | tail -5 && head -80 .firecrawl/superseo-skills.md\",\"description\":\"Scrape superseo...",
+  "error": "Exit code 1\n/bin/bash: line 1: firecrawl: command not found\nhead: cannot open '.firecrawl/superseo-skills.md' for reading: No such file or directory",
+  "timestamp": "2026-05-28T07:18:42.811Z",
+  "retry_count": 1
+}

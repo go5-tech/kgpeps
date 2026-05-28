@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"wrangler deploy 2>&1\",\"description\":\"Deploy Cloudflare Worker\"}",
+  "error": "Exit code 1\n\n ⛅️ wrangler 4.93.0\n───────────────────\n\nCloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md\nTotal Upload: 2.37 KiB / gzip: 1.06 KiB\nYour Worker has access to the following bindings:\nBinding                            Resource                  \nenv.GITHUB_OWNER (\"go5-tech\")      Environment Variable      \nenv.GITHUB_REPO (\"kgpeps\")         Environment Variable      \n\nUp...",
+  "timestamp": "2026-05-21T05:39:26.309Z",
+  "retry_count": 1
+}

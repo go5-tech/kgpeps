@@ -1,0 +1,632 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779952685641,
+  "projectRoot": "/home/devesh/peps",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "scripts"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "about": {
+      "path": "about",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685635,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "anti-aging-peptides": {
+      "path": "anti-aging-peptides",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685635,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "aod-9604": {
+      "path": "aod-9604",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685636,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "blog": {
+      "path": "blog",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685637,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "bpc-157": {
+      "path": "bpc-157",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685637,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "brain-peptides": {
+      "path": "brain-peptides",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685637,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "cjc-1295-no-dac": {
+      "path": "cjc-1295-no-dac",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "cjc-ipamorelin-blend": {
+      "path": "cjc-ipamorelin-blend",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "epitalon": {
+      "path": "epitalon",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "fat-loss-peptides": {
+      "path": "fat-loss-peptides",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "ghk-cu": {
+      "path": "ghk-cu",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "ipamorelin": {
+      "path": "ipamorelin",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "klow-blend": {
+      "path": "klow-blend",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "kpv": {
+      "path": "kpv",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "longevity-peptides": {
+      "path": "longevity-peptides",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "mots-c": {
+      "path": "mots-c",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685638,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "pinealon": {
+      "path": "pinealon",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "products": {
+      "path": "products",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "recovery-peptides": {
+      "path": "recovery-peptides",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "request-peptide": {
+      "path": "request-peptide",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "research_biopeptide": {
+      "path": "research_biopeptide",
+      "purpose": null,
+      "fileCount": 10,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "01-site-structure.md",
+        "02-keyword-strategy.md",
+        "03-content-plan.md",
+        "04-tech-seo-checklist.md",
+        "05-stack-setup.md"
+      ]
+    },
+    "retatrutide": {
+      "path": "retatrutide",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 4,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "apply-shared.js",
+        "reddit_monitor.py",
+        "redesign-products.js",
+        "sheets_to_json.py"
+      ]
+    },
+    "selank": {
+      "path": "selank",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "semax": {
+      "path": "semax",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "seo": {
+      "path": "seo",
+      "purpose": null,
+      "fileCount": 11,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "backlink-outreach-templates.md",
+        "backlink-plan.md",
+        "backlink-prospects.csv",
+        "guest-post-draft-coa-hplc-india.md",
+        "reddit-outreach-plan.md"
+      ]
+    },
+    "ss-31": {
+      "path": "ss-31",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685639,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "tb-500": {
+      "path": "tb-500",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685640,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "tesamorelin": {
+      "path": "tesamorelin",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685640,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "tirzepatide": {
+      "path": "tirzepatide",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779952685640,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "worker": {
+      "path": "worker",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1779952685640,
+      "keyFiles": [
+        "index.js",
+        "wrangler.toml"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "index.html",
+      "accessCount": 162,
+      "lastAccessed": 1779955064904,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/product-pages.md",
+      "accessCount": 81,
+      "lastAccessed": 1779796699924,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/01-legal-india.md",
+      "accessCount": 5,
+      "lastAccessed": 1779796458337,
+      "type": "file"
+    },
+    {
+      "path": "products.json",
+      "accessCount": 4,
+      "lastAccessed": 1779794041645,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/03-content-plan.md",
+      "accessCount": 3,
+      "lastAccessed": 1779796154148,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/02-keyword-strategy.md",
+      "accessCount": 2,
+      "lastAccessed": 1779796042911,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/MASTER-PLAN.md",
+      "accessCount": 2,
+      "lastAccessed": 1779796363589,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/14-retatrutide-india.md",
+      "accessCount": 2,
+      "lastAccessed": 1779796453882,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/02-where-to-buy.md",
+      "accessCount": 2,
+      "lastAccessed": 1779796461796,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/03-avoid-fakes.md",
+      "accessCount": 2,
+      "lastAccessed": 1779796465697,
+      "type": "file"
+    },
+    {
+      "path": "biopeptide-seo-analysis.md",
+      "accessCount": 1,
+      "lastAccessed": 1779778482874,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/01-site-structure.md",
+      "accessCount": 1,
+      "lastAccessed": 1779784446899,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/04-tech-seo-checklist.md",
+      "accessCount": 1,
+      "lastAccessed": 1779784538669,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/05-stack-setup.md",
+      "accessCount": 1,
+      "lastAccessed": 1779784571957,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/06-competitor-gaps.md",
+      "accessCount": 1,
+      "lastAccessed": 1779784605606,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/07-peptidecentral-net-analysis.md",
+      "accessCount": 1,
+      "lastAccessed": 1779787953554,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/08-your-site-audit.md",
+      "accessCount": 1,
+      "lastAccessed": 1779787982703,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/11-ghk-cu-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796162249,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/21-bpc157-vs-tb500.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796187539,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/12-bpc-157-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796189842,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/22-ipamorelin-vs-ghrp6.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796217692,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/13-tb-500-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796218485,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/04-coa-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796230011,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/23-semax-vs-selank.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796247870,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/05-storage-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796266076,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/15-ipamorelin-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796273726,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/24-ghkcu-vs-epitalon.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796278917,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/06-lyophilized-vs-injectable.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796299078,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/16-epitalon-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796301060,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/25-best-fat-loss-peptides.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796308726,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/17-semax-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796337162,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/07-reconstitute-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796339051,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/26-best-muscle-peptides.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796339685,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/18-selank-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796364974,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/faq.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796369333,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/08-top-10-peptides.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796369972,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/27-first-timer-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796382320,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/about.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796386508,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/category-recovery.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796395621,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/19-ghrp-6-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796396881,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/contact.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796401249,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/09-anti-aging-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796402463,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/category-fat-loss.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796428277,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/28-dosage-reference.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796429720,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/20-cjc-1295-india.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796429933,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/lab-reports.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796430856,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/10-buying-checklist.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796444304,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/category-hormones.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796462292,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/blog-drafts/29-purity-matters.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796468181,
+      "type": "file"
+    },
+    {
+      "path": "research_biopeptide/pages/category-brain.md",
+      "accessCount": 1,
+      "lastAccessed": 1779796494644,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
