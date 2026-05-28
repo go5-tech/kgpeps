@@ -203,14 +203,22 @@ let secret = '';
 async function login() {
   secret = document.getElementById('secret-input').value.trim();
   if (!secret) return;
-  document.getElementById('gate-err').textContent = '';
+  const errEl = document.getElementById('gate-err');
+  errEl.textContent = '';
   try {
+    // Validate secret against Worker first
+    const ping = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({secret, action: 'ping'})
+    });
+    if (ping.status === 401) { errEl.textContent = 'Wrong password.'; secret = ''; return; }
     await loadProducts();
     sessionStorage.setItem('adm_s', secret);
     document.getElementById('gate').style.display = 'none';
     document.getElementById('panel').style.display = 'block';
   } catch(e) {
-    document.getElementById('gate-err').textContent = 'Failed to load products. Check secret or connection.';
+    errEl.textContent = 'Failed to connect. Check your internet.';
   }
 }
 

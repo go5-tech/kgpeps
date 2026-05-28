@@ -17,6 +17,9 @@ export default {
     const expected = env.ADMIN_SECRET || '';
     if (!timingSafeEqual(provided, expected)) return json({ error: 'Unauthorized' }, 401);
 
+    // Ping — just validates the secret
+    if (body.action === 'ping') return json({ ok: true });
+
     const { file, content, message } = body;
     if (!file || !content) return json({ error: 'Missing file or content' }, 400);
 
