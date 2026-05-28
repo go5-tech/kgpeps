@@ -380,7 +380,7 @@ article a:hover{text-decoration:underline}
 .ymal-card{text-decoration:none;color:inherit;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;transition:.25s;display:block}
 .ymal-card:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 6px 24px rgba(29,78,216,.1)}
 .ymal-img-wrap{height:150px;overflow:hidden;background:#f1f5f9;display:flex;align-items:center;justify-content:center}
-.ymal-img-wrap img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.ymal-img-wrap img{width:100%;height:100%;object-fit:contain;transition:.3s}
 .ymal-card:hover .ymal-img-wrap img{transform:scale(1.05)}
 .ymal-body{padding:.85rem 1rem}
 .ymal-cat{font-size:.66rem;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.25rem}
