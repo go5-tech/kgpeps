@@ -6,6 +6,9 @@ workers_dev = true
 [vars]
 GITHUB_OWNER = "go5-tech"
 GITHUB_REPO = "kgpeps"
-# ADMIN_SECRET and GITHUB_TOKEN must be set as encrypted secrets:
+CF_ACCOUNT_ID = "77915d272155f1ef549f094809ed3aa3"
+CF_WORKER_NAME = "kgpeps-admin"
+# Encrypted secrets (set via wrangler secret put):
 # npx wrangler secret put ADMIN_SECRET
 # npx wrangler secret put GITHUB_TOKEN
+# npx wrangler secret put CF_API_TOKEN  (Cloudflare API token with Workers Scripts Edit permission)

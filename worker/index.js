@@ -20,6 +20,24 @@ export default {
     // Ping — just validates the secret
     if (body.action === 'ping') return json({ ok: true });
 
+    // Change password — updates ADMIN_SECRET via Cloudflare API
+    if (body.action === 'changePassword') {
+      const newSecret = body.newSecret || '';
+      if (!newSecret || newSecret.length < 8) return json({ error: 'Password must be at least 8 characters' }, 400);
+      if (!env.CF_API_TOKEN) return json({ error: 'CF_API_TOKEN not configured' }, 500);
+      const cfRes = await fetch(
+        `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/workers/scripts/${env.CF_WORKER_NAME}/secrets`,
+        {
+          method: 'PUT',
+          headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: 'ADMIN_SECRET', text: newSecret, type: 'secret_text' })
+        }
+      );
+      const cfData = await cfRes.json();
+      if (!cfRes.ok) return json({ error: 'Cloudflare API error', detail: cfData }, 502);
+      return json({ ok: true });
+    }
+
     const { file, content, message } = body;
     if (!file || !content) return json({ error: 'Missing file or content' }, 400);
 

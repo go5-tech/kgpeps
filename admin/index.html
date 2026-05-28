@@ -133,6 +133,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <h1>Peptide Central Admin</h1>
     <span class="status" id="save-status"></span>
     <button class="btn btn-ghost btn-sm" onclick="reloadProducts()">↺ Reload</button>
+    <button class="btn btn-ghost btn-sm" onclick="openChangePwd()">🔑 Change Password</button>
     <button class="btn btn-danger btn-sm" onclick="logout()">Logout</button>
     <button class="btn btn-primary btn-sm" onclick="openAddModal()">+ Add Product</button>
     <button class="btn btn-success" onclick="saveAll()">💾 Save All Changes</button>
@@ -192,6 +193,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeAddModal()">Cancel</button>
       <button class="btn btn-primary" onclick="confirmAddProduct()">Add Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- Change Password Modal -->
+<div class="modal-overlay" id="pwd-modal">
+  <div class="modal">
+    <h2>Change Password</h2>
+    <div class="field" style="margin-bottom:.75rem"><label>New Password</label><input type="password" id="new-pwd" placeholder="Min 8 characters"></div>
+    <div class="field"><label>Confirm Password</label><input type="password" id="confirm-pwd" placeholder="Repeat new password"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeChangePwd()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmChangePwd()">Update Password</button>
     </div>
   </div>
 </div>
@@ -676,6 +690,34 @@ function toast(msg, type) {
 
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function openChangePwd() { document.getElementById('pwd-modal').classList.add('open'); }
+function closeChangePwd() { document.getElementById('pwd-modal').classList.remove('open'); document.getElementById('new-pwd').value=''; document.getElementById('confirm-pwd').value=''; }
+async function confirmChangePwd() {
+  const np = document.getElementById('new-pwd').value;
+  const cp = document.getElementById('confirm-pwd').value;
+  if (np.length < 8) { toast('Password must be at least 8 characters', 'err'); return; }
+  if (np !== cp) { toast('Passwords do not match', 'err'); return; }
+  const btn = document.querySelector('#pwd-modal .btn-primary');
+  btn.textContent = 'Updating…'; btn.disabled = true;
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({secret, action: 'changePassword', newSecret: np})
+    });
+    const data = await res.json();
+    if (data.ok) {
+      secret = np;
+      sessionStorage.setItem('adm_s', np);
+      closeChangePwd();
+      toast('Password updated!', 'ok');
+    } else {
+      toast('Failed: ' + (data.error || 'unknown'), 'err');
+    }
+  } catch(e) { toast('Error: ' + e.message, 'err'); }
+  btn.textContent = 'Update Password'; btn.disabled = false;
 }
 
 function logout() {
