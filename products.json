@@ -47,7 +47,8 @@
       {
         "mg": "10mg",
         "price": 4499,
-        "origPrice": 6999
+        "origPrice": 6999,
+        "img": "/images/vials/bpc-157_10mg.png"
       }
     ]
   },
@@ -92,7 +93,8 @@
       {
         "mg": "10mg",
         "price": 3999,
-        "origPrice": 5999
+        "origPrice": 5999,
+        "img": "/images/vials/kpv_10mg.png"
       }
     ]
   },
@@ -116,7 +118,8 @@
       {
         "mg": "80mg",
         "price": 6999,
-        "origPrice": 11999
+        "origPrice": 11999,
+        "img": "/images/vials/klow_blend_80mg.png"
       }
     ]
   },
@@ -175,12 +178,14 @@
       {
         "mg": "20mg",
         "price": 5999,
-        "origPrice": 9999
+        "origPrice": 9999,
+        "img": "/images/vials/tirzepatide_20mg.png"
       },
       {
         "mg": "30mg",
         "price": 10999,
-        "origPrice": 16999
+        "origPrice": 16999,
+        "img": "/images/vials/tirzepatide_30mg.png"
       }
     ]
   },
@@ -279,7 +284,8 @@
       {
         "mg": "10mg",
         "price": 4999,
-        "origPrice": 7999
+        "origPrice": 7999,
+        "img": "/images/vials/cjc-1295_10mg.png"
       }
     ]
   },
@@ -323,7 +329,8 @@
       {
         "mg": "5+5mg",
         "price": 4499,
-        "origPrice": 6999
+        "origPrice": 6999,
+        "img": "/images/vials/cjc-1295_5mg.png"
       }
     ]
   },
@@ -413,7 +420,8 @@
       {
         "mg": "10mg",
         "price": 4999,
-        "origPrice": 7999
+        "origPrice": 7999,
+        "img": "/images/vials/epitalon_10mg.png"
       }
     ]
   },
