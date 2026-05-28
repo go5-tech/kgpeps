@@ -192,7 +192,7 @@
   {
     "id": "aod-9604",
     "name": "AOD-9604",
-    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "img": "/images/vials/aod-9604_5mg.png",
     "cat": "Fat Loss",
     "tgt": "Lipolysis Research",
     "desc": "C-terminus fragment of HGH (177-191). Activates fat-burning lipolysis pathways without growth-promoting side effects.",
@@ -207,12 +207,14 @@
       {
         "mg": "5mg",
         "price": 3799,
-        "origPrice": 5999
+        "origPrice": 5999,
+        "img": "/images/vials/aod-9604_5mg.png"
       },
       {
         "mg": "10mg",
         "price": 6499,
-        "origPrice": 9999
+        "origPrice": 9999,
+        "img": "/images/vials/aod-9604_5mg.png"
       }
     ]
   },
@@ -383,7 +385,7 @@
   {
     "id": "pinealon",
     "name": "Pinealon",
-    "img": "https://cdn.shopify.com/s/files/1/0727/0377/0775/files/WhatsApp_Image_2026-04-15_at_19.45.10.jpg?v=1776262553",
+    "img": "/images/vials/pinealon_10mg.png",
     "cat": "Brain",
     "tgt": "Cognitive Function / Vividness",
     "desc": "Pineal gland-derived tripeptide. Researched for cognitive enhancement, sleep quality, and neuroprotective properties.",
@@ -398,7 +400,8 @@
       {
         "mg": "10mg",
         "price": 4999,
-        "origPrice": 7999
+        "origPrice": 7999,
+        "img": "/images/vials/pinealon_10mg.png"
       }
     ]
   },
