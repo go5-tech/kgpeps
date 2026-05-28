@@ -35,10 +35,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .bs-chip button{background:none;border:none;cursor:pointer;color:#dc2626;font-size:.9rem;line-height:1;padding:0}
 .bs-add{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap;align-items:center}
 .bs-add select{padding:.35rem .7rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;outline:none}
-/* Reorder buttons */
-.reorder-btns{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
-.reorder-btns button{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:4px;width:22px;height:18px;cursor:pointer;font-size:.65rem;color:#475569;display:flex;align-items:center;justify-content:center;padding:0}
-.reorder-btns button:hover{background:#e2e8f0}
+/* Drag handle */
+.drag-handle{cursor:grab;color:#cbd5e1;font-size:1.1rem;flex-shrink:0;padding:0 4px;line-height:1;user-select:none}
+.drag-handle:active{cursor:grabbing}
+.prod-card.dragging{opacity:.4;border:2px dashed #1d4ed8}
+.prod-card.drag-over{border-top:3px solid #1d4ed8}
 /* Search */
 .adm-bar{padding:1rem 1.5rem;display:flex;gap:.75rem;align-items:center}
 .adm-bar input{flex:1;padding:.6rem 1rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.9rem;outline:none;max-width:360px}
@@ -275,18 +276,43 @@ function removeBestSeller(i) {
   markUnsaved();
 }
 
-function moveUp(i) {
-  if (i === 0) return;
-  [products[i-1], products[i]] = [products[i], products[i-1]];
+let dragSrcIdx = null;
+
+function dragStart(e, i) {
+  dragSrcIdx = i;
+  e.dataTransfer.effectAllowed = 'move';
+  setTimeout(() => { const c = document.getElementById('card-' + i); if(c) c.classList.add('dragging'); }, 0);
+}
+
+function dragOver(e, i) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.prod-card').forEach(c => c.classList.remove('drag-over'));
+  const c = document.getElementById('card-' + i);
+  if (c && i !== dragSrcIdx) c.classList.add('drag-over');
+}
+
+function dragLeave(e, i) {
+  const c = document.getElementById('card-' + i);
+  if (c) c.classList.remove('drag-over');
+}
+
+function dragDrop(e, i) {
+  e.preventDefault();
+  if (dragSrcIdx === null || dragSrcIdx === i) return;
+  const moved = products.splice(dragSrcIdx, 1)[0];
+  products.splice(i, 0, moved);
+  dragSrcIdx = null;
   renderList();
   markUnsaved();
 }
 
-function moveDown(i) {
-  if (i >= products.length - 1) return;
-  [products[i], products[i+1]] = [products[i+1], products[i]];
-  renderList();
-  markUnsaved();
+function dragEnd(e) {
+  dragSrcIdx = null;
+  document.querySelectorAll('.prod-card').forEach(c => {
+    c.classList.remove('dragging');
+    c.classList.remove('drag-over');
+  });
 }
 
 function renderCard(p, i) {
@@ -317,12 +343,9 @@ function renderCard(p, i) {
     </tr>`).join('');
 
   const isBestSeller = (p.badges||[]).includes('top');
-  return `<div class="prod-card${active ? '' : ' inactive'}" id="card-${i}">
+  return `<div class="prod-card${active ? '' : ' inactive'}" id="card-${i}" draggable="true" ondragstart="dragStart(event,${i})" ondragover="dragOver(event,${i})" ondragleave="dragLeave(event,${i})" ondrop="dragDrop(event,${i})" ondragend="dragEnd(event)">
     <div class="prod-hd" onclick="toggleCard(${i})">
-      <div class="reorder-btns" onclick="event.stopPropagation()">
-        <button onclick="moveUp(${i})" title="Move up">▲</button>
-        <button onclick="moveDown(${i})" title="Move down">▼</button>
-      </div>
+      <span class="drag-handle" onclick="event.stopPropagation()" title="Drag to reorder">⠿</span>
       ${thumbHtml}
       <div class="prod-info">
         <div class="pname">${esc(p.name)}</div>
