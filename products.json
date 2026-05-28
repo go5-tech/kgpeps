@@ -151,7 +151,8 @@
       {
         "mg": "30mg",
         "price": 9999,
-        "origPrice": 15999
+        "origPrice": 15999,
+        "img": "/images/vials/retatrutide_30mg.png"
       }
     ]
   },
