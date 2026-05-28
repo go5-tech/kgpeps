@@ -2,3 +2,12 @@
 .env.*
 .firecrawl/
 node_modules/
+.omc/
+.claude/
+.codex
+research_biopeptide/
+seo/
+scripts/
+biopeptide-seo-analysis.md
+worker/.omc/
+worker/.wrangler/
