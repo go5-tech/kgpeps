@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Admin — Peptide Central</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -240,10 +242,17 @@ async function login() {
   }
 }
 
+let _origImages = {};
+
 async function loadProducts() {
   const res = await fetch('/products.json?t=' + Date.now());
   if (!res.ok) throw new Error('fetch failed');
   products = await res.json();
+  // Snapshot images for change detection
+  _origImages = {};
+  products.forEach(p => {
+    _origImages[p.id] = { img: p.img || '', variants: (p.variants||[]).map(v => v.img||'') };
+  });
   renderList();
 }
 
@@ -884,6 +893,29 @@ ${'<'+'/script>'}
 </html>`;
 }
 
+async function updateProductPageImage(p) {
+  const slug = p.id;
+  try {
+    const res = await fetch('https://raw.githubusercontent.com/go5-tech/kgpeps/main/' + slug + '/index.html?t=' + Date.now());
+    if (!res.ok) return; // page doesn't exist, skip
+    let html = await res.text();
+    // Update main img src inside pd-img-wrap
+    const newImg = p.img || '';
+    html = html.replace(/(<img\s[^>]*alt="[^"]*–\s*Peptide Central India"[^>]*>)/, function(m) {
+      return m.replace(/src="[^"]*"/, 'src="' + newImg + '"');
+    });
+    html = html.replace(/src="[^"]*"([^>]*alt="[^"]*–\s*Peptide Central India")/, 'src="' + newImg + '"$1');
+    // Update _pimg in inline script
+    const varImg = (p.variants && p.variants[0] && p.variants[0].img) || newImg;
+    html = html.replace(/_pimg="[^"]*"/, '_pimg="' + varImg.replace(/"/g,'\\"') + '"');
+    // Update _pdv in inline script
+    const pdvJson = JSON.stringify((p.variants||[]).map(function(v){ return {mg:v.mg,price:v.price,origPrice:v.origPrice,img:v.img||newImg}; }));
+    html = html.replace(/_pdv=\[[\s\S]*?\](?=,_pdn)/, '_pdv=' + pdvJson);
+    const data = await commitFile(slug + '/index.html', html, 'Admin: sync ' + slug + ' page image');
+    if (!data.ok) toast('Page sync failed for ' + p.name, 'err');
+  } catch(e) { toast('Page sync error: ' + e.message, 'err'); }
+}
+
 async function commitFile(filePath, content, message) {
   const res = await fetch(WORKER_URL, {
     method: 'POST',
@@ -911,6 +943,20 @@ async function saveAll() {
         return;
       }
       delete p._isNew;
+    }
+
+    // Update HTML for products whose image changed
+    for (const p of products) {
+      if (p._isNew) continue;
+      const orig = _origImages[p.id];
+      if (!orig) continue;
+      const imgChanged = p.img !== orig.img;
+      const varImgChanged = (p.variants||[]).some((v,i) => (v.img||'') !== (orig.variants[i]||''));
+      if (imgChanged || varImgChanged) {
+        toast('Syncing ' + p.name + ' page…');
+        await updateProductPageImage(p);
+        _origImages[p.id] = { img: p.img||'', variants: (p.variants||[]).map(v => v.img||'') };
+      }
     }
 
     // Save products.json
