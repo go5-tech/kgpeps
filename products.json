@@ -1,28 +1,5 @@
 [
   {
-    "id": "bpc-157",
-    "name": "BPC-157",
-    "img": "/images/vials/bpc-157_10mg.png",
-    "cat": "Recovery",
-    "tgt": "Soft Tissue Research",
-    "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
-    "dose": "250â500 mcg/day",
-    "half": "~4h",
-    "purity": "99.90%",
-    "badges": [
-      "top"
-    ],
-    "wa": "",
-    "variants": [
-      {
-        "mg": "10mg",
-        "price": 4499,
-        "origPrice": 6999,
-        "img": "/images/vials/bpc-157_10mg.png"
-      }
-    ]
-  },
-  {
     "id": "ghk-cu",
     "name": "GHK-Cu",
     "img": "/images/vials/ghk-cu_50mg.png",
@@ -49,6 +26,31 @@
         "price": 7999,
         "origPrice": 12999,
         "img": "/images/vials/ghk-cu_100mg.png"
+      }
+    ]
+  },
+  {
+    "id": "klow-blend",
+    "name": "Klow Blend",
+    "img": "/images/vials/klow_blend_80mg.png",
+    "cat": "Recovery",
+    "tgt": "Full Spectrum Recovery",
+    "desc": "GHK-Cu + BPC-157 + TB4 + KPV all-in-one blend. Comprehensive recovery, anti-inflammatory and regenerative support.",
+    "dose": "See individual compounds",
+    "half": "Combo",
+    "purity": "99%",
+    "badges": [
+      "new",
+      "top",
+      "stack"
+    ],
+    "wa": "",
+    "variants": [
+      {
+        "mg": "80mg",
+        "price": 6999,
+        "origPrice": 11999,
+        "img": "/images/vials/klow_blend_80mg.png"
       }
     ]
   },
@@ -99,27 +101,25 @@
     ]
   },
   {
-    "id": "klow-blend",
-    "name": "Klow Blend",
-    "img": "/images/vials/klow_blend_80mg.png",
+    "id": "bpc-157",
+    "name": "BPC-157",
+    "img": "/images/vials/bpc-157_10mg.png",
     "cat": "Recovery",
-    "tgt": "Full Spectrum Recovery",
-    "desc": "GHK-Cu + BPC-157 + TB4 + KPV all-in-one blend. Comprehensive recovery, anti-inflammatory and regenerative support.",
-    "dose": "See individual compounds",
-    "half": "Combo",
-    "purity": "99%",
+    "tgt": "Soft Tissue Research",
+    "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
+    "dose": "250â500 mcg/day",
+    "half": "~4h",
+    "purity": "99.90%",
     "badges": [
-      "new",
-      "top",
-      "stack"
+      "top"
     ],
     "wa": "",
     "variants": [
       {
-        "mg": "80mg",
-        "price": 6999,
-        "origPrice": 11999,
-        "img": "/images/vials/klow_blend_80mg.png"
+        "mg": "10mg",
+        "price": 4499,
+        "origPrice": 6999,
+        "img": "/images/vials/bpc-157_10mg.png"
       }
     ]
   },
@@ -449,6 +449,7 @@
         "origPrice": 5999,
         "img": "/images/vials/ss-31_10mg.jpg"
       }
-    ]
+    ],
+    "active": true
   }
 ]
