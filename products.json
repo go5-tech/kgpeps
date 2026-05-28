@@ -6,7 +6,7 @@
     "cat": "Recovery",
     "tgt": "Skin / Hair / Recovery",
     "desc": "Copper tripeptide stimulating collagen synthesis, activating hair follicles, and delivering powerful anti-aging and recovery effects.",
-    "dose": "1â2 mg/day",
+    "dose": "1\u00e2\u0080\u00932 mg/day",
     "half": "~24h",
     "purity": "99.90%",
     "badges": [
@@ -61,7 +61,7 @@
     "cat": "Recovery",
     "tgt": "Recovery Signaling",
     "desc": "Thymosin Beta-4 fragment. Accelerates muscle repair, reduces DOMS, promotes angiogenesis and systemic healing.",
-    "dose": "2â2.5 mg 2Ã/wk",
+    "dose": "2\u00e2\u0080\u00932.5 mg 2\u00c3\u0097/wk",
     "half": "~24h",
     "purity": "99.90%",
     "badges": [
@@ -84,7 +84,7 @@
     "cat": "Recovery",
     "tgt": "Inflammation and IBS",
     "desc": "Alpha-MSH-derived tripeptide with potent anti-inflammatory effects. Researched for IBS, gut inflammation, and wound healing.",
-    "dose": "500 mcgâ1 mg/day",
+    "dose": "500 mcg\u00e2\u0080\u00931 mg/day",
     "half": "~2h",
     "purity": "99%",
     "badges": [
@@ -107,7 +107,7 @@
     "cat": "Recovery",
     "tgt": "Soft Tissue Research",
     "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
-    "dose": "250â500 mcg/day",
+    "dose": "250\u00e2\u0080\u0093500 mcg/day",
     "half": "~4h",
     "purity": "99.90%",
     "badges": [
@@ -129,8 +129,8 @@
     "img": "/images/vials/retatrutide_10mg.png",
     "cat": "Fat Loss",
     "tgt": "Fat Loss / Body Recomposition",
-    "desc": "Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17â24% body weight reduction. Most potent fat loss peptide available.",
-    "dose": "2â12 mg/wk",
+    "desc": "Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17\u00e2\u0080\u009324% body weight reduction. Most potent fat loss peptide available.",
+    "dose": "2\u00e2\u0080\u009312 mg/wk",
     "half": "~6d",
     "purity": "98%",
     "badges": [
@@ -166,7 +166,7 @@
     "cat": "Fat Loss",
     "tgt": "Appetite Suppression / Insulin Regulation",
     "desc": "Dual GIP/GLP-1 receptor agonist. Clinically proven for weight management and type 2 diabetes research.",
-    "dose": "2.5â15 mg/wk",
+    "dose": "2.5\u00e2\u0080\u009315 mg/wk",
     "half": "~5d",
     "purity": "98%",
     "badges": [
@@ -225,7 +225,7 @@
     "cat": "Fat Loss",
     "tgt": "Energy Metabolism",
     "desc": "Mitochondrial-derived peptide activating AMPK, enhancing insulin sensitivity & metabolic flexibility. Researched for longevity.",
-    "dose": "5â10 mg 3Ã/wk",
+    "dose": "5\u00e2\u0080\u009310 mg 3\u00c3\u0097/wk",
     "half": "~24h",
     "purity": "99%",
     "badges": [
@@ -254,7 +254,7 @@
     "cat": "Hormones",
     "tgt": "GHRH / Visceral Fat",
     "desc": "FDA-studied GHRH analogue specifically targeting visceral abdominal adipose tissue with proven clinical results.",
-    "dose": "1â2 mg/day",
+    "dose": "1\u00e2\u0080\u00932 mg/day",
     "half": "~36m",
     "purity": "99.90%",
     "badges": [
@@ -277,7 +277,7 @@
     "cat": "Hormones",
     "tgt": "GHRH Analog",
     "desc": "GHRH analogue for sustained GH pulse amplification. Ideal for body recomposition and anti-aging protocols.",
-    "dose": "1â2 mg/wk",
+    "dose": "1\u00e2\u0080\u00932 mg/wk",
     "half": "~30m",
     "purity": "99.90%",
     "badges": [],
@@ -297,8 +297,8 @@
     "img": "/images/vials/ipamorelin_10mg.png",
     "cat": "Hormones",
     "tgt": "Ghrelin Receptor Agonist",
-    "desc": "Cleanest ghrelin mimetic â selectively triggers GH pulses without raising cortisol or prolactin.",
-    "dose": "200â300 mcg 2â3Ã/day",
+    "desc": "Cleanest ghrelin mimetic \u00e2\u0080\u0094 selectively triggers GH pulses without raising cortisol or prolactin.",
+    "dose": "200\u00e2\u0080\u0093300 mcg 2\u00e2\u0080\u00933\u00c3\u0097/day",
     "half": "~2h",
     "purity": "99.90%",
     "badges": [],
@@ -343,7 +343,7 @@
     "cat": "Brain",
     "tgt": "Focus / Neuroplasticity",
     "desc": "ACTH-derived nootropic that upregulates BDNF, enhances working memory, focus, and neuroregeneration.",
-    "dose": "300â600 mcg/day",
+    "dose": "300\u00e2\u0080\u0093600 mcg/day",
     "half": "~8h",
     "purity": "99.90%",
     "badges": [
@@ -366,7 +366,7 @@
     "cat": "Brain",
     "tgt": "Calm Focus / Stress Support",
     "desc": "Anxiolytic peptide modulating GABA & serotonin. Reduces cortisol, improves mood and focus without sedation.",
-    "dose": "250â500 mcg/day",
+    "dose": "250\u00e2\u0080\u0093500 mcg/day",
     "half": "~8h",
     "purity": "99.90%",
     "badges": [
@@ -389,7 +389,7 @@
     "cat": "Brain",
     "tgt": "Cognitive Function / Vividness",
     "desc": "Pineal gland-derived tripeptide. Researched for cognitive enhancement, sleep quality, and neuroprotective properties.",
-    "dose": "5â10 mg/day",
+    "dose": "5\u00e2\u0080\u009310 mg/day",
     "half": "~24h",
     "purity": "99%",
     "badges": [
@@ -412,7 +412,7 @@
     "cat": "Longevity",
     "tgt": "Longevity Pathways / Pineal Healing",
     "desc": "Tetrapeptide activating telomerase, extending telomere length, and restoring melatonin production.",
-    "dose": "5â10 mg/day",
+    "dose": "5\u00e2\u0080\u009310 mg/day",
     "half": "~30m",
     "purity": "99%",
     "badges": [
@@ -435,7 +435,7 @@
     "cat": "Longevity",
     "tgt": "Mitochondrial Support.",
     "desc": "Szeto-Schiller peptide targeting mitochondrial inner membrane. Researched for energy production and cellular protection.",
-    "dose": "1â3 mg/day",
+    "dose": "1\u00e2\u0080\u00933 mg/day",
     "half": "~4h",
     "purity": "99%",
     "badges": [
@@ -451,27 +451,5 @@
       }
     ],
     "active": true
-  },
-  {
-    "id": "test-peptide",
-    "name": "test-peptide",
-    "img": "",
-    "cat": "Recovery",
-    "tgt": "",
-    "desc": "",
-    "dose": "",
-    "half": "",
-    "purity": "99%",
-    "badges": [],
-    "wa": "",
-    "active": true,
-    "variants": [
-      {
-        "mg": "10mg",
-        "price": 0,
-        "origPrice": 0,
-        "img": ""
-      }
-    ]
   }
 ]
