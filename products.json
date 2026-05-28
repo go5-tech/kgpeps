@@ -1,5 +1,28 @@
 [
   {
+    "id": "bpc-157",
+    "name": "BPC-157",
+    "img": "/images/vials/bpc-157_10mg.png",
+    "cat": "Recovery",
+    "tgt": "Soft Tissue Research",
+    "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
+    "dose": "250â500 mcg/day",
+    "half": "~4h",
+    "purity": "99.90%",
+    "badges": [
+      "top"
+    ],
+    "wa": "",
+    "variants": [
+      {
+        "mg": "10mg",
+        "price": 4499,
+        "origPrice": 6999,
+        "img": "/images/vials/bpc-157_10mg.png"
+      }
+    ]
+  },
+  {
     "id": "ghk-cu",
     "name": "GHK-Cu",
     "img": "/images/vials/ghk-cu_50mg.png",
@@ -26,29 +49,6 @@
         "price": 7999,
         "origPrice": 12999,
         "img": "/images/vials/ghk-cu_100mg.png"
-      }
-    ]
-  },
-  {
-    "id": "bpc-157",
-    "name": "BPC-157",
-    "img": "/images/vials/bpc-157_10mg.png",
-    "cat": "Recovery",
-    "tgt": "Soft Tissue Research",
-    "desc": "Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.",
-    "dose": "250â500 mcg/day",
-    "half": "~4h",
-    "purity": "99.90%",
-    "badges": [
-      "top"
-    ],
-    "wa": "",
-    "variants": [
-      {
-        "mg": "10mg",
-        "price": 4499,
-        "origPrice": 6999,
-        "img": "/images/vials/bpc-157_10mg.png"
       }
     ]
   },
@@ -431,7 +431,7 @@
   {
     "id": "ss-31",
     "name": "SS-31",
-    "img": "/images/vials/ss-31_upload.jpg",
+    "img": "/images/vials/ss-31_upload.png",
     "cat": "Longevity",
     "tgt": "Mitochondrial Support.",
     "desc": "Szeto-Schiller peptide targeting mitochondrial inner membrane. Researched for energy production and cellular protection.",
