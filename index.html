@@ -1631,6 +1631,7 @@ function pickVariant(el,pid,vi){
   const poldEl=card.querySelector('.pold');if(poldEl)poldEl.textContent='₹'+v.origPrice.toLocaleString('en-IN');
   const pnewEl=card.querySelector('.pnew');if(pnewEl)pnewEl.textContent='₹'+v.price.toLocaleString('en-IN');
   card.querySelector('.pbtn-wa').href='https://wa.me/'+waNum+'?text='+encodeURIComponent('Hi Peptide Central! I want to order '+name+' '+v.mg+' (₹'+v.price+'). Please share payment details.');
+  if(v.img){const imgEl=card.querySelector('.pcard-img');if(imgEl)imgEl.src=v.img;}
   syncCardBtn(pid);
 }
 
