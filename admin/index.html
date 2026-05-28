@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Admin — Peptide Central</title>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#0f172a;min-height:100vh}
@@ -38,10 +39,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .bs-add{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap;align-items:center}
 .bs-add select{padding:.35rem .7rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;outline:none}
 /* Drag handle */
-.drag-handle{cursor:grab;color:#cbd5e1;font-size:1.1rem;flex-shrink:0;padding:0 4px;line-height:1;user-select:none}
-.drag-handle:active{cursor:grabbing}
-.prod-card.dragging{opacity:.4;border:2px dashed #1d4ed8}
-.prod-card.drag-over{border-top:3px solid #1d4ed8}
+.drag-handle{cursor:grab;color:#94a3b8;font-size:1.2rem;flex-shrink:0;padding:0 6px;line-height:1;user-select:none;touch-action:none}
+.drag-handle:hover{color:#475569}
+.sortable-ghost{opacity:.3;background:#eff6ff !important}
+.sortable-chosen{box-shadow:0 8px 30px rgba(29,78,216,.15);border-color:#1d4ed8 !important}
 /* Search */
 .adm-bar{padding:1rem 1.5rem;display:flex;gap:.75rem;align-items:center}
 .adm-bar input{flex:1;padding:.6rem 1rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.9rem;outline:none;max-width:360px}
@@ -260,29 +261,46 @@ function renderList() {
     return renderCard(p, realIdx);
   }).join('');
   renderBestSellers();
+  setTimeout(initSortable, 0);
 }
 
-let bsDragSrc = null;
+let bsSortable = null;
 
 function renderBestSellers() {
   const bestSellers = products.filter(p => (p.badges||[]).includes('top'));
   document.getElementById('bs-grid').innerHTML = bestSellers.length
     ? bestSellers.map(p => {
         const i = products.indexOf(p);
-        return `<div class="bs-chip" draggable="true"
-          ondragstart="bsDragStart(event,${i})"
-          ondragover="bsDragOver(event,${i})"
-          ondragleave="bsDragLeave(event,${i})"
-          ondrop="bsDragDrop(event,${i})"
-          ondragend="bsDragEnd()">
-          ⠿ ${esc(p.name)}<button onclick="event.stopPropagation();removeBestSeller(${i})" title="Remove">✕</button>
-        </div>`;
+        return `<div class="bs-chip" data-idx="${i}">⠿ ${esc(p.name)}<button onclick="event.stopPropagation();removeBestSeller(${i})" title="Remove">✕</button></div>`;
       }).join('')
     : '<span style="font-size:.8rem;color:#94a3b8">No best sellers set</span>';
-  // Populate add dropdown with non-best-seller products
   const sel = document.getElementById('bs-add-sel');
   const others = products.filter(p => !(p.badges||[]).includes('top') && p.active !== false);
   sel.innerHTML = others.map(p => `<option value="${products.indexOf(p)}">${esc(p.name)}</option>`).join('');
+  // Init SortableJS on bs-grid
+  if (bsSortable) { bsSortable.destroy(); bsSortable = null; }
+  if (bestSellers.length > 1) {
+    bsSortable = Sortable.create(document.getElementById('bs-grid'), {
+      animation: 150,
+      ghostClass: 'sortable-ghost',
+      chosenClass: 'sortable-chosen',
+      onEnd(evt) {
+        if (evt.oldIndex === evt.newIndex) return;
+        const chips = [...document.querySelectorAll('#bs-grid .bs-chip')];
+        const indices = chips.map(c => +c.dataset.idx);
+        // Reorder just the best-seller items in the products array
+        const bsItems = products.filter(p => (p.badges||[]).includes('top'));
+        const reordered = indices.map(idx => products[idx]);
+        // Replace best-seller positions in products with reordered
+        let ri = 0;
+        for (let j = 0; j < products.length; j++) {
+          if ((products[j].badges||[]).includes('top')) products[j] = reordered[ri++];
+        }
+        renderList();
+        markUnsaved();
+      }
+    });
+  }
 }
 
 function addBestSeller() {
@@ -301,59 +319,23 @@ function removeBestSeller(i) {
   markUnsaved();
 }
 
-function bsDragStart(e, i) { bsDragSrc = i; setTimeout(() => e.target.classList.add('dragging'), 0); }
-function bsDragOver(e, i) { e.preventDefault(); if (i !== bsDragSrc) e.currentTarget.classList.add('drag-over'); }
-function bsDragLeave(e, i) { e.currentTarget.classList.remove('drag-over'); }
-function bsDragDrop(e, i) {
-  e.preventDefault();
-  if (bsDragSrc === null || bsDragSrc === i) return;
-  const moved = products.splice(bsDragSrc, 1)[0];
-  products.splice(bsDragSrc < i ? i - 1 : i, 0, moved);
-  bsDragSrc = null;
-  renderList();
-  markUnsaved();
-}
-function bsDragEnd() {
-  bsDragSrc = null;
-  document.querySelectorAll('.bs-chip').forEach(c => { c.classList.remove('dragging'); c.classList.remove('drag-over'); });
-}
+let prodSortable = null;
 
-let dragSrcIdx = null;
-
-function dragStart(e, i) {
-  dragSrcIdx = i;
-  e.dataTransfer.effectAllowed = 'move';
-  setTimeout(() => { const c = document.getElementById('card-' + i); if(c) c.classList.add('dragging'); }, 0);
-}
-
-function dragOver(e, i) {
-  e.preventDefault();
-  e.dataTransfer.dropEffect = 'move';
-  document.querySelectorAll('.prod-card').forEach(c => c.classList.remove('drag-over'));
-  const c = document.getElementById('card-' + i);
-  if (c && i !== dragSrcIdx) c.classList.add('drag-over');
-}
-
-function dragLeave(e, i) {
-  const c = document.getElementById('card-' + i);
-  if (c) c.classList.remove('drag-over');
-}
-
-function dragDrop(e, i) {
-  e.preventDefault();
-  if (dragSrcIdx === null || dragSrcIdx === i) return;
-  const moved = products.splice(dragSrcIdx, 1)[0];
-  products.splice(i, 0, moved);
-  dragSrcIdx = null;
-  renderList();
-  markUnsaved();
-}
-
-function dragEnd(e) {
-  dragSrcIdx = null;
-  document.querySelectorAll('.prod-card').forEach(c => {
-    c.classList.remove('dragging');
-    c.classList.remove('drag-over');
+function initSortable() {
+  const list = document.getElementById('prod-list');
+  if (prodSortable) { prodSortable.destroy(); prodSortable = null; }
+  prodSortable = Sortable.create(list, {
+    handle: '.drag-handle',
+    animation: 150,
+    ghostClass: 'sortable-ghost',
+    chosenClass: 'sortable-chosen',
+    onEnd(evt) {
+      if (evt.oldIndex === evt.newIndex) return;
+      const moved = products.splice(evt.oldIndex, 1)[0];
+      products.splice(evt.newIndex, 0, moved);
+      renderList();
+      markUnsaved();
+    }
   });
 }
 
@@ -385,7 +367,7 @@ function renderCard(p, i) {
     </tr>`).join('');
 
   const isBestSeller = (p.badges||[]).includes('top');
-  return `<div class="prod-card${active ? '' : ' inactive'}" id="card-${i}" draggable="true" ondragstart="dragStart(event,${i})" ondragover="dragOver(event,${i})" ondragleave="dragLeave(event,${i})" ondrop="dragDrop(event,${i})" ondragend="dragEnd(event)">
+  return `<div class="prod-card${active ? '' : ' inactive'}" id="card-${i}" data-idx="${i}">
     <div class="prod-hd" onclick="toggleCard(${i})">
       <span class="drag-handle" onclick="event.stopPropagation()" title="Drag to reorder">⠿</span>
       ${thumbHtml}
