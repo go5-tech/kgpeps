@@ -130,6 +130,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <h1>Peptide Central Admin</h1>
     <span class="status" id="save-status"></span>
     <button class="btn btn-ghost btn-sm" onclick="reloadProducts()">↺ Reload</button>
+    <button class="btn btn-danger btn-sm" onclick="logout()">Logout</button>
     <button class="btn btn-primary btn-sm" onclick="openAddModal()">+ Add Product</button>
     <button class="btn btn-success" onclick="saveAll()">💾 Save All Changes</button>
   </div>
@@ -616,6 +617,15 @@ function toast(msg, type) {
 
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function logout() {
+  sessionStorage.removeItem('adm_s');
+  secret = '';
+  products = [];
+  document.getElementById('panel').style.display = 'none';
+  document.getElementById('gate').style.display = 'flex';
+  document.getElementById('secret-input').value = '';
 }
 
 // Auto-login from session
