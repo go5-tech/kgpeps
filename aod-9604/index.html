@@ -361,6 +361,7 @@
     var s=v.origPrice>v.price?Math.round((1-v.price/v.origPrice)*100):0;
     var st=document.getElementById('pd-save-pct');if(st)st.textContent='Save '+s+'%';
     document.getElementById('pd-wa-btn').href='https://wa.me/919758888951?text='+encodeURIComponent('Hi, I want to order '+_pdn+' – '+v.mg);
+    if(v.img){var pi=document.querySelector('.pd-img-wrap img');if(pi)pi.src=v.img;}
     pdSyncCartBtn();
   }
   function pdCurVi(){var vi=Array.from(document.querySelectorAll('.pd-var')).findIndex(function(e){return e.classList.contains('active')});return vi<0?0:vi;}
