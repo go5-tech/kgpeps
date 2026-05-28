@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Peptide Central</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#0f172a;min-height:100vh}
+/* Gate */
+#gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1rem}
+#gate h1{font-size:1.5rem;font-weight:900;color:#1d4ed8}
+#gate input{padding:.75rem 1rem;border:1.5px solid #cbd5e1;border-radius:10px;font-size:1rem;width:280px;outline:none}
+#gate input:focus{border-color:#1d4ed8}
+#gate button{padding:.75rem 2rem;background:#1d4ed8;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer}
+#gate button:hover{background:#1e40af}
+#gate .err{color:#dc2626;font-size:.85rem}
+/* Panel */
+#panel{display:none;min-height:100vh}
+.adm-hd{background:#fff;border-bottom:1px solid #e2e8f0;padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.adm-hd h1{font-size:1.1rem;font-weight:900;color:#1d4ed8;flex:1}
+.adm-hd .status{font-size:.8rem;color:#64748b}
+.btn{padding:.55rem 1.2rem;border:none;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
+.btn-primary{background:#1d4ed8;color:#fff}.btn-primary:hover{background:#1e40af}
+.btn-success{background:#16a34a;color:#fff}.btn-success:hover{background:#15803d}
+.btn-danger{background:#dc2626;color:#fff}.btn-danger:hover{background:#b91c1c}
+.btn-ghost{background:#f1f5f9;color:#374151;border:1px solid #e2e8f0}.btn-ghost:hover{background:#e2e8f0}
+.btn-sm{padding:.35rem .8rem;font-size:.75rem}
+.btn-warn{background:#f59e0b;color:#fff}.btn-warn:hover{background:#d97706}
+/* Best Sellers section */
+.bs-section{margin:0 1.5rem .75rem;background:#fff;border:1.5px solid #fde68a;border-radius:14px;padding:1rem}
+.bs-section h2{font-size:.85rem;font-weight:900;color:#d97706;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.75rem}
+.bs-grid{display:flex;flex-wrap:wrap;gap:.5rem}
+.bs-chip{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;border-radius:20px;font-size:.8rem;font-weight:700;background:#fef3c7;color:#92400e;border:1.5px solid #fde68a}
+.bs-chip button{background:none;border:none;cursor:pointer;color:#dc2626;font-size:.9rem;line-height:1;padding:0}
+.bs-add{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap;align-items:center}
+.bs-add select{padding:.35rem .7rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;outline:none}
+/* Reorder buttons */
+.reorder-btns{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.reorder-btns button{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:4px;width:22px;height:18px;cursor:pointer;font-size:.65rem;color:#475569;display:flex;align-items:center;justify-content:center;padding:0}
+.reorder-btns button:hover{background:#e2e8f0}
+/* Search */
+.adm-bar{padding:1rem 1.5rem;display:flex;gap:.75rem;align-items:center}
+.adm-bar input{flex:1;padding:.6rem 1rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.9rem;outline:none;max-width:360px}
+.adm-bar input:focus{border-color:#1d4ed8}
+/* Product list */
+.prod-list{padding:0 1.5rem 2rem;display:flex;flex-direction:column;gap:.75rem}
+/* Product card */
+.prod-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;overflow:hidden;transition:.2s}
+.prod-card.inactive{opacity:.55}
+.prod-card.expanded{border-color:#1d4ed8}
+.prod-hd{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;cursor:pointer;user-select:none}
+.prod-hd:hover{background:#f8fafc}
+.prod-thumb{width:48px;height:48px;object-fit:contain;border-radius:8px;background:#f1f5f9;flex-shrink:0;border:1px solid #e2e8f0}
+.prod-thumb-placeholder{width:48px;height:48px;border-radius:8px;background:#e2e8f0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#94a3b8;text-align:center;line-height:1.2}
+.prod-info{flex:1;min-width:0}
+.prod-info .pname{font-weight:800;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prod-info .pmeta{font-size:.75rem;color:#64748b;margin-top:.15rem}
+.prod-badges{display:flex;gap:.35rem;flex-wrap:wrap}
+.badge{font-size:.65rem;font-weight:700;padding:.15rem .45rem;border-radius:20px;text-transform:uppercase}
+.badge-sale{background:#fee2e2;color:#dc2626}
+.badge-new{background:#dcfce7;color:#16a34a}
+.badge-top{background:#fef3c7;color:#d97706}
+.toggle-wrap{display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:#475569;flex-shrink:0}
+.toggle{position:relative;width:36px;height:20px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:#cbd5e1;border-radius:20px;cursor:pointer;transition:.2s}
+.toggle-slider:before{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.toggle input:checked+.toggle-slider{background:#1d4ed8}
+.toggle input:checked+.toggle-slider:before{transform:translateX(16px)}
+.chevron{font-size:.7rem;color:#94a3b8;flex-shrink:0;transition:.2s}
+.prod-card.expanded .chevron{transform:rotate(180deg)}
+/* Edit body */
+.prod-body{display:none;padding:1rem;border-top:1px solid #f1f5f9;background:#fafbfc}
+.prod-card.expanded .prod-body{display:block}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.field{display:flex;flex-direction:column;gap:.3rem}
+.field label{font-size:.75rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.3px}
+.field input,.field select,.field textarea{padding:.5rem .75rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.85rem;outline:none;font-family:inherit;background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#1d4ed8}
+.field textarea{resize:vertical;min-height:70px}
+.img-row{display:flex;gap:.5rem;align-items:center}
+.img-row input{flex:1}
+.img-preview{width:56px;height:56px;object-fit:contain;border-radius:8px;background:#f1f5f9;border:1px solid #e2e8f0;flex-shrink:0}
+.badges-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+.badge-check{display:flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;cursor:pointer}
+.badge-check input{width:15px;height:15px;cursor:pointer}
+/* Variants */
+.var-section{margin-top:.75rem}
+.var-section h3{font-size:.8rem;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.3px;margin-bottom:.5rem}
+.var-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.var-table th{text-align:left;padding:.4rem .5rem;font-size:.7rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.3px;border-bottom:1px solid #e2e8f0}
+.var-table td{padding:.4rem .5rem;vertical-align:middle}
+.var-table tr:not(:last-child) td{border-bottom:1px solid #f1f5f9}
+.var-table input[type=text],.var-table input[type=number]{width:100%;padding:.3rem .5rem;border:1px solid #e2e8f0;border-radius:6px;font-size:.82rem;outline:none}
+.var-table input:focus{border-color:#1d4ed8}
+.var-img-cell{display:flex;gap:.3rem;align-items:center}
+.var-img-cell input{flex:1;min-width:0}
+.var-img-thumb{width:30px;height:30px;object-fit:contain;border-radius:4px;background:#f1f5f9;border:1px solid #e2e8f0;flex-shrink:0}
+.add-var-btn{margin-top:.5rem;font-size:.78rem}
+.prod-actions{margin-top:.85rem;display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+/* Add product modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:1.5rem;width:480px;max-width:95vw;max-height:90vh;overflow-y:auto}
+.modal h2{font-size:1.1rem;font-weight:900;margin-bottom:1rem;color:#0f172a}
+.modal .field-row{grid-template-columns:1fr 1fr}
+.modal-actions{display:flex;gap:.5rem;justify-content:flex-end;margin-top:1rem}
+/* Toast */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:#0f172a;color:#fff;padding:.75rem 1.25rem;border-radius:10px;font-size:.85rem;font-weight:600;z-index:300;transform:translateY(100px);opacity:0;transition:.3s}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{background:#16a34a}
+.toast.err{background:#dc2626}
+@media(max-width:600px){.field-row{grid-template-columns:1fr}.adm-hd{gap:.5rem}.adm-bar{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div id="gate">
+  <h1>Peptide Central Admin</h1>
+  <input type="password" id="secret-input" placeholder="Enter admin secret" onkeydown="if(event.key==='Enter')login()">
+  <button onclick="login()">Login</button>
+  <span class="err" id="gate-err"></span>
+</div>
+
+<!-- Admin Panel -->
+<div id="panel">
+  <div class="adm-hd">
+    <h1>Peptide Central Admin</h1>
+    <span class="status" id="save-status"></span>
+    <button class="btn btn-ghost btn-sm" onclick="reloadProducts()">↺ Reload</button>
+    <button class="btn btn-primary btn-sm" onclick="openAddModal()">+ Add Product</button>
+    <button class="btn btn-success" onclick="saveAll()">💾 Save All Changes</button>
+  </div>
+  <!-- Best Sellers Quick Manager -->
+  <div class="bs-section" id="bs-section">
+    <h2>⭐ Best Sellers (shown on homepage)</h2>
+    <div class="bs-grid" id="bs-grid"></div>
+    <div class="bs-add">
+      <select id="bs-add-sel"></select>
+      <button class="btn btn-warn btn-sm" onclick="addBestSeller()">+ Add Best Seller</button>
+      <span style="font-size:.75rem;color:#94a3b8">Max 6 for even grid</span>
+    </div>
+  </div>
+
+  <div class="adm-bar">
+    <input type="text" id="search" placeholder="Search products…" oninput="renderList()">
+    <span id="prod-count" style="font-size:.82rem;color:#64748b"></span>
+  </div>
+  <div class="prod-list" id="prod-list"></div>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal-overlay" id="add-modal">
+  <div class="modal">
+    <h2>Add New Product</h2>
+    <div class="field-row">
+      <div class="field"><label>Slug / ID</label><input type="text" id="new-id" placeholder="e.g. bpc-157"></div>
+      <div class="field"><label>Name</label><input type="text" id="new-name" placeholder="e.g. BPC-157"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Category</label>
+        <select id="new-cat">
+          <option>Recovery</option><option>Fat Loss</option><option>Hormones</option>
+          <option>Brain</option><option>Longevity</option><option>Blend</option>
+        </select>
+      </div>
+      <div class="field"><label>Target</label><input type="text" id="new-tgt" placeholder="e.g. Wound Healing"></div>
+    </div>
+    <div class="field"><label>Description</label><textarea id="new-desc" rows="3"></textarea></div>
+    <div class="field-row" style="margin-top:.75rem">
+      <div class="field"><label>Dose</label><input type="text" id="new-dose" placeholder="e.g. 250mcg/day"></div>
+      <div class="field"><label>Half-life</label><input type="text" id="new-half" placeholder="e.g. ~4h"></div>
+    </div>
+    <div style="margin-top:.75rem">
+      <div class="field"><label>Image Path</label><input type="text" id="new-img" placeholder="/images/vials/product_10mg.png"></div>
+    </div>
+    <div style="margin-top:.5rem;font-size:.8rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.3px;margin-bottom:.3rem">First Variant</div>
+    <div class="field-row">
+      <div class="field"><label>Size</label><input type="text" id="new-vmg" placeholder="10mg"></div>
+      <div class="field"><label>Price (₹)</label><input type="number" id="new-vprice" placeholder="4999"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Orig Price (₹)</label><input type="number" id="new-voprice" placeholder="7999"></div>
+      <div class="field"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeAddModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmAddProduct()">Add Product</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const WORKER_URL = 'https://kgpeps-admin.go5devesh73.workers.dev';
+let products = [];
+let secret = '';
+
+async function login() {
+  secret = document.getElementById('secret-input').value.trim();
+  if (!secret) return;
+  document.getElementById('gate-err').textContent = '';
+  try {
+    await loadProducts();
+    sessionStorage.setItem('adm_s', secret);
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('panel').style.display = 'block';
+  } catch(e) {
+    document.getElementById('gate-err').textContent = 'Failed to load products. Check secret or connection.';
+  }
+}
+
+async function loadProducts() {
+  const res = await fetch('/products.json?t=' + Date.now());
+  if (!res.ok) throw new Error('fetch failed');
+  products = await res.json();
+  renderList();
+}
+
+async function reloadProducts() {
+  await loadProducts();
+  toast('Reloaded from server', 'ok');
+}
+
+function renderList() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const filtered = q ? products.filter(p => p.name.toLowerCase().includes(q) || (p.cat||'').toLowerCase().includes(q)) : products;
+  document.getElementById('prod-count').textContent = filtered.length + ' products';
+  document.getElementById('prod-list').innerHTML = filtered.map((p) => {
+    const realIdx = products.indexOf(p);
+    return renderCard(p, realIdx);
+  }).join('');
+  renderBestSellers();
+}
+
+function renderBestSellers() {
+  const bestSellers = products.filter(p => (p.badges||[]).includes('top'));
+  document.getElementById('bs-grid').innerHTML = bestSellers.length
+    ? bestSellers.map(p => {
+        const i = products.indexOf(p);
+        return `<div class="bs-chip">${esc(p.name)}<button onclick="removeBestSeller(${i})" title="Remove">✕</button></div>`;
+      }).join('')
+    : '<span style="font-size:.8rem;color:#94a3b8">No best sellers set</span>';
+  // Populate add dropdown with non-best-seller products
+  const sel = document.getElementById('bs-add-sel');
+  const others = products.filter(p => !(p.badges||[]).includes('top') && p.active !== false);
+  sel.innerHTML = others.map(p => `<option value="${products.indexOf(p)}">${esc(p.name)}</option>`).join('');
+}
+
+function addBestSeller() {
+  const sel = document.getElementById('bs-add-sel');
+  if (!sel.value && sel.value !== '0') return;
+  const i = +sel.value;
+  if (!products[i].badges) products[i].badges = [];
+  if (!products[i].badges.includes('top')) products[i].badges.push('top');
+  renderList();
+  markUnsaved();
+}
+
+function removeBestSeller(i) {
+  products[i].badges = (products[i].badges||[]).filter(b => b !== 'top');
+  renderList();
+  markUnsaved();
+}
+
+function moveUp(i) {
+  if (i === 0) return;
+  [products[i-1], products[i]] = [products[i], products[i-1]];
+  renderList();
+  markUnsaved();
+}
+
+function moveDown(i) {
+  if (i >= products.length - 1) return;
+  [products[i], products[i+1]] = [products[i+1], products[i]];
+  renderList();
+  markUnsaved();
+}
+
+function renderCard(p, i) {
+  const active = p.active !== false;
+  const badges = (p.badges || []);
+  const badgeHtml = badges.map(b => `<span class="badge badge-${b}">${b}</span>`).join('');
+  const imgSrc = p.img || '';
+  const thumbHtml = imgSrc
+    ? `<img class="prod-thumb" src="${imgSrc}" onerror="this.style.display='none'">`
+    : `<div class="prod-thumb-placeholder">No Image</div>`;
+
+  const varRows = (p.variants || []).map((v, vi) => `
+    <tr>
+      <td><input type="text" value="${esc(v.mg)}" oninput="setVar(${i},${vi},'mg',this.value)"></td>
+      <td><input type="number" value="${v.price}" oninput="setVar(${i},${vi},'price',+this.value)"></td>
+      <td><input type="number" value="${v.origPrice}" oninput="setVar(${i},${vi},'origPrice',+this.value)"></td>
+      <td>
+        <div class="var-img-cell">
+          <input type="text" value="${esc(v.img||'')}" placeholder="/images/vials/…" oninput="setVar(${i},${vi},'img',this.value)" id="var-img-${i}-${vi}">
+          ${v.img ? `<img class="var-img-thumb" src="${v.img}" id="var-thumb-${i}-${vi}">` : `<div class="var-img-thumb" id="var-thumb-${i}-${vi}"></div>`}
+          <label class="btn btn-ghost btn-sm" style="cursor:pointer;white-space:nowrap">
+            ↑ Upload
+            <input type="file" accept="image/*" style="display:none" onchange="uploadVariantImg(event,${i},${vi})">
+          </label>
+        </div>
+      </td>
+      <td><button class="btn btn-danger btn-sm" onclick="removeVar(${i},${vi})">✕</button></td>
+    </tr>`).join('');
+
+  const isBestSeller = (p.badges||[]).includes('top');
+  return `<div class="prod-card${active ? '' : ' inactive'}" id="card-${i}">
+    <div class="prod-hd" onclick="toggleCard(${i})">
+      <div class="reorder-btns" onclick="event.stopPropagation()">
+        <button onclick="moveUp(${i})" title="Move up">▲</button>
+        <button onclick="moveDown(${i})" title="Move down">▼</button>
+      </div>
+      ${thumbHtml}
+      <div class="prod-info">
+        <div class="pname">${esc(p.name)}</div>
+        <div class="pmeta">${esc(p.cat||'')} · ${(p.variants||[]).length} variant(s) · #${i+1}</div>
+      </div>
+      <div class="prod-badges">${badgeHtml}</div>
+      <label class="toggle-wrap" onclick="event.stopPropagation()" title="Best Seller" style="color:${isBestSeller?'#d97706':'#94a3b8'}">
+        <input type="checkbox" style="width:14px;height:14px;cursor:pointer" ${isBestSeller?'checked':''} onchange="toggleBadge(${i},'top',this.checked);renderBestSellers()">
+        ⭐
+      </label>
+      <label class="toggle-wrap" onclick="event.stopPropagation()">
+        <label class="toggle">
+          <input type="checkbox" ${active?'checked':''} onchange="setActive(${i},this.checked)">
+          <span class="toggle-slider"></span>
+        </label>
+        ${active ? 'Active' : 'Inactive'}
+      </label>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="prod-body">
+      <div class="field-row">
+        <div class="field"><label>Name</label><input type="text" value="${esc(p.name)}" oninput="setField(${i},'name',this.value)"></div>
+        <div class="field"><label>Category</label>
+          <select onchange="setField(${i},'cat',this.value)">
+            ${['Recovery','Fat Loss','Hormones','Brain','Longevity','Blend'].map(c=>`<option${p.cat===c?' selected':''}>${c}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Target</label><input type="text" value="${esc(p.tgt||'')}" oninput="setField(${i},'tgt',this.value)"></div>
+        <div class="field"><label>Purity</label><input type="text" value="${esc(p.purity||'99%')}" oninput="setField(${i},'purity',this.value)"></div>
+      </div>
+      <div class="field"><label>Description</label><textarea oninput="setField(${i},'desc',this.value)">${esc(p.desc||'')}</textarea></div>
+      <div class="field-row" style="margin-top:.5rem">
+        <div class="field"><label>Dose</label><input type="text" value="${esc(p.dose||'')}" oninput="setField(${i},'dose',this.value)"></div>
+        <div class="field"><label>Half-life</label><input type="text" value="${esc(p.half||'')}" oninput="setField(${i},'half',this.value)"></div>
+      </div>
+      <div class="field" style="margin-top:.5rem"><label>Main Image</label>
+        <div class="img-row">
+          <input type="text" value="${esc(imgSrc)}" placeholder="/images/vials/…" oninput="setField(${i},'img',this.value);updateThumb(${i})" id="main-img-${i}">
+          ${imgSrc ? `<img class="img-preview" src="${imgSrc}" id="main-thumb-${i}">` : `<div class="img-preview" id="main-thumb-${i}"></div>`}
+          <label class="btn btn-ghost btn-sm" style="cursor:pointer">↑ Upload<input type="file" accept="image/*" style="display:none" onchange="uploadMainImg(event,${i})"></label>
+        </div>
+      </div>
+      <div class="field" style="margin-top:.5rem"><label>Badges</label>
+        <div class="badges-row">
+          ${['sale','new','top'].map(b=>`<label class="badge-check"><input type="checkbox" ${badges.includes(b)?'checked':''} onchange="toggleBadge(${i},'${b}',this.checked)"> ${b.toUpperCase()}</label>`).join('')}
+        </div>
+      </div>
+      <div class="var-section">
+        <h3>Variants</h3>
+        <table class="var-table">
+          <thead><tr><th>Size</th><th>Price (₹)</th><th>Orig Price (₹)</th><th>Image</th><th></th></tr></thead>
+          <tbody id="var-body-${i}">${varRows}</tbody>
+        </table>
+        <button class="btn btn-ghost btn-sm add-var-btn" onclick="addVar(${i})">+ Add Variant</button>
+      </div>
+      <div class="prod-actions">
+        <button class="btn btn-danger btn-sm" onclick="deleteProduct(${i})">Delete Product</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleCard(i) {
+  const card = document.getElementById('card-' + i);
+  card.classList.toggle('expanded');
+}
+
+function setField(i, key, val) {
+  products[i][key] = val;
+  markUnsaved();
+}
+
+function setActive(i, val) {
+  products[i].active = val;
+  const card = document.getElementById('card-' + i);
+  card.classList.toggle('inactive', !val);
+  const lbl = card.querySelector('.toggle-wrap');
+  if (lbl) lbl.lastChild.textContent = val ? ' Active' : ' Inactive';
+  markUnsaved();
+}
+
+function toggleBadge(i, badge, checked) {
+  let b = products[i].badges || [];
+  if (checked && !b.includes(badge)) b.push(badge);
+  if (!checked) b = b.filter(x => x !== badge);
+  products[i].badges = b;
+  markUnsaved();
+}
+
+function setVar(i, vi, key, val) {
+  products[i].variants[vi][key] = val;
+  if (key === 'img') {
+    const thumb = document.getElementById('var-thumb-' + i + '-' + vi);
+    if (thumb && val) { thumb.src = val; thumb.style.display = ''; }
+  }
+  markUnsaved();
+}
+
+function addVar(i) {
+  products[i].variants = products[i].variants || [];
+  products[i].variants.push({mg:'',price:0,origPrice:0,img:''});
+  // Re-render just that card
+  const card = document.getElementById('card-' + i);
+  const wasExpanded = card.classList.contains('expanded');
+  const newHtml = renderCard(products[i], i);
+  card.outerHTML = newHtml;
+  const newCard = document.getElementById('card-' + i);
+  if (wasExpanded) newCard.classList.add('expanded');
+  markUnsaved();
+}
+
+function removeVar(i, vi) {
+  products[i].variants.splice(vi, 1);
+  const card = document.getElementById('card-' + i);
+  const wasExpanded = card.classList.contains('expanded');
+  const newHtml = renderCard(products[i], i);
+  card.outerHTML = newHtml;
+  const newCard = document.getElementById('card-' + i);
+  if (wasExpanded) newCard.classList.add('expanded');
+  markUnsaved();
+}
+
+function updateThumb(i) {
+  const val = document.getElementById('main-img-' + i).value;
+  const thumb = document.getElementById('main-thumb-' + i);
+  if (thumb && val) { thumb.src = val; }
+}
+
+async function uploadMainImg(event, i) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const slug = products[i].id || products[i].name.toLowerCase().replace(/\s+/g,'-');
+  const ext = file.name.split('.').pop();
+  const path = 'images/vials/' + slug + '_upload.' + ext;
+  toast('Uploading image…');
+  const url = await uploadFile(file, path);
+  if (url) {
+    products[i].img = '/' + path;
+    document.getElementById('main-img-' + i).value = '/' + path;
+    const thumb = document.getElementById('main-thumb-' + i);
+    if (thumb) { thumb.src = '/' + path; }
+    markUnsaved();
+    toast('Image uploaded!', 'ok');
+  } else {
+    toast('Upload failed', 'err');
+  }
+}
+
+async function uploadVariantImg(event, i, vi) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const slug = products[i].id || products[i].name.toLowerCase().replace(/\s+/g,'-');
+  const mg = (products[i].variants[vi].mg || vi).toString().replace(/\s+/g,'');
+  const ext = file.name.split('.').pop();
+  const path = 'images/vials/' + slug + '_' + mg + '.' + ext;
+  toast('Uploading image…');
+  const url = await uploadFile(file, path);
+  if (url) {
+    products[i].variants[vi].img = '/' + path;
+    const inp = document.getElementById('var-img-' + i + '-' + vi);
+    if (inp) inp.value = '/' + path;
+    const thumb = document.getElementById('var-thumb-' + i + '-' + vi);
+    if (thumb) { thumb.src = '/' + path; thumb.style.display = ''; }
+    markUnsaved();
+    toast('Image uploaded!', 'ok');
+  } else {
+    toast('Upload failed', 'err');
+  }
+}
+
+async function uploadFile(file, path) {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = async e => {
+      const base64 = e.target.result.split(',')[1];
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({secret, file: path, content: base64, raw: true, message: 'Admin: upload ' + path})
+        });
+        const data = await res.json();
+        resolve(data.ok ? '/' + path : null);
+      } catch { resolve(null); }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function saveAll() {
+  const btn = document.querySelector('.btn-success');
+  btn.textContent = 'Saving…';
+  btn.disabled = true;
+  try {
+    const content = JSON.stringify(products, null, 2);
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({secret, file: 'products.json', content, message: 'Admin: update products'})
+    });
+    const data = await res.json();
+    if (data.ok) {
+      toast('Saved successfully!', 'ok');
+      document.getElementById('save-status').textContent = 'Saved ' + new Date().toLocaleTimeString();
+      document.getElementById('save-status').style.color = '#16a34a';
+    } else {
+      toast('Save failed: ' + (data.error || 'unknown'), 'err');
+    }
+  } catch(e) {
+    toast('Save failed: ' + e.message, 'err');
+  }
+  btn.textContent = '💾 Save All Changes';
+  btn.disabled = false;
+}
+
+function deleteProduct(i) {
+  if (!confirm('Delete "' + products[i].name + '"? This cannot be undone until you save.')) return;
+  products.splice(i, 1);
+  renderList();
+  markUnsaved();
+}
+
+function markUnsaved() {
+  const s = document.getElementById('save-status');
+  s.textContent = '● Unsaved changes';
+  s.style.color = '#f59e0b';
+}
+
+// Add product modal
+function openAddModal() {
+  document.getElementById('add-modal').classList.add('open');
+}
+function closeAddModal() {
+  document.getElementById('add-modal').classList.remove('open');
+}
+function confirmAddProduct() {
+  const id = document.getElementById('new-id').value.trim();
+  const name = document.getElementById('new-name').value.trim();
+  if (!id || !name) { alert('ID and Name are required'); return; }
+  const price = +document.getElementById('new-vprice').value || 0;
+  const origPrice = +document.getElementById('new-voprice').value || 0;
+  const mg = document.getElementById('new-vmg').value.trim() || '10mg';
+  const newProduct = {
+    id, name,
+    img: document.getElementById('new-img').value.trim() || '',
+    cat: document.getElementById('new-cat').value,
+    tgt: document.getElementById('new-tgt').value.trim(),
+    desc: document.getElementById('new-desc').value.trim(),
+    dose: document.getElementById('new-dose').value.trim(),
+    half: document.getElementById('new-half').value.trim(),
+    purity: '99%',
+    badges: [],
+    wa: '',
+    active: true,
+    variants: [{mg, price, origPrice, img: document.getElementById('new-img').value.trim() || ''}]
+  };
+  products.push(newProduct);
+  closeAddModal();
+  renderList();
+  markUnsaved();
+  toast('Product added — remember to Save All!', 'ok');
+  // Clear form
+  ['new-id','new-name','new-tgt','new-desc','new-dose','new-half','new-img','new-vmg','new-vprice','new-voprice'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+}
+
+function toast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (type ? ' ' + type : '');
+  clearTimeout(t._to);
+  t._to = setTimeout(() => { t.className = 'toast'; }, 3000);
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Auto-login from session
+window.onload = () => {
+  const saved = sessionStorage.getItem('adm_s');
+  if (saved) {
+    secret = saved;
+    loadProducts().then(() => {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('panel').style.display = 'block';
+    }).catch(() => { sessionStorage.removeItem('adm_s'); });
+  }
+};
+</script>
+</body>
+</html>

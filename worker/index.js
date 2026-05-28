@@ -33,13 +33,14 @@ export default {
     const existing = getRes.ok ? await getRes.json() : null;
     const sha = existing?.sha;
 
-    // Commit
+    // Commit — if raw:true, content is already base64 (for binary files like images)
+    const encoded = body.raw ? content : btoa(unescape(encodeURIComponent(content)));
     const putRes = await fetch(apiUrl, {
       method: 'PUT',
       headers,
       body: JSON.stringify({
         message: message || 'Admin: update config',
-        content: btoa(unescape(encodeURIComponent(content))),
+        content: encoded,
         ...(sha ? { sha } : {}),
       }),
     });

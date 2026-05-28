@@ -250,7 +250,7 @@ const WA = '919758888951';
 let prods = [], lastFiltered = [], activeView = 'g', activeCat = 'All';
 
 fetch('/products.json').then(r=>r.json()).then(data=>{
-  prods = data;
+  prods = data.filter(p => p.active !== false);
   lastFiltered = prods;
   buildTabs();
   applyFilters();
