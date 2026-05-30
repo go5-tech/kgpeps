@@ -35,7 +35,7 @@
           var pct = v0.origPrice > v0.price ? Math.round((1 - v0.price / v0.origPrice) * 100) : 0;
           savePct.textContent = pct ? 'Save ' + pct + '%' : '';
         }
-        if (waBtn) waBtn.href = 'https://wa.me/919758888951?text=' + encodeURIComponent('Hi, I want to order ' + _pdn + ' – ' + v0.mg);
+        if (waBtn) waBtn.href = 'https://wa.me/918868034951?text=' + encodeURIComponent('Hi, I want to order ' + _pdn + ' – ' + v0.mg);
         if (v0.img) {
           var pi2 = document.querySelector('.pd-img-wrap img');
           if (pi2) pi2.src = v0.img;
