@@ -636,7 +636,10 @@ footer{background:#f8fafc;border-top:1px solid #e2e8f0;padding:3.5rem 5% 1.5rem;
 @media(max-width:640px){
   .nav-links{display:none}.hamburger{display:flex}
   .footer-grid{grid-template-columns:1fr}
-  .transform-grid,.tgrid,.feat-grid{grid-template-columns:1fr}
+  .transform-grid,.tgrid{grid-template-columns:1fr}
+  .feat-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.9rem;padding-bottom:.5rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .feat-grid::-webkit-scrollbar{display:none}
+  .feat-grid .feat{flex:0 0 78vw;scroll-snap-align:start}
   .hero-ctas{flex-direction:column}
   h1.hero-h{font-size:2.1rem}
   .pgrid{grid-template-columns:repeat(2,1fr);gap:.6rem}
