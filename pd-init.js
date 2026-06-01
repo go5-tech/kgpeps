@@ -51,5 +51,20 @@
       var p = data.find(function(x) { return x.id === _pid; });
       applyInit(p);
     });
+
+    // Inject BAC water calculator CTA before footer on every product page
+    var footer = document.querySelector('footer');
+    if (footer) {
+      var div = document.createElement('div');
+      div.innerHTML = '<div style="background:linear-gradient(135deg,#0a0f1e,#111935);padding:2.2rem 5%;text-align:center;margin-top:0">'
+        + '<p style="font-family:var(--mono,monospace);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fb4ee;margin-bottom:.6rem">Reconstitution Tool</p>'
+        + '<h3 style="font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem">How much BAC water do you need?</h3>'
+        + '<p style="color:#aeb8d0;font-size:.9rem;max-width:480px;margin:0 auto .9rem">Enter your vial size and desired dose — get exact concentration, mcg/IU and syringe draw instantly.</p>'
+        + '<a href="/bac-calculator/" style="display:inline-flex;align-items:center;gap:.5rem;background:#1d4ed8;color:#fff;padding:12px 26px;border-radius:10px;font-weight:700;font-size:.88rem;text-decoration:none;transition:.2s">'
+        + '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>'
+        + 'Open Reconstitution Calculator</a>'
+        + '</div>';
+      footer.parentNode.insertBefore(div, footer);
+    }
   });
 })();
