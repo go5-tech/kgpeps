@@ -1107,18 +1107,52 @@ footer{background:var(--ink);color:#aeb8d0;padding:4rem 0 1.6rem}
   .stat:nth-child(-n+2){border-top:none}
   .nav-links{display:none}.hamburger{display:flex}
 }
+@media(max-width:760px){
+  .promo-bar{gap:.5rem .9rem;font-size:.6rem;padding:7px 4%}
+  .promo-bar .sep{display:none}
+  .promo-bar span:nth-child(n+4){display:none}
+}
 @media(max-width:640px){
+  nav{height:60px;top:30px}
   .nav-links{display:none}.hamburger{display:flex}
   .nav-wa span.lbl{display:none}
+  .nav-wa{padding:10px 12px}
+  .cart-btn{width:44px;height:44px}
+  #hero{padding:7rem 0 3.5rem}
   .bcards,.feat-grid,.tgrid,.footer-grid{grid-template-columns:1fr}
-  .pgrid{grid-template-columns:1fr 1fr;gap:.8rem}
+  .pgrid{grid-template-columns:1fr 1fr;gap:.75rem}
   .pcard-img-wrap{height:150px}
   .pname{font-size:1rem}
   .pdesc{display:none}
+  .pbtn{min-height:44px}
+  .ts-head{flex-direction:column;align-items:flex-start;gap:1.2rem}
+  .ts-head .btn-outline{width:100%}
   .hero-ctas{flex-direction:column}
   .hero-ctas .btn{width:100%}
-  .hero-chip.c1{left:-2%}.hero-chip.c2{right:-2%}
+  .hero-trust{gap:1rem 1.4rem}
+  .hero-visual{min-height:300px}
+  .hero-vial-card{width:240px}
+  .hero-chip{padding:8px 11px}
+  .hero-chip .tt{font-size:.5rem}.hero-chip .vv{font-size:.82rem}
+  .hero-chip.c1{top:2%;left:0}.hero-chip.c2{bottom:8%;right:0}.hero-chip.c3{bottom:-2%;left:4%}
   .stats-inner{grid-template-columns:1fr 1fr}
+  .logos-inner{gap:.7rem 1.2rem;font-size:.62rem;padding:1rem 5%}
+  .section{padding:3rem 0}
+  .coa-card{padding:1.3rem}
+  .nl-inner{padding:2.2rem 1.4rem}
+  .nl-form{flex-direction:column}
+  .nl-inp,.nl-btn{width:100%}
+  .wa-big{font-size:.86rem;padding:14px 18px;text-align:center}
+  .footer-bot{flex-direction:column;align-items:flex-start}
+  .wa-float{bottom:18px;right:18px}
+}
+@media(max-width:400px){
+  .pgrid{grid-template-columns:1fr}
+  .pcard-img-wrap{height:200px}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat{padding:1.6rem 1rem}
+  h1.hero-h{font-size:2.05rem}
+  .hero-trust .ht b{font-size:1.15rem}
 }
 </style>
 </head>
