@@ -2277,8 +2277,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(o){o.style.display='flex';if(cfg.maintenanceMsg)document.getElementById('maint-msg').textContent=cfg.maintenanceMsg;}
   }
   Promise.all([
-    fetch('products.json?v='+Date.now()).then(r=>r.json()).catch(()=>[]),
-    fetch('config.json').then(r=>r.json()).catch(()=>null)
+    fetch('/products.json?v='+Date.now()).then(r=>r.json()).catch(()=>[]),
+    fetch('/config.json').then(r=>r.json()).catch(()=>null)
   ]).then(([pdata,remCfg])=>{
     if(pdata&&pdata.length)prods=pdata.filter(p=>p.active!==false);
     prods.forEach(p=>{if(p.img)p.img=p.img.replace(/^\//,'');(p.variants||[]).forEach(v=>{if(v.img)v.img=v.img.replace(/^\//,'')});});
