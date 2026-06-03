@@ -2289,7 +2289,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     fetch('config.json').then(r=>r.json()).catch(()=>null)
   ]).then(([pdata,remCfg])=>{
     if(pdata&&pdata.length)prods=pdata.filter(p=>p.active!==false);
-    prods.forEach(p=>{if(p.img)p.img=p.img.replace(/^\//,'');(p.variants||[]).forEach(v=>{if(v.img)v.img=v.img.replace(/^\//,'')});});
+    prods.forEach(p=>{if(p.img&&!p.img.startsWith('/'))p.img='/'+p.img;(p.variants||[]).forEach(v=>{if(v.img&&!v.img.startsWith('/'))v.img='/'+v.img;});});
     if(remCfg&&cfg.siteActive===undefined&&remCfg.siteActive===false&&window.location.hash!=='#admin'){
       const o=document.getElementById('maintenance-overlay');
       if(o){o.style.display='flex';if(remCfg.maintenanceMsg)document.getElementById('maint-msg').textContent=remCfg.maintenanceMsg;}
