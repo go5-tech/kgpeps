@@ -1100,7 +1100,7 @@ footer{background:var(--ink);color:#aeb8d0;padding:4rem 0 1.6rem}
   .purity-inner{grid-template-columns:1fr;gap:2.2rem}
   .seo-copy{grid-template-columns:1fr;gap:2rem}
   .bm-wrap{grid-template-columns:1fr}
-  .bcards,.feat-grid,.tgrid{grid-template-columns:1fr 1fr}
+  .bcards,.feat-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
   .stats-inner{grid-template-columns:1fr 1fr}
   .stat:nth-child(3){border-left:none}
@@ -1120,7 +1120,10 @@ footer{background:var(--ink);color:#aeb8d0;padding:4rem 0 1.6rem}
   .nav-wa{padding:10px 12px}
   .cart-btn{width:44px;height:44px}
   #hero{padding:7rem 0 3.5rem}
-  .bcards,.feat-grid,.tgrid,.footer-grid{grid-template-columns:1fr}
+  .bcards,.feat-grid,.footer-grid{grid-template-columns:1fr}
+  .tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.9rem;padding-bottom:.5rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tgrid::-webkit-scrollbar{display:none}
+  .tgrid .tcard{flex:0 0 82vw;scroll-snap-align:start}
   .pgrid{grid-template-columns:1fr 1fr;gap:.75rem}
   .pcard-img-wrap{height:150px}
   .pname{font-size:1rem}
