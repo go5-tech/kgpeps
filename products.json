@@ -125,8 +125,8 @@
   },
   {
     "id": "retatrutide",
-    "name": "Retatrutide",
-    "active": false,
+    "name": "Reta",
+    "active": true,
     "img": "/images/vials/retatrutide_10mg.webp",
     "cat": "Fat Loss",
     "tgt": "Fat Loss / Body Recomposition",
