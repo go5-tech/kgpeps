@@ -1,0 +1,195 @@
+# Peptide Central — Full Catalog (llms-full.txt)
+
+> Peptide Central (https://peptidecentral.in) supplies research-grade peptides in India.
+> Every batch is HPLC-verified with a Certificate of Analysis (COA). Pan-India delivery,
+> Cash on Delivery (COD), UPI and IMPS accepted. WhatsApp ordering: +91 00000 00000.
+> All products are for in-vitro laboratory and analytical research use only. Not for human consumption.
+
+## Ordering
+- WhatsApp: +91 00000 00000 (https://wa.me/910000000000)
+- Website: https://peptidecentral.in
+- Payment: COD, UPI, IMPS
+- Shipping: Free pan-India, 3–7 days, cold-chain available
+- Returns: 7-day return window, free returns
+
+## Products
+
+### GHK-Cu
+- URL: https://peptidecentral.in/ghk-cu/
+- Category: Recovery — Skin / Hair / Recovery
+- Description: Copper tripeptide stimulating collagen synthesis, activating hair follicles, and delivering powerful anti-aging and recovery effects.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 1–2 mg/day
+- Half-life: ~24h
+- Sizes & prices (INR): 50mg: ₹3,999 (was ₹7,999) · 100mg: ₹4,999 (was ₹12,999)
+
+### Klow Blend
+- URL: https://peptidecentral.in/klow-blend/
+- Category: Recovery — Full Spectrum Recovery
+- Description: GHK-Cu + BPC-157 + TB4 + KPV all-in-one blend. Comprehensive recovery, anti-inflammatory and regenerative support.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: See individual compounds
+- Half-life: Combo
+- Sizes & prices (INR): 80mg: ₹6,499 (was ₹11,999)
+
+### TB-500
+- URL: https://peptidecentral.in/tb-500/
+- Category: Recovery — Recovery Signaling
+- Description: Thymosin Beta-4 fragment. Accelerates muscle repair, reduces DOMS, promotes angiogenesis and systemic healing.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 2–2.5 mg 2×/wk
+- Half-life: ~24h
+- Sizes & prices (INR): 10mg: ₹4,999 (was ₹9,999)
+
+### KPV
+- URL: https://peptidecentral.in/kpv/
+- Category: Recovery — Inflammation and IBS
+- Description: Alpha-MSH-derived tripeptide with potent anti-inflammatory effects. Researched for IBS, gut inflammation, and wound healing.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: 500 mcg–1 mg/day
+- Half-life: ~2h
+- Sizes & prices (INR): 10mg: ₹3,999 (was ₹5,999)
+
+### BPC-157
+- URL: https://peptidecentral.in/bpc-157/
+- Category: Recovery — Soft Tissue Research
+- Description: Powerful healing peptide for gut lining repair, tendon & ligament healing. Most versatile peptide available.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 250–500 mcg/day
+- Half-life: ~4h
+- Sizes & prices (INR): 10mg: ₹3,999 (was ₹6,999)
+
+### Reta
+- URL: https://peptidecentral.in/reta/
+- Category: Fat Loss — Fat Loss / Body Recomposition
+- Description: Triple agonist (GIP/GLP-1/glucagon). Clinical trials show 17–24% body weight reduction. Most potent fat loss peptide available.
+- Purity: 98% (HPLC-verified, COA included)
+- Typical research dose: 2–12 mg/wk
+- Half-life: ~6d
+- Sizes & prices (INR): 10mg: ₹3,799 (was ₹7,999) · 20mg: ₹6,499 (was ₹12,999) · 30mg: ₹7,999 (was ₹15,999)
+
+### Tirzepatide
+- URL: https://peptidecentral.in/tirzepatide/
+- Category: Fat Loss — Appetite Suppression / Insulin Regulation
+- Description: Dual GIP/GLP-1 receptor agonist. Clinically proven for weight management and type 2 diabetes research.
+- Purity: 98% (HPLC-verified, COA included)
+- Typical research dose: 2.5–15 mg/wk
+- Half-life: ~5d
+- Sizes & prices (INR): 20mg: ₹3,999 (was ₹9,999) · 30mg: ₹5,999 (was ₹16,999)
+
+### AOD-9604
+- URL: https://peptidecentral.in/aod-9604/
+- Category: Fat Loss — Lipolysis Research
+- Description: C-terminus fragment of HGH (177-191). Activates fat-burning lipolysis pathways without growth-promoting side effects.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: 300 mcg/day
+- Half-life: ~30m
+- Sizes & prices (INR): 5mg: ₹3,499 (was ₹5,999) · 10mg: ₹5,499 (was ₹9,999)
+
+### MOTS-C
+- URL: https://peptidecentral.in/mots-c/
+- Category: Fat Loss — Energy Metabolism
+- Description: Mitochondrial-derived peptide activating AMPK, enhancing insulin sensitivity & metabolic flexibility. Researched for longevity.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: 5–10 mg 3×/wk
+- Half-life: ~24h
+- Sizes & prices (INR): 10mg: ₹2,999 (was ₹4,999) · 40mg: ₹5,999 (was ₹10,999)
+
+### Tesamorelin
+- URL: https://peptidecentral.in/tesamorelin/
+- Category: Hormones — GHRH / Visceral Fat
+- Description: FDA-studied GHRH analogue specifically targeting visceral abdominal adipose tissue with proven clinical results.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 1–2 mg/day
+- Half-life: ~36m
+- Sizes & prices (INR): 10mg: ₹4,499 (was ₹6,999)
+
+### CJC-1295 (no-DAC)
+- URL: https://peptidecentral.in/cjc-1295-no-dac/
+- Category: Hormones — GHRH Analog
+- Description: GHRH analogue for sustained GH pulse amplification. Ideal for body recomposition and anti-aging protocols.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 1–2 mg/wk
+- Half-life: ~30m
+- Sizes & prices (INR): 10mg: ₹4,499 (was ₹7,999)
+
+### Ipamorelin
+- URL: https://peptidecentral.in/ipamorelin/
+- Category: Hormones — Ghrelin Receptor Agonist
+- Description: Cleanest ghrelin mimetic – selectively triggers GH pulses without raising cortisol or prolactin.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 200–300 mcg 2–3×/day
+- Half-life: ~2h
+- Sizes & prices (INR): 10mg: ₹3,499 (was ₹4,999)
+
+### CJC + Ipamorelin Blend
+- URL: https://peptidecentral.in/cjc-ipamorelin-blend/
+- Category: Hormones — GH Stack
+- Description: CJC-1295 (no-DAC) + Ipamorelin synergistic blend. Amplifies natural GH pulses for recomposition and recovery.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: See individual compounds
+- Half-life: Combo
+- Sizes & prices (INR): 5+5mg: ₹3,999 (was ₹6,999)
+
+### Semax
+- URL: https://peptidecentral.in/semax/
+- Category: Brain — Focus / Neuroplasticity
+- Description: ACTH-derived nootropic that upregulates BDNF, enhances working memory, focus, and neuroregeneration.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 300–600 mcg/day
+- Half-life: ~8h
+- Sizes & prices (INR): 10mg: ₹2,999 (was ₹4,999)
+
+### Selank
+- URL: https://peptidecentral.in/selank/
+- Category: Brain — Calm Focus / Stress Support
+- Description: Anxiolytic peptide modulating GABA & serotonin. Reduces cortisol, improves mood and focus without sedation.
+- Purity: 99.90% (HPLC-verified, COA included)
+- Typical research dose: 250–500 mcg/day
+- Half-life: ~8h
+- Sizes & prices (INR): 10mg: ₹2,999 (was ₹4,999)
+
+### Pinealon
+- URL: https://peptidecentral.in/pinealon/
+- Category: Brain — Cognitive Function / Vividness
+- Description: Pineal gland-derived tripeptide. Researched for cognitive enhancement, sleep quality, and neuroprotective properties.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: 5–10 mg/day
+- Half-life: ~24h
+- Sizes & prices (INR): 10mg: ₹3,999 (was ₹7,999)
+
+### Epitalon
+- URL: https://peptidecentral.in/epitalon/
+- Category: Longevity — Longevity Pathways / Pineal Healing
+- Description: Tetrapeptide activating telomerase, extending telomere length, and restoring melatonin production.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: 5–10 mg/day
+- Half-life: ~30m
+- Sizes & prices (INR): 10mg: ₹3,999 (was ₹7,999)
+
+### SS-31
+- URL: https://peptidecentral.in/ss-31/
+- Category: Longevity — Mitochondrial Support.
+- Description: Szeto-Schiller peptide targeting mitochondrial inner membrane. Researched for energy production and cellular protection.
+- Purity: 99% (HPLC-verified, COA included)
+- Typical research dose: 1–3 mg/day
+- Half-life: ~4h
+- Sizes & prices (INR): 10mg: ₹3,999 (was ₹5,999)
+
+## Category Pages
+- Fat Loss Peptides: https://peptidecentral.in/fat-loss-peptides/
+- Recovery Peptides: https://peptidecentral.in/recovery-peptides/
+- Anti-Aging Peptides: https://peptidecentral.in/anti-aging-peptides/
+- Brain Peptides: https://peptidecentral.in/brain-peptides/
+- Longevity Peptides: https://peptidecentral.in/longevity-peptides/
+- Full Catalog: https://peptidecentral.in/products/
+
+## Tools
+- BAC Water / Reconstitution Calculator: https://peptidecentral.in/bac-calculator/
+- Request a Peptide: https://peptidecentral.in/request-peptide/
+
+## More
+- Blog (28 guides): https://peptidecentral.in/blog/
+- About: https://peptidecentral.in/about/
+- Concise index: https://peptidecentral.in/llms.txt
+- Agent guide: https://peptidecentral.in/agents.md
