@@ -719,12 +719,13 @@ a{color:inherit}
 .eyebrow::before{content:attr(data-n);color:var(--faint);font-weight:700}
 .mono{font-family:var(--mono)}
 
-/* PROMO BAR */
-.promo-bar{background:var(--ink);color:#cdd6ea;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;padding:8px 5%;display:flex;justify-content:center;align-items:center;gap:1.6rem;flex-wrap:wrap;text-transform:uppercase}
-.promo-bar b{color:#fff;font-weight:400}
-.promo-bar .code{background:var(--saffron);color:#241500;padding:2px 9px;border-radius:5px;font-weight:700;letter-spacing:.12em}
-.promo-bar .dotsep{color:#39456b}
-.promo-bar .sep{width:4px;height:4px;border-radius:50%;background:#39456b}
+/* ANNOUNCEMENT BAR (single fixed-height marquee) */
+.announce{position:fixed;top:0;left:0;right:0;z-index:901;height:33px;background:#1d4ed8;color:#fff;display:flex;align-items:center;overflow:hidden;white-space:nowrap;font-family:var(--mono,monospace);font-size:.72rem;font-weight:600;letter-spacing:.05em}
+.announce-track{display:inline-flex;white-space:nowrap;animation:announce-scroll 30s linear infinite;will-change:transform}
+.announce-track span{padding-right:2.4rem;display:inline-block}
+.announce .code{background:var(--saffron);color:#241500;padding:1px 8px;border-radius:5px;font-weight:700;letter-spacing:.1em}
+@keyframes announce-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.announce-track{animation:none}}
 
 /* NAV */
 nav{position:fixed;top:33px;left:0;right:0;z-index:900;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.1rem,4vw,2.4rem);background:rgba(255,255,255,.86);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--border);transition:.3s}
@@ -1117,12 +1118,10 @@ footer{background:var(--ink);color:#aeb8d0;padding:4rem 0 1.6rem}
   .nav-links{display:none}.hamburger{display:flex}
 }
 @media(max-width:760px){
-  .promo-bar{gap:.5rem .9rem;font-size:.6rem;padding:7px 4%}
-  .promo-bar .sep{display:none}
-  .promo-bar span:nth-child(n+4){display:none}
+  .announce{font-size:.66rem}
 }
 @media(max-width:640px){
-  nav{height:60px;top:30px}
+  nav{height:60px;top:33px}
   .nav-links{display:none}.hamburger{display:flex}
   .nav-wa span.lbl{display:none}
   .nav-wa{padding:10px 12px}
@@ -1167,8 +1166,11 @@ footer{background:var(--ink);color:#aeb8d0;padding:4rem 0 1.6rem}
 </style>
 </head>
 <body>
-<div style="background:#1d4ed8;color:#fff;text-align:center;padding:.55rem 1rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;font-family:var(--mono,monospace)">
-  🚚 COD AVAILABLE PAN-INDIA &nbsp;·&nbsp; FREE DELIVERY ON ALL ORDERS &nbsp;·&nbsp; COA WITH EVERY ORDER
+<div class="announce">
+  <div class="announce-track">
+    <span>🚚 COD AVAILABLE PAN-INDIA&nbsp;&nbsp;·&nbsp;&nbsp;FREE DELIVERY ON ALL ORDERS&nbsp;&nbsp;·&nbsp;&nbsp;COA WITH EVERY ORDER&nbsp;&nbsp;·&nbsp;&nbsp;FIRST ORDER 15% OFF — CODE <span class="code">PCFIRST15</span></span>
+    <span aria-hidden="true">🚚 COD AVAILABLE PAN-INDIA&nbsp;&nbsp;·&nbsp;&nbsp;FREE DELIVERY ON ALL ORDERS&nbsp;&nbsp;·&nbsp;&nbsp;COA WITH EVERY ORDER&nbsp;&nbsp;·&nbsp;&nbsp;FIRST ORDER 15% OFF — CODE <span class="code">PCFIRST15</span></span>
+  </div>
 </div>
 
 <!-- MAINTENANCE OVERLAY -->
@@ -1180,17 +1182,6 @@ footer{background:var(--ink);color:#aeb8d0;padding:4rem 0 1.6rem}
   <p id="maint-msg" style="color:#6b7280;font-size:1rem;max-width:420px;line-height:1.6">We're updating our product catalogue. Back shortly!</p>
   <p style="color:#9ca3af;font-size:.75rem;margin-top:1.5rem">WhatsApp us at +91 00000 00000 for urgent orders</p>
   <a href="#admin" style="color:#64748b;font-size:.7rem;margin-top:2rem;text-decoration:none" onclick="document.getElementById('maintenance-overlay').style.display='none'">Admin</a>
-</div>
-
-<!-- PROMO BAR -->
-<div class="promo-bar">
-  <span><b>First order 15% off</b> — code <span class="code">PCFIRST15</span></span>
-  <span class="sep"></span>
-  <b>≥99% HPLC purity</b>
-  <span class="sep"></span>
-  <b>COA with every order</b>
-  <span class="sep"></span>
-  <b>COD across India</b>
 </div>
 
 <!-- NAV -->
