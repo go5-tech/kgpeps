@@ -2,7 +2,7 @@
 """Inject AggregateRating, image, sku, url into Product JSON-LD on all product pages."""
 import json, re, os
 
-BASE = '/home/devesh/peps'
+BASE = os.path.dirname(os.path.abspath(__file__))
 BASE_URL = 'https://peptidecentral.in'
 
 # Realistic varied ratings per product
@@ -31,7 +31,40 @@ RATINGS = {
 SLUG_MAP = {
     'cjc-1295-(no-dac)':      'cjc-1295-no-dac',
     'cjc---ipamorelin-blend': 'cjc-ipamorelin-blend',
+    'retatrutide':            'reta',
 }
+
+SHIPPING = {
+    '@type': 'OfferShippingDetails',
+    'shippingRate': {'@type': 'MonetaryAmount', 'value': '0', 'currency': 'INR'},
+    'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'IN'},
+    'deliveryTime': {
+        '@type': 'ShippingDeliveryTime',
+        'handlingTime': {'@type': 'QuantitativeValue', 'minValue': 0, 'maxValue': 1, 'unitCode': 'DAY'},
+        'transitTime': {'@type': 'QuantitativeValue', 'minValue': 3, 'maxValue': 7, 'unitCode': 'DAY'},
+    },
+}
+
+RETURN_POLICY = {
+    '@type': 'MerchantReturnPolicy',
+    'applicableCountry': 'IN',
+    'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    'merchantReturnDays': 7,
+    'returnMethod': 'https://schema.org/ReturnByMail',
+    'returnFees': 'https://schema.org/FreeReturn',
+}
+
+def make_offer(variant):
+    return {
+        '@type': 'Offer',
+        'name': variant['mg'],
+        'price': variant['price'],
+        'priceCurrency': 'INR',
+        'availability': 'https://schema.org/InStock',
+        'seller': {'@type': 'Organization', 'name': 'Peptide Central'},
+        'shippingDetails': SHIPPING,
+        'hasMerchantReturnPolicy': RETURN_POLICY,
+    }
 
 with open(f'{BASE}/products.json') as f:
     products = json.load(f)
@@ -72,25 +105,20 @@ for p in products:
             'bestRating': '5',
             'worstRating': '1',
         }
-        # Use AggregateOffer for multi-variant, Offer for single
+        # Use AggregateOffer for multi-variant, Offer for single.
+        # Per-variant offers carry shippingDetails + hasMerchantReturnPolicy —
+        # required for Google Merchant listing rich results.
         if len(p['variants']) > 1:
             obj['offers'] = {
                 '@type': 'AggregateOffer',
                 'priceCurrency': 'INR',
-                'lowPrice': str(lowest_price),
-                'highPrice': str(highest_price),
-                'offerCount': str(len(p['variants'])),
-                'availability': 'https://schema.org/InStock',
-                'seller': {'@type': 'Organization', 'name': 'Peptide Central'},
+                'lowPrice': lowest_price,
+                'highPrice': highest_price,
+                'offerCount': len(p['variants']),
+                'offers': [make_offer(v) for v in p['variants']],
             }
         else:
-            obj['offers'] = {
-                '@type': 'Offer',
-                'priceCurrency': 'INR',
-                'price': str(lowest_price),
-                'availability': 'https://schema.org/InStock',
-                'seller': {'@type': 'Organization', 'name': 'Peptide Central'},
-            }
+            obj['offers'] = make_offer(p['variants'][0])
 
         return '<script type="application/ld+json">\n' + json.dumps(obj, indent=2, ensure_ascii=False) + '\n</script>'
 
